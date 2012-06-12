@@ -1,0 +1,73 @@
+#-- Synopsys, Inc.
+#-- Version D-2009.12L-1
+#-- Project file D:\project\PCIe_IP\Native_PCIeBasic_SBx1\ispLeverGenCore\ecp3\pciex1\syn_results\scratchproject.prs
+#-- Written on Mon Nov 29 17:49:17 2010
+
+
+#project files
+add_file -verilog "C:/ispTOOLS8_1/ispcpld/tcltk/lib/ipwidgets/ispipbuilder/../../../../../cae_library/synthesis/verilog/ecp3.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/pcie/src/params/pci_exp_params.v"
+add_file -verilog "C:/ispTOOLS8_1/ispcpld/tcltk/lib/ipwidgets/ispipbuilder/../../../../../cae_library/synthesis/verilog/pmi_def.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/sync1s.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/ctc.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/rx_gear.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/tx_gear.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/pcs_top.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/pipe_top.v"
+add_file -verilog "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/models/ecp3/pcs_pipe_top.v"
+
+
+#implementation: "syn_results"
+impl -add D:\project\PCIe_IP\Native_PCIeBasic_SBx1\ispLeverGenCore\ecp3\pciex1\syn_results -type fpga
+
+#
+#implementation attributes
+
+set_option -vlog_std v2001
+
+#device options
+set_option -technology lattice-ecp3
+set_option -part LFE3_17EA
+set_option -package FTN256C
+set_option -speed_grade -6
+set_option -part_companion ""
+
+#compilation/mapping options
+set_option -top_module "pcs_pipe_top"
+
+# mapper_options
+set_option -frequency 150.000
+set_option -write_verilog 0
+set_option -write_vhdl 0
+
+# Lattice XP
+set_option -maxfan 100
+set_option -disable_io_insertion 1
+set_option -retiming 0
+set_option -pipe 0
+set_option -forcegsr auto
+set_option -fixgatedclocks 3
+set_option -fixgeneratedclocks 3
+set_option -update_models_cp 1
+
+# NFilter
+set_option -popfeed 0
+set_option -constprop 0
+set_option -createhierarchy 0
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 0
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 0
+
+#set result format/file last
+project -result_file "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/syn_results/pcs_pipe_top.edi"
+
+#set log file 
+set_option log_file "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/syn_results/pcs_pipe_top.srf" 
+impl -active "syn_results"

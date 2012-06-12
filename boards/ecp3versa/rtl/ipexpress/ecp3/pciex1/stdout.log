@@ -1,0 +1,54 @@
+line 3895, col 57: Option set not found: vcs_actel_smart_fusion_lib.
+
+
+Running in Lattice mode
+
+
+Starting:    C:\ispTOOLS8_1\synpbase\bin\mbin\synbatch.exe
+Install:     C:\ispTOOLS8_1\synpbase
+Date:        Mon Nov 29 17:49:17 2010
+Version:     D-2009.12L-1
+
+
+Arguments:   -product synplify_pro  -batch D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/syn_results\pcs_pipe_top.prj
+ProductType: synplify_pro
+
+
+
+
+
+
+Running synthesis on pcs_pipe_top:syn_results
+
+log file: "D:\project\PCIe_IP\Native_PCIeBasic_SBx1\ispLeverGenCore\ecp3\pciex1\syn_results\pcs_pipe_top.srf"
+
+
+
+Running flow compile_flow ...
+
+
+Running HDL Compiler...
+Start Time:17:49:17
+
+
+Compiler Completed
+Return Code: 0
+Completion Time:17:49:17
+
+
+Running flow synthesis ...
+
+Launching mapper in pro mode
+
+
+Running lattice-ecp3 Mapper...
+Start Time:17:49:18
+
+
+lattice-ecp3 Mapper Completed with warnings
+Return Code: 1
+Completion Time:17:49:19
+
+exit status=0
+
+

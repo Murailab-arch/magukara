@@ -1,0 +1,33 @@
+SCUBA, Version ispLever_v8.1_PROD_Build (20)
+Mon Dec 13 15:33:49 2010
+  
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2010 Lattice Semiconductor Corporation,  All rights reserved.
+  
+BEGIN SCUBA Module Synthesis
+  
+    Issued command   : C:\ispTOOLS8_1\ispfpga\bin\nt\scuba.exe -w -n fifo_2048x18 -lang verilog -synth synplify -bus_exp 7 -bb -arch ep5c00 -type fifodc -addr_width 11 -data_width 18 -num_words 2048 -rdata_width 18 -outdata REGISTERED -pe 3 -pf 508 -pf2 506 -e 
+    Circuit name     : fifo_2048x18
+    Module type      : ebfifo
+    Module Version   : 5.4
+    Ports            : 
+    Inputs       : Data[17:0], WrClock, RdClock, WrEn, RdEn, Reset, RPReset
+    Outputs      : Q[17:0], Empty, Full, AlmostEmpty, AlmostFull
+    I/O buffer       : not inserted
+    EDIF output      : suppressed
+    Verilog output   : fifo_2048x18.v
+    Verilog template : fifo_2048x18_tmpl.v
+    Verilog testbench: tb_fifo_2048x18_tmpl.v
+    Verilog purpose  : for synthesis and simulation
+    Bus notation     : big endian
+    Report output    : fifo_2048x18.srp
+    Estimated Resource Usage:
+            LUT : 214
+            EBR : 2
+            Reg : 160
+  
+END   SCUBA Module Synthesis
+

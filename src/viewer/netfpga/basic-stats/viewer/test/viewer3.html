@@ -1,0 +1,317 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.3.0.min.js"></script>
+	
+	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
+	to style.css, and replace the 2 lines above by this one:
+
+	<link rel="stylesheet" href="less/style.css">
+	 -->
+
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+        <style>
+
+          .bs-icon {
+            float: left;
+            margin: 8px 9px 0 0;
+            width: 21px;
+            height: 21px;
+          }
+          div.item-name {
+            float: left;
+            width: 200px;
+          }
+          div.item-value {
+            float: left;
+            width: 50px;
+            margin: 0 0 20px 0;
+          }
+          div.item-para {
+            padding:  0 50px 0 0;
+          }
+        </style>
+    <script>
+      "use strict";
+      function updateStats(s) {
+        if (s.m == 0x80) {
+          document.querySelector('div#global_mode').innerText = "Normal MODE";
+        } else if (s.m == 0x81) {
+          document.querySelector('div#global_mode').innerText = "Full route MODE";
+        } else if (s.m == 0x00) {
+          document.querySelector('div#global_mode').innerText = "STOP";
+        } else {
+          document.querySelector('div#global_mode').innerText = "unknown";
+        }
+        document.querySelector('div#tx0_frame_size').innerText  = s.tx0.fs;
+        document.querySelector('div#tx0_gap').innerText         = s.tx0.g;
+        document.querySelector('div#tx0_src_ipaddr').innerText  = s.tx0.si;
+        document.querySelector('div#tx0_gw_ipaddr').innerText   = s.tx0.gi;
+        document.querySelector('div#tx0_dst_ipaddr').innerText  = s.tx0.di;
+        document.querySelector('div#tx0_src_mac').innerText     = s.tx0.sm;
+        document.querySelector('div#tx0_dst_mac').innerText     = s.tx0.dm;
+        document.querySelector('div#tx0_pps').innerText         = s.tx0.p;
+        document.querySelector('div#tx0_throughput').innerText  = s.tx0.t;
+
+        document.querySelector('div#rx1_latency').innerText     = s.rx1.l;
+        document.querySelector('div#rx1_pps').innerText         = s.rx1.p;
+        document.querySelector('div#rx1_throughput').innerText  = s.rx1.t;
+        document.querySelector('div#rx1_ipaddr').innerText      = s.rx1.i;
+        document.querySelector('div#rx2_latency').innerText     = s.rx2.l;
+        document.querySelector('div#rx2_pps').innerText         = s.rx2.p;
+        document.querySelector('div#rx2_throughput').innerText  = s.rx2.t;
+        document.querySelector('div#rx2_ipaddr').innerText      = s.rx2.i;
+        document.querySelector('div#rx3_latency').innerText     = s.rx3.l;
+        document.querySelector('div#rx3_pps').innerText         = s.rx3.p;
+        document.querySelector('div#rx3_throughput').innerText  = s.rx3.t;
+        document.querySelector('div#rx3_ipaddr').innerText      = s.rx3.i;
+      }
+
+      var ws = new WebSocket("ws://localhost:8081");
+      ws.onmessage = function (event) {
+        updateStats(JSON.parse(event.data));
+      };
+
+      var change_fs = function () {
+        var senddataObj = document.getElementById('frame_size');
+        var msg = { 
+          "cmd": "frame_size",
+          "data": senddataObj.value
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var change_gap = function () {
+        var senddataObj = document.getElementById('inter_frame_gap');
+        var msg = { 
+          "cmd": "frame_gap",
+          "data": senddataObj.value
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var mode_normal = function () {
+        var msg = { 
+          "cmd": "mode",
+          "data": 0x80
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var mode_fullroute = function () {
+        var msg = { 
+          "cmd": "mode",
+          "data": 0x81
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var mode_stop = function () {
+        var msg = { 
+          "cmd": "mode",
+          "data": 0x00
+        };
+        ws.send(JSON.stringify(msg));
+      };
+    </script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">FIBNIC Viewer</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="span6">
+
+          <div class="row">
+
+            <div class="span6">
+              <img class="bs-icon" src="img/logout_32.png">
+              <h2>TX0</h2>
+              <div class="item-name">
+                <p>
+                Scenario:        <br>
+                FRAME SIZE:      <br>
+                INTER FRAME GAP: <br>
+                SRC IP ADDRESS:  <br>
+                GW IP ADDRESS:   <br>
+                DST IP ADDRESS:  <br>
+                SRC MAC ADDRESS: <br>
+                DST MAC ADDRESS: <br>
+                PPS:             <br>
+                THROUGHPUT:
+                </p>
+              </div>
+              <div class="item-value">
+                <div id='global_mode'>000</div>
+                <div id='tx0_frame_size'>000</div>
+                <div id='tx0_gap'>000</div>
+                <div id='tx0_src_ipaddr'>000</div>
+                <div id='tx0_gw_ipaddr'>000</div>
+                <div id='tx0_dst_ipaddr'>000</div>
+                <div id='tx0_src_mac'>000</div>
+                <div id='tx0_dst_mac'>000</div>
+                <div id='tx0_pps'>000</div>
+                <div id='tx0_throughput'>000</div>
+              </div>
+              <div class="item-para">
+                <h4>Traffic pattern</h4>
+                <button onclick='mode_normal();'>Normal</button>
+                <button onclick='mode_fullroute();'>FullRoute</button>
+                <button onclick='mode_stop();'>Stop</button>
+                <h4>Frame size</h4>
+                <input type="range" name="range">
+                <h4>Inter frame gap</h4>
+                <input type="range" name="range">
+              </div>
+            </div>
+            <div class="span6">
+              <img class="bs-icon" src="img/globe_32.png">
+              <h2>FullRoute</h2>
+               <canvas id="map" width="500" height="400"></canvas>
+
+<script>
+(function(){
+  "use strict";
+
+  var nrow = 256;
+  var ncol = 256;
+
+  var canvas = null;
+  var ctx    = null;
+  var gw     = 0;
+  var gh     = 0;
+  var ws     = null;
+
+  window.addEventListener("load", setup(), false);
+
+  function setup() {
+    canvas = document.getElementById('map');
+    ctx    = canvas.getContext('2d');
+    gw     = parseInt(canvas.width);
+    gh     = parseInt(canvas.height);
+
+    ctx.fillStyle = "rgba(8,8,12,1)";
+    ctx.fillRect(0,0,gw,gh);
+  }
+
+})();
+</script>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="span6">
+
+          <div class="row">
+
+            <div class="span6">
+              <img class="bs-icon" src="img/login_32.png">
+              <h2>RX1</h2>
+              <div class="item-name">
+                <p>LATENCY: <br>
+                PPS:     <br>
+                THROUGHPUT: <br>
+                RECEIVE IP ADDRESS: </p>
+              </div>
+              <div class="item-value">
+                <div id='rx1_latency'>000</div>
+                <div id='rx1_pps'>000</div>
+                <div id='rx1_throughput'>000</div>
+                <div id='rx1_ipaddr'>000</div>
+              </div>
+            </div>
+            <div class="span6">
+              <img class="bs-icon" src="img/login_32.png">
+              <h2>RX2</h2>
+              <div class="item-name">
+                <p>LATENCY: <br>
+                PPS:     <br>
+                THROUGHPUT: <br>
+                RECEIVE IP ADDRESS: </p>
+              </div>
+              <div class="item-value">
+                <div id='rx2_latency'>000</div>
+                <div id='rx2_pps'>000</div>
+                <div id='rx2_throughput'>000</div>
+                <div id='rx2_ipaddr'>000</div>
+              </div>
+            </div>
+            <div class="span6">
+              <img class="bs-icon" src="img/login_32.png">
+              <h2>RX3</h2>
+              <div class="item-name">
+                <p>LATENCY: <br>
+                PPS:     <br>
+                THROUGHPUT: <br>
+                RECEIVE IP ADDRESS: </p>
+              </div>
+              <div class="item-value">
+                <div id='rx3_latency'>000</div>
+                <div id='rx3_pps'>000</div>
+                <div id='rx3_throughput'>000</div>
+                <div id='rx3_ipaddr'>000</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>MARUTAKA - ORC 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+
+<script src="js/libs/bootstrap/bootstrap.min.js"></script>
+
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

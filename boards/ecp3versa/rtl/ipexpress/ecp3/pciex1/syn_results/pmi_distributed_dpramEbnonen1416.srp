@@ -1,0 +1,28 @@
+SCUBA, Version ispLever_v8.1_PROD_Build (20)
+Mon Nov 29 17:49:28 2010
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2010 Lattice Semiconductor Corporation,  All rights reserved.
+
+    Issued command   : C:/ispTOOLS8_1/ispfpga/bin/nt/scuba -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 16 -data_width 1 -memformat bin -n pmi_distributed_dpramEbnonen1416 -pmi 
+    Circuit name     : pmi_distributed_dpramEbnonen1416
+    Module type      : sdpram
+    Module Version   : 3.5
+    Address width    : 4
+    Ports            : 
+	Inputs       : WrAddress[3:0], Data[0:0], WrClock, WE, WrClockEn, RdAddress[3:0], RdClock, RdClockEn, Reset
+	Outputs      : Q[0:0]
+    I/O buffer       : not inserted
+    Clock edge       : rising edge
+    EDIF output      : pmi_distributed_dpramEbnonen1416.edn
+    Bus notation     : big endian
+    Report output    : pmi_distributed_dpramEbnonen1416.srp
+    Element Usage    :
+       ROM16X1A : 1
+       DPR16X4C : 1
+    Estimated Resource Usage:
+            LUT : 1
+           DRAM : 1

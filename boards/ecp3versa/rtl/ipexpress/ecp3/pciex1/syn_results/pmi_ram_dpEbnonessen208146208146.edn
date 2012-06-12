@@ -1,0 +1,595 @@
+(edif pmi_ram_dpEbnonessen208146208146
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timestamp 2010 11 29 17 49 28)
+      (program "SCUBA" (version "ispLever_v8.1_PROD_Build (20)"))))
+      (comment "C:/ispTOOLS8_1/ispfpga/bin/nt/scuba -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 20 -num_rows 146 -rdata_width 20 -gsr ENABLED -sync_reset -memformat bin -cascade -1 -n pmi_ram_dpEbnonessen208146208146 -pmi ")
+  (library ORCLIB
+    (edifLevel 0)
+    (technology
+      (numberDefinition))
+    (cell VHI
+      (cellType GENERIC)
+      (view view1
+        (viewType NETLIST)
+        (interface
+          (port Z
+            (direction OUTPUT)))))
+    (cell VLO
+      (cellType GENERIC)
+      (view view1
+        (viewType NETLIST)
+        (interface
+          (port Z
+            (direction OUTPUT)))))
+    (cell PDPW16KC
+      (cellType GENERIC)
+      (view view1
+        (viewType NETLIST)
+        (interface
+          (port DI0
+            (direction INPUT))
+          (port DI1
+            (direction INPUT))
+          (port DI2
+            (direction INPUT))
+          (port DI3
+            (direction INPUT))
+          (port DI4
+            (direction INPUT))
+          (port DI5
+            (direction INPUT))
+          (port DI6
+            (direction INPUT))
+          (port DI7
+            (direction INPUT))
+          (port DI8
+            (direction INPUT))
+          (port DI9
+            (direction INPUT))
+          (port DI10
+            (direction INPUT))
+          (port DI11
+            (direction INPUT))
+          (port DI12
+            (direction INPUT))
+          (port DI13
+            (direction INPUT))
+          (port DI14
+            (direction INPUT))
+          (port DI15
+            (direction INPUT))
+          (port DI16
+            (direction INPUT))
+          (port DI17
+            (direction INPUT))
+          (port DI18
+            (direction INPUT))
+          (port DI19
+            (direction INPUT))
+          (port DI20
+            (direction INPUT))
+          (port DI21
+            (direction INPUT))
+          (port DI22
+            (direction INPUT))
+          (port DI23
+            (direction INPUT))
+          (port DI24
+            (direction INPUT))
+          (port DI25
+            (direction INPUT))
+          (port DI26
+            (direction INPUT))
+          (port DI27
+            (direction INPUT))
+          (port DI28
+            (direction INPUT))
+          (port DI29
+            (direction INPUT))
+          (port DI30
+            (direction INPUT))
+          (port DI31
+            (direction INPUT))
+          (port DI32
+            (direction INPUT))
+          (port DI33
+            (direction INPUT))
+          (port DI34
+            (direction INPUT))
+          (port DI35
+            (direction INPUT))
+          (port ADW0
+            (direction INPUT))
+          (port ADW1
+            (direction INPUT))
+          (port ADW2
+            (direction INPUT))
+          (port ADW3
+            (direction INPUT))
+          (port ADW4
+            (direction INPUT))
+          (port ADW5
+            (direction INPUT))
+          (port ADW6
+            (direction INPUT))
+          (port ADW7
+            (direction INPUT))
+          (port ADW8
+            (direction INPUT))
+          (port BE0
+            (direction INPUT))
+          (port BE1
+            (direction INPUT))
+          (port BE2
+            (direction INPUT))
+          (port BE3
+            (direction INPUT))
+          (port CEW
+            (direction INPUT))
+          (port CLKW
+            (direction INPUT))
+          (port CSW0
+            (direction INPUT))
+          (port CSW1
+            (direction INPUT))
+          (port CSW2
+            (direction INPUT))
+          (port ADR0
+            (direction INPUT))
+          (port ADR1
+            (direction INPUT))
+          (port ADR2
+            (direction INPUT))
+          (port ADR3
+            (direction INPUT))
+          (port ADR4
+            (direction INPUT))
+          (port ADR5
+            (direction INPUT))
+          (port ADR6
+            (direction INPUT))
+          (port ADR7
+            (direction INPUT))
+          (port ADR8
+            (direction INPUT))
+          (port ADR9
+            (direction INPUT))
+          (port ADR10
+            (direction INPUT))
+          (port ADR11
+            (direction INPUT))
+          (port ADR12
+            (direction INPUT))
+          (port ADR13
+            (direction INPUT))
+          (port CER
+            (direction INPUT))
+          (port CLKR
+            (direction INPUT))
+          (port CSR0
+            (direction INPUT))
+          (port CSR1
+            (direction INPUT))
+          (port CSR2
+            (direction INPUT))
+          (port RST
+            (direction INPUT))
+          (port DO0
+            (direction OUTPUT))
+          (port DO1
+            (direction OUTPUT))
+          (port DO2
+            (direction OUTPUT))
+          (port DO3
+            (direction OUTPUT))
+          (port DO4
+            (direction OUTPUT))
+          (port DO5
+            (direction OUTPUT))
+          (port DO6
+            (direction OUTPUT))
+          (port DO7
+            (direction OUTPUT))
+          (port DO8
+            (direction OUTPUT))
+          (port DO9
+            (direction OUTPUT))
+          (port DO10
+            (direction OUTPUT))
+          (port DO11
+            (direction OUTPUT))
+          (port DO12
+            (direction OUTPUT))
+          (port DO13
+            (direction OUTPUT))
+          (port DO14
+            (direction OUTPUT))
+          (port DO15
+            (direction OUTPUT))
+          (port DO16
+            (direction OUTPUT))
+          (port DO17
+            (direction OUTPUT))
+          (port DO18
+            (direction OUTPUT))
+          (port DO19
+            (direction OUTPUT))
+          (port DO20
+            (direction OUTPUT))
+          (port DO21
+            (direction OUTPUT))
+          (port DO22
+            (direction OUTPUT))
+          (port DO23
+            (direction OUTPUT))
+          (port DO24
+            (direction OUTPUT))
+          (port DO25
+            (direction OUTPUT))
+          (port DO26
+            (direction OUTPUT))
+          (port DO27
+            (direction OUTPUT))
+          (port DO28
+            (direction OUTPUT))
+          (port DO29
+            (direction OUTPUT))
+          (port DO30
+            (direction OUTPUT))
+          (port DO31
+            (direction OUTPUT))
+          (port DO32
+            (direction OUTPUT))
+          (port DO33
+            (direction OUTPUT))
+          (port DO34
+            (direction OUTPUT))
+          (port DO35
+            (direction OUTPUT)))))
+    (cell pmi_ram_dpEbnonessen208146208146
+      (cellType GENERIC)
+      (view view1
+        (viewType NETLIST)
+        (interface
+          (port (array (rename WrAddress "WrAddress(7:0)") 8)
+            (direction INPUT))
+          (port (array (rename RdAddress "RdAddress(7:0)") 8)
+            (direction INPUT))
+          (port (array (rename Data "Data(19:0)") 20)
+            (direction INPUT))
+          (port WE
+            (direction INPUT))
+          (port RdClock
+            (direction INPUT))
+          (port RdClockEn
+            (direction INPUT))
+          (port Reset
+            (direction INPUT))
+          (port WrClock
+            (direction INPUT))
+          (port WrClockEn
+            (direction INPUT))
+          (port (array (rename Q "Q(19:0)") 20)
+            (direction OUTPUT)))
+        (contents
+          (instance scuba_vhi_inst
+            (viewRef view1 
+              (cellRef VHI)))
+          (instance scuba_vlo_inst
+            (viewRef view1 
+              (cellRef VLO)))
+          (instance pmi_ram_dpEbnonessen208146208146_0_0_0
+            (viewRef view1 
+              (cellRef PDPW16KC))
+            (property MEM_LPC_FILE
+              (string "pmi_ram_dpEbnonessen208146208146__PMIP__146__20__20B"))
+            (property MEM_INIT_FILE
+              (string ""))
+            (property CSDECODE_R
+              (string "0b000"))
+            (property CSDECODE_W
+              (string "0b001"))
+            (property GSR
+              (string "DISABLED"))
+            (property RESETMODE
+              (string "SYNC"))
+            (property REGMODE
+              (string "NOREG"))
+            (property DATA_WIDTH_R
+              (string "36"))
+            (property DATA_WIDTH_W
+              (string "36")))
+          (net scuba_vhi
+            (joined
+              (portRef Z (instanceRef scuba_vhi_inst))
+              (portRef BE3 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef BE2 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef BE1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef BE0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net scuba_vlo
+            (joined
+              (portRef Z (instanceRef scuba_vlo_inst))
+              (portRef CSR2 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef CSW2 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef CSR1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef CSW1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef CSR0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADR13 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADR4 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADR3 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADR2 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADR1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADR0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef ADW8 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI35 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI34 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI33 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI32 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI31 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI30 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI29 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI28 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI27 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI26 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI25 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI24 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI23 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI22 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI21 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))
+              (portRef DI20 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout19
+            (joined
+              (portRef (member Q 0))
+              (portRef DO1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout18
+            (joined
+              (portRef (member Q 1))
+              (portRef DO0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout17
+            (joined
+              (portRef (member Q 2))
+              (portRef DO35 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout16
+            (joined
+              (portRef (member Q 3))
+              (portRef DO34 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout15
+            (joined
+              (portRef (member Q 4))
+              (portRef DO33 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout14
+            (joined
+              (portRef (member Q 5))
+              (portRef DO32 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout13
+            (joined
+              (portRef (member Q 6))
+              (portRef DO31 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout12
+            (joined
+              (portRef (member Q 7))
+              (portRef DO30 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout11
+            (joined
+              (portRef (member Q 8))
+              (portRef DO29 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout10
+            (joined
+              (portRef (member Q 9))
+              (portRef DO28 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout9
+            (joined
+              (portRef (member Q 10))
+              (portRef DO27 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout8
+            (joined
+              (portRef (member Q 11))
+              (portRef DO26 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout7
+            (joined
+              (portRef (member Q 12))
+              (portRef DO25 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout6
+            (joined
+              (portRef (member Q 13))
+              (portRef DO24 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout5
+            (joined
+              (portRef (member Q 14))
+              (portRef DO23 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout4
+            (joined
+              (portRef (member Q 15))
+              (portRef DO22 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout3
+            (joined
+              (portRef (member Q 16))
+              (portRef DO21 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout2
+            (joined
+              (portRef (member Q 17))
+              (portRef DO20 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout1
+            (joined
+              (portRef (member Q 18))
+              (portRef DO19 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net dataout0
+            (joined
+              (portRef (member Q 19))
+              (portRef DO18 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net WrClockEn
+            (joined
+              (portRef WrClockEn)
+              (portRef CEW (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net clk
+            (joined
+              (portRef WrClock)
+              (portRef CLKW (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net Reset
+            (joined
+              (portRef Reset)
+              (portRef RST (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net RdClockEn
+            (joined
+              (portRef RdClockEn)
+              (portRef CER (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net rdclk
+            (joined
+              (portRef RdClock)
+              (portRef CLKR (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net wren
+            (joined
+              (portRef WE)
+              (portRef CSW0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain19
+            (joined
+              (portRef (member Data 0))
+              (portRef DI19 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain18
+            (joined
+              (portRef (member Data 1))
+              (portRef DI18 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain17
+            (joined
+              (portRef (member Data 2))
+              (portRef DI17 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain16
+            (joined
+              (portRef (member Data 3))
+              (portRef DI16 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain15
+            (joined
+              (portRef (member Data 4))
+              (portRef DI15 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain14
+            (joined
+              (portRef (member Data 5))
+              (portRef DI14 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain13
+            (joined
+              (portRef (member Data 6))
+              (portRef DI13 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain12
+            (joined
+              (portRef (member Data 7))
+              (portRef DI12 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain11
+            (joined
+              (portRef (member Data 8))
+              (portRef DI11 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain10
+            (joined
+              (portRef (member Data 9))
+              (portRef DI10 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain9
+            (joined
+              (portRef (member Data 10))
+              (portRef DI9 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain8
+            (joined
+              (portRef (member Data 11))
+              (portRef DI8 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain7
+            (joined
+              (portRef (member Data 12))
+              (portRef DI7 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain6
+            (joined
+              (portRef (member Data 13))
+              (portRef DI6 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain5
+            (joined
+              (portRef (member Data 14))
+              (portRef DI5 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain4
+            (joined
+              (portRef (member Data 15))
+              (portRef DI4 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain3
+            (joined
+              (portRef (member Data 16))
+              (portRef DI3 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain2
+            (joined
+              (portRef (member Data 17))
+              (portRef DI2 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain1
+            (joined
+              (portRef (member Data 18))
+              (portRef DI1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net datain0
+            (joined
+              (portRef (member Data 19))
+              (portRef DI0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr7
+            (joined
+              (portRef (member RdAddress 0))
+              (portRef ADR12 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr6
+            (joined
+              (portRef (member RdAddress 1))
+              (portRef ADR11 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr5
+            (joined
+              (portRef (member RdAddress 2))
+              (portRef ADR10 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr4
+            (joined
+              (portRef (member RdAddress 3))
+              (portRef ADR9 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr3
+            (joined
+              (portRef (member RdAddress 4))
+              (portRef ADR8 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr2
+            (joined
+              (portRef (member RdAddress 5))
+              (portRef ADR7 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr1
+            (joined
+              (portRef (member RdAddress 6))
+              (portRef ADR6 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net raddr0
+            (joined
+              (portRef (member RdAddress 7))
+              (portRef ADR5 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr7
+            (joined
+              (portRef (member WrAddress 0))
+              (portRef ADW7 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr6
+            (joined
+              (portRef (member WrAddress 1))
+              (portRef ADW6 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr5
+            (joined
+              (portRef (member WrAddress 2))
+              (portRef ADW5 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr4
+            (joined
+              (portRef (member WrAddress 3))
+              (portRef ADW4 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr3
+            (joined
+              (portRef (member WrAddress 4))
+              (portRef ADW3 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr2
+            (joined
+              (portRef (member WrAddress 5))
+              (portRef ADW2 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr1
+            (joined
+              (portRef (member WrAddress 6))
+              (portRef ADW1 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))
+          (net waddr0
+            (joined
+              (portRef (member WrAddress 7))
+              (portRef ADW0 (instanceRef pmi_ram_dpEbnonessen208146208146_0_0_0))))))))
+  (design pmi_ram_dpEbnonessen208146208146
+    (cellRef pmi_ram_dpEbnonessen208146208146
+      (libraryRef ORCLIB)))
+)

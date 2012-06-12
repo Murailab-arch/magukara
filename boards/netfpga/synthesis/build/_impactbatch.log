@@ -1,0 +1,94 @@
+iMPACT Version: Jul 24 2008 23:35:01
+
+iMPACT log file Started on Tue Jun 12 07:57:06 2012
+
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoDetecting cable. Please wait.
+Reusing 78010001 key.
+Reusing FC010001 key.
+ OS platform = i686.
+Connecting to cable (Parallel Port - parport0).
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module windrvr6 is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module parport_pc is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+Cable connection failed.
+Reusing 79010001 key.
+Reusing FD010001 key.
+ OS platform = i686.
+Connecting to cable (Parallel Port - parport1).
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module windrvr6 is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module parport_pc is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+Cable connection failed.
+Reusing 7A010001 key.
+Reusing FE010001 key.
+ OS platform = i686.
+Connecting to cable (Parallel Port - parport2).
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module windrvr6 is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module parport_pc is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+Cable connection failed.
+Reusing 7B010001 key.
+Reusing FF010001 key.
+ OS platform = i686.
+Connecting to cable (Parallel Port - parport3).
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module windrvr6 is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+ Linux release = 3.3.7-1.fc17.x86_64.
+WARNING:iMPACT -  Module parport_pc is not loaded. Please reinstall the cable   drivers. See Answer Record 22648.
+Cable connection failed.
+Reusing A0010001 key.
+Reusing 24010001 key.
+ OS platform = i686.
+ Using libusb.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /home/sora/opt/Xilinx/10.1/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+Cable connection failed.
+Reusing A1010001 key.
+Reusing 25010001 key.
+ OS platform = i686.
+ Using libusb.
+Connecting to cable (Usb Port - USB22).
+Checking cable driver.
+File version of /home/sora/opt/Xilinx/10.1/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+Cable connection failed.
+Reusing A2010001 key.
+Reusing 26010001 key.
+ OS platform = i686.
+ Using libusb.
+Connecting to cable (Usb Port - USB23).
+Checking cable driver.
+File version of /home/sora/opt/Xilinx/10.1/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+Cable connection failed.
+Reusing A3010001 key.
+Reusing 27010001 key.
+ OS platform = i686.
+ Using libusb.
+Connecting to cable (Usb Port - USB24).
+Checking cable driver.
+File version of /home/sora/opt/Xilinx/10.1/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+Cable connection failed.
+Cable autodetection failed.

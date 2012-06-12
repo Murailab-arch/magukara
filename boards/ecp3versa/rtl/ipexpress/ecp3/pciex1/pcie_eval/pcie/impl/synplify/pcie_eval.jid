@@ -1,0 +1,3 @@
+. pcie_eval_top ..\..\src\top\pcie_eval_top.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\pciex1\pcie_eval\pcie\src\top\pcie_eval_top.v
+u1_pcs_pipe pcs_pipe_top ..\..\..\models\ecp3\pcs_pipe_bb.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_bb.v
+u1_dut pcie ..\..\..\..\pcie_bb.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\pciex1\pcie_bb.v

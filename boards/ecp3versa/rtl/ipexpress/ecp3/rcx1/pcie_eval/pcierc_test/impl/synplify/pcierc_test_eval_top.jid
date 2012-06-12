@@ -1,0 +1,4 @@
+. pcierc_test_eval_top ..\..\src\top\pcierc_test_eval_top.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\rcx1\pcie_eval\pcierc_test\src\top\pcierc_test_eval_top.v
+u1_pcie_top.u1_pcs_pipe pcs_pipe_top ..\..\..\models\ecp3\pcs_pipe_bb.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\rcx1\pcie_eval\models\ecp3\pcs_pipe_bb.v
+u1_pcie_top.u1_dut pcierc_test ..\..\..\..\pcierc_test_bb.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\rcx1\pcierc_test_bb.v
+u1_pcie_top pcierc_test_top ..\..\src\top\pcierc_test_top.v d:\project\pcie_ip\native_pciebasic_sbx1\isplevergencore\ecp3\rcx1\pcie_eval\pcierc_test\src\top\pcierc_test_top.v

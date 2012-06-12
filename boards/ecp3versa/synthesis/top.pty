@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE strategy>
+<Strategy version="1.0" predefined="0" description="" label="">
+    <Property name="PROP_BD_EdfInLibPath" value="../rtl/ipexpress/ecp3/pciex1" time="0"/>
+</Strategy>

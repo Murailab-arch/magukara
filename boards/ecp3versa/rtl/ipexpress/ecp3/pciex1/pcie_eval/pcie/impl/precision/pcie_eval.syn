@@ -1,0 +1,14 @@
+JDF B
+// Created by Version 8.001
+PROJECT pcie_eval.syn
+DESIGN pcie_eval Normal
+DEVKIT LFE3-95E-7FN672IES
+ENTRY Schematic/Verilog HDL
+MODULE ..\..\..\..\pcie_bb.v
+MODSTYLE pcie Normal
+MODULE ..\..\..\models\ecp3\pcs_pipe_bb.v
+MODSTYLE pcs_pipe_top Normal
+MODULE ..\..\..\..\pcie_eval\pcie\src\top\pcie_eval_top.v
+MODSTYLE pcie_eval_top Normal
+SYNTHESIS_TOOL Precision
+TOPMODULE pcie_eval_top

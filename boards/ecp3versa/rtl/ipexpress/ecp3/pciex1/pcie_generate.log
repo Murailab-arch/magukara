@@ -1,0 +1,75 @@
+Starting process: IPCFG
+
+GenerateCore within package Core_Generate 1.0.0 in file LatticeIP_generate.tcl
+Starting process: '"C:/lscc/diamond/1.1/bin/nt/synpwrap" -rem -e pcie -target lattice-ecp3'
+
+End process: completed successfully.
+
+Starting process: '"C:/lscc/diamond/1.1/bin/nt/synpwrap" -rem -e pcs_pipe_top -target lattice-ecp3'
+
+End process: completed successfully.
+
+Starting process: '"C:/lscc/diamond/1.1/bin/nt/../../ispfpga/bin/nt/edif2ngd" -ip "C:/LatticeCore/pci_express_endpoint_v4.3/lib/../.." -ic pci_express_endpoint_v4.3 -l latticeecp3 -nopropwarn "pcie.edi" "pcie.ngo"'
+edif2ngd:  version Diamond_1.1_Alpha (544)
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+     Copyright (c) 1995 AT&T Corp.   All rights reserved.
+     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+     Copyright (c) 2001 Agere Systems   All rights reserved.
+     Copyright (c) 2002-2010 Lattice Semiconductor Corporation,  All rights
+     reserved.
+No device specified. Will use default.
+Writing the design to pcie.ngo...
+Generating edif netlist for IP cell pmi_ram_dp_z6.edn
+
+F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 16 -num_rows 256 -rdata_width 16  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z6 -pmi 
+Writing the design to pmi_ram_dp_Z6.ngo...
+Generating edif netlist for IP cell pmi_ram_dp_z3.edn
+
+F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 20 -num_rows 146 -rdata_width 20  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z3 -pmi 
+Writing the design to pmi_ram_dp_Z3.ngo...
+Generating edif netlist for IP cell pmi_ram_dp_z2.edn
+
+F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 16 -num_rows 1024 -rdata_width 16  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z2 -pmi 
+Writing the design to pmi_ram_dp_Z2.ngo...
+Generating edif netlist for IP cell
+     pmi_distributed_dpram_16s_4s_1s_noreg_none_binary_ec2_pmi_distri_0.edn
+
+F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 16 -data_width 1   -memformat bin -n pmi_distributed_dpram_16s_4s_1s_noreg_none_binary_EC2_pmi_distri_0 -pmi 
+Writing the design to
+     pmi_distributed_dpram_16s_4s_1s_noreg_none_binary_EC2_pmi_distri_0.ngo..
+     .
+Generating edif netlist for IP cell
+     pmi_distributed_dpram_81s_7s_16s_reg_none_binary_ec2_pmi_distrib_0.edn
+
+F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 81 -data_width 16 -pipe_final_output  -memformat bin -n pmi_distributed_dpram_81s_7s_16s_reg_none_binary_EC2_pmi_distrib_0 -pmi 
+Writing the design to
+     pmi_distributed_dpram_81s_7s_16s_reg_none_binary_EC2_pmi_distrib_0.ngo..
+     .
+Generating edif netlist for IP cell pmi_ram_dp_z4.edn
+
+F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 18 -num_rows 1024 -rdata_width 18  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z4 -pmi 
+Writing the design to pmi_ram_dp_Z4.ngo...
+
+End process: completed successfully.
+
+Starting process: '"C:/lscc/diamond/1.1/bin/nt/../../ispfpga/bin/nt/edif2ngd" -ip "C:/LatticeCore/pci_express_endpoint_v4.3/lib/../.." -ic pci_express_endpoint_v4.3 -l latticeecp3 -nopropwarn "pcs_pipe_top.edi" "pcs_pipe_top.ngo"'
+edif2ngd:  version Diamond_1.1_Alpha (544)
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+     Copyright (c) 1995 AT&T Corp.   All rights reserved.
+     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+     Copyright (c) 2001 Agere Systems   All rights reserved.
+     Copyright (c) 2002-2010 Lattice Semiconductor Corporation,  All rights
+     reserved.
+No device specified. Will use default.
+Writing the design to pcs_pipe_top.ngo...
+
+End process: completed successfully.
+
+
+Total Warnings:  0
+
+
+Total Errors:  0
+
+
+

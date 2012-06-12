@@ -1,0 +1,473 @@
+Release 10.1.03 Map K.39 (lin)
+Xilinx Mapping Report File for Design 'top'
+
+Design Information
+------------------
+Command Line   : map top.ngd 
+Target Device  : xc2vp50
+Target Package : ff1152
+Target Speed   : -7
+Mapper Version : virtex2p -- $Revision: 1.46.12.2 $
+Mapped Date    : Tue Jun 12 07:54:28 2012
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   12
+Logic Utilization:
+  Number of Slice Flip Flops:         4,049 out of  47,232    8%
+  Number of 4 input LUTs:             5,422 out of  47,232   11%
+Logic Distribution:
+  Number of occupied Slices:          4,163 out of  23,616   17%
+    Number of Slices containing only related logic:   4,163 out of   4,163 100%
+    Number of Slices containing unrelated logic:          0 out of   4,163   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       5,811 out of  47,232   12%
+    Number used as logic:             5,062
+    Number used as a route-thru:        389
+    Number used as Shift registers:     360
+  Number of bonded IOBs:                143 out of     692   20%
+    IOB Flip Flops:                      84
+  Number of RAMB16s:                      4 out of     232    1%
+  Number of BUFGMUXs:                     7 out of      16   43%
+  Number of DCMs:                         1 out of       8   12%
+
+Peak Memory Usage:  290 MB
+Total REAL time to MAP completion:  9 secs 
+Total CPU time to MAP completion:   9 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Modular Design Summary
+Section 11 - Timing Report
+Section 12 - Configuration String Information
+Section 13 - Control Set Information
+Section 14 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:LIT:243 - Logical network cpci_clk has no load.
+WARNING:LIT:395 - The above warning message base_net_load_rule is repeated 11
+   more times for the following (max. 5 shown):
+   DEBUG_PIN0,
+   DEBUG_PIN1,
+   GNT_I_IBUF,
+   cpci_id<3>_IBUF,
+   cpci_id<2>_IBUF
+   To see the details of these warning messages, please use the -detail switch.
+WARNING:MapLib:701 - Signal SERR_IO connected to top level port SERR_IO has been
+   removed.
+WARNING:MapLib:701 - Signal PERR_IO connected to top level port PERR_IO has been
+   removed.
+WARNING:MapLib:701 - Signal PAR_IO connected to top level port PAR_IO has been
+   removed.
+WARNING:MapLib:701 - Signal INTA_O connected to top level port INTA_O has been
+   removed.
+WARNING:Pack:1186 - One or more I/O components have conflicting property values.
+    For each occurrence, the system will use the property value attached to the
+   pad.  Otherwise, the system will use the first property value read.  To view
+   each occurrence, create a detailed map report (run map using the -detail
+   option).
+WARNING:PhysDesignRules:367 - The signal <GNT_I_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <cpci_id<0>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <cpci_id<1>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <cpci_id<2>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <cpci_id<3>_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:562 - No environment variables are currently set.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  66 block(s) removed
+ 370 block(s) optimized away
+  28 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "rgmii_0_io/fdce2_rxctl2" (FF) removed.
+ The signal "rgmii_0_io/fdce_rxctl2_1" is loadless and has been removed.
+  Loadless block "rgmii_0_io/fdce_rxctl2" (FF) removed.
+   The signal "rgmii_0_io/ifddrse_rxctl_2" is loadless and has been removed.
+    Loadless block "rgmii_0_io/ifddrse_rxctl/FDRSE1" (SFF) removed.
+Loadless block "rgmii_0_io/fdrse_duplex" (SFF) removed.
+ The signal "rgmii_0_io/ce" is loadless and has been removed.
+  Loadless block "rgmii_0_io/ce1" (ROM) removed.
+   The signal "rgmii_0_io/gmii_rx_er" is loadless and has been removed.
+    Loadless block "rgmii_0_io/fdce3_rxctl2" (FF) removed.
+     The signal "rgmii_0_io/fdce_xor" is loadless and has been removed.
+      Loadless block "rgmii_0_io/Mxor_fdce_xor_Result1" (ROM) removed.
+Loadless block "rgmii_0_io/fdrse_link" (SFF) removed.
+Loadless block "rgmii_0_io/fdrse_speed0" (SFF) removed.
+Loadless block "rgmii_0_io/fdrse_speed1" (SFF) removed.
+Loadless block "rgmii_1_io/fdce2_rxctl2" (FF) removed.
+ The signal "rgmii_1_io/fdce_rxctl2_1" is loadless and has been removed.
+  Loadless block "rgmii_1_io/fdce_rxctl2" (FF) removed.
+   The signal "rgmii_1_io/ifddrse_rxctl_2" is loadless and has been removed.
+    Loadless block "rgmii_1_io/ifddrse_rxctl/FDRSE1" (SFF) removed.
+Loadless block "rgmii_1_io/fdrse_duplex" (SFF) removed.
+ The signal "rgmii_1_io/ce" is loadless and has been removed.
+  Loadless block "rgmii_1_io/ce1" (ROM) removed.
+   The signal "rgmii_1_io/gmii_rx_er" is loadless and has been removed.
+    Loadless block "rgmii_1_io/fdce3_rxctl2" (FF) removed.
+     The signal "rgmii_1_io/fdce_xor" is loadless and has been removed.
+      Loadless block "rgmii_1_io/Mxor_fdce_xor_Result1" (ROM) removed.
+Loadless block "rgmii_1_io/fdrse_link" (SFF) removed.
+Loadless block "rgmii_1_io/fdrse_speed0" (SFF) removed.
+Loadless block "rgmii_1_io/fdrse_speed1" (SFF) removed.
+Loadless block "rgmii_2_io/fdce2_rxctl2" (FF) removed.
+ The signal "rgmii_2_io/fdce_rxctl2_1" is loadless and has been removed.
+  Loadless block "rgmii_2_io/fdce_rxctl2" (FF) removed.
+   The signal "rgmii_2_io/ifddrse_rxctl_2" is loadless and has been removed.
+    Loadless block "rgmii_2_io/ifddrse_rxctl/FDRSE1" (SFF) removed.
+Loadless block "rgmii_2_io/fdrse_duplex" (SFF) removed.
+ The signal "rgmii_2_io/ce" is loadless and has been removed.
+  Loadless block "rgmii_2_io/ce1" (ROM) removed.
+   The signal "rgmii_2_io/gmii_rx_er" is loadless and has been removed.
+    Loadless block "rgmii_2_io/fdce3_rxctl2" (FF) removed.
+     The signal "rgmii_2_io/fdce_xor" is loadless and has been removed.
+      Loadless block "rgmii_2_io/Mxor_fdce_xor_Result1" (ROM) removed.
+Loadless block "rgmii_2_io/fdrse_link" (SFF) removed.
+Loadless block "rgmii_2_io/fdrse_speed0" (SFF) removed.
+Loadless block "rgmii_2_io/fdrse_speed1" (SFF) removed.
+Loadless block "rgmii_3_io/fdce2_rxctl2" (FF) removed.
+ The signal "rgmii_3_io/fdce_rxctl2_1" is loadless and has been removed.
+  Loadless block "rgmii_3_io/fdce_rxctl2" (FF) removed.
+   The signal "rgmii_3_io/ifddrse_rxctl_2" is loadless and has been removed.
+    Loadless block "rgmii_3_io/ifddrse_rxctl/FDRSE1" (SFF) removed.
+Loadless block "rgmii_3_io/fdrse_duplex" (SFF) removed.
+ The signal "rgmii_3_io/ce" is loadless and has been removed.
+  Loadless block "rgmii_3_io/ce1" (ROM) removed.
+   The signal "rgmii_3_io/gmii_rx_er" is loadless and has been removed.
+    Loadless block "rgmii_3_io/fdce3_rxctl2" (FF) removed.
+     The signal "rgmii_3_io/fdce_xor" is loadless and has been removed.
+      Loadless block "rgmii_3_io/Mxor_fdce_xor_Result1" (ROM) removed.
+Loadless block "rgmii_3_io/fdrse_link" (SFF) removed.
+Loadless block "rgmii_3_io/fdrse_speed0" (SFF) removed.
+Loadless block "rgmii_3_io/fdrse_speed1" (SFF) removed.
+The signal "measure_inst/measure_phy3/rxq/full" is sourceless and has been
+removed.
+The signal "measure_inst/measure_phy2/rxq/full" is sourceless and has been
+removed.
+The signal "measure_inst/measure_phy1/rxq/full" is sourceless and has been
+removed.
+The signal "measure_inst/rxq/full" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "INTA_O" is unused and has been removed.
+ Unused block "INTA_O_OBUFT" (TRI) removed.
+The signal "PAR_IO" is unused and has been removed.
+ Unused block "PAR_IO_OBUFT" (TRI) removed.
+The signal "PERR_IO" is unused and has been removed.
+ Unused block "PERR_IO_OBUFT" (TRI) removed.
+The signal "SERR_IO" is unused and has been removed.
+ Unused block "SERR_IO_OBUFT" (TRI) removed.
+Unused block "CBE_IO_0_IOBUF/OBUFT" (TRI) removed.
+Unused block "CBE_IO_1_IOBUF/OBUFT" (TRI) removed.
+Unused block "CBE_IO_2_IOBUF/OBUFT" (TRI) removed.
+Unused block "CBE_IO_3_IOBUF/OBUFT" (TRI) removed.
+Unused block "FRAME_IO_IOBUF/OBUFT" (TRI) removed.
+Unused block "INTA_O" (PAD) removed.
+Unused block "IRDY_IO_IOBUF/OBUFT" (TRI) removed.
+Unused block "PAR_IO" (PAD) removed.
+Unused block "PERR_IO" (PAD) removed.
+Unused block "SERR_IO" (PAD) removed.
+Unused block
+"measure_inst/measure_phy1/rxq/BU2/U0/grf.rf/gl0.wr/gwas.wsts/ram_full_i" (FF)
+removed.
+Unused block "measure_inst/measure_phy1/rxq/GND" (ZERO) removed.
+Unused block "measure_inst/measure_phy1/rxq/VCC" (ONE) removed.
+Unused block
+"measure_inst/measure_phy2/rxq/BU2/U0/grf.rf/gl0.wr/gwas.wsts/ram_full_i" (FF)
+removed.
+Unused block "measure_inst/measure_phy2/rxq/GND" (ZERO) removed.
+Unused block "measure_inst/measure_phy2/rxq/VCC" (ONE) removed.
+Unused block
+"measure_inst/measure_phy3/rxq/BU2/U0/grf.rf/gl0.wr/gwas.wsts/ram_full_i" (FF)
+removed.
+Unused block "measure_inst/measure_phy3/rxq/GND" (ZERO) removed.
+Unused block "measure_inst/measure_phy3/rxq/VCC" (ONE) removed.
+Unused block "measure_inst/rxq/BU2/U0/grf.rf/gl0.wr/gwas.wsts/ram_full_i" (FF)
+removed.
+Unused block "measure_inst/rxq/GND" (ZERO) removed.
+Unused block "measure_inst/rxq/VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+GND 		measure_inst/measure_phy1/rxq/BU2/XST_GND
+VCC 		measure_inst/measure_phy1/rxq/BU2/XST_VCC
+GND 		measure_inst/measure_phy2/rxq/BU2/XST_GND
+VCC 		measure_inst/measure_phy2/rxq/BU2/XST_VCC
+GND 		measure_inst/measure_phy3/rxq/BU2/XST_GND
+VCC 		measure_inst/measure_phy3/rxq/BU2/XST_VCC
+GND 		measure_inst/rxq/BU2/XST_GND
+VCC 		measure_inst/rxq/BU2/XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Strength | Rate |              |          | Delay    |
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+| AD_HIZ                             | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<0>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<1>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<2>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<3>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<4>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<5>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<6>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<7>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<8>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<9>                           | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<10>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<11>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<12>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<13>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<14>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<15>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<16>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<17>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<18>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<19>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<20>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<21>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<22>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<23>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<24>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<25>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<26>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<27>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<28>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<29>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<30>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| AD_IO<31>                          | IOB              | BIDIR     | LVCMOS25             | 12       | SLOW |              |          |          |
+| CBE_HIZ                            | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| CBE_IO<0>                          | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| CBE_IO<1>                          | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| CBE_IO<2>                          | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| CBE_IO<3>                          | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| DEVSEL_HIZ                         | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| DEVSEL_IO                          | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| FRAME_HIZ                          | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| FRAME_IO                           | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| GNT_I                              | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| IDSEL_I                            | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| IRDY_HIZ                           | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| IRDY_IO                            | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| PAR_HIZ                            | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| PASS_READY                         | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| PASS_REQ                           | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| PCLK2                              | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| PERR_HIZ                           | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| REQ_O                              | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| SERR_HIZ                           | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| STOP_HIZ                           | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| STOP_IO                            | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| TRDY_HIZ                           | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| TRDY_IO                            | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<0>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<1>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<2>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<3>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<4>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<5>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<6>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<7>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<8>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<9>                 | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<10>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<11>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<12>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<13>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<14>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<15>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<16>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<17>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<18>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<19>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<20>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<21>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<22>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<23>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<24>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<25>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<26>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<27>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<28>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<29>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<30>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_debug_data<31>                | IOB              | OUTPUT    | LVCMOS25             | 12       | SLOW |              |          |          |
+| cpci_id<0>                         | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| cpci_id<1>                         | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| cpci_id<2>                         | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| cpci_id<3>                         | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| cpci_reset                         | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| gtx_clk                            | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| rgmii_0_rx_ctl                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+| rgmii_0_rxc                        | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| rgmii_0_rxd<0>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_0_rxd<1>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_0_rxd<2>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_0_rxd<3>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_0_tx_ctl                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_0_txc                        | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_0_txd<0>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_0_txd<1>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_0_txd<2>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_0_txd<3>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_1_rx_ctl                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+| rgmii_1_rxc                        | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| rgmii_1_rxd<0>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_1_rxd<1>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_1_rxd<2>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_1_rxd<3>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_1_tx_ctl                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_1_txc                        | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_1_txd<0>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_1_txd<1>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_1_txd<2>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_1_txd<3>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_2_rx_ctl                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+| rgmii_2_rxc                        | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| rgmii_2_rxd<0>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_2_rxd<1>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_2_rxd<2>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_2_rxd<3>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_2_tx_ctl                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_2_txc                        | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_2_txd<0>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_2_txd<1>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_2_txd<2>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_2_txd<3>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_3_rx_ctl                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+| rgmii_3_rxc                        | IOB              | INPUT     | LVCMOS25             |          |      |              |          |          |
+| rgmii_3_rxd<0>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_3_rxd<1>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_3_rxd<2>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_3_rxd<3>                     | IOB              | INPUT     | LVCMOS25             |          |      | INFF1        |          | IFD      |
+|                                    |                  |           |                      |          |      | INFF2        |          |          |
+| rgmii_3_tx_ctl                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_3_txc                        | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_3_txd<0>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_3_txd<1>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_3_txd<2>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
+| rgmii_3_txd<3>                     | IOB              | OUTPUT    | LVCMOS25             | 12       | FAST | OUTDDR       |          |          |
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.
+
+Section 11 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 12 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 13 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 14 - Utilization by Hierarchy
+-------------------------------------
+
+This feature is not supported for this architecture.

@@ -1,0 +1,7 @@
+#define MSI
+#define EN_VC0
+#define ID_INTF
+#define USERNAME pcie
+#define USERNAME_TOP pcie_top
+#define USERNAME_EVAL_TOP pcie_eval_top
+#define Channel_0

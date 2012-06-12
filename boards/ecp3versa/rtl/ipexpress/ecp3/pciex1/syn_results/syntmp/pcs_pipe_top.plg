@@ -1,0 +1,36 @@
+@P:  Worst Slack : 3.086
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Frequency : 990.9 MHz
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Period : 1.009
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Period : 6.667
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Slack : 5.657
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Frequency : 279.3 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Period : 3.581
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Period : 6.667
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Slack : 3.086
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Frequency : 303.9 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Period : 3.290
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Period : 6.667
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Slack : 3.376
+@P:  Worst Slack : 3.086
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Frequency : 990.9 MHz
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Period : 1.009
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Period : 6.667
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Slack : 5.657
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Frequency : 279.3 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Period : 3.581
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Period : 6.667
+@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Slack : 3.086
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Frequency : 303.9 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Period : 3.290
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Period : 6.667
+@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Slack : 3.376
+@P:  Total Area : 70.0
+@P:  Total Area : 0.0
+@P:  Total Area : 0.0
+@P:  CPU Time : 0h:00m:01s

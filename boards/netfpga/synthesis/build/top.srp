@@ -1,0 +1,2165 @@
+Release 10.1.03 - xst K.39 (lin)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : MIXED
+
+---- Target Parameters
+Output File Name                   : "top.ngc"
+Target Device                      : xc2vp50-ff1152-7
+
+---- Source Options
+Top Module Name                    : top
+Automatic Register Balancing       : yes
+Signal Encoding Algorithm          : user
+
+---- General Options
+Optimization Goal                  : SPEED
+Optimization Effort                : 2
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../rtl/pci.v" in library work
+Compiling verilog file "../../rtl/top.v" in library work
+Compiling verilog include file "../../../../cores/measure/rtl/../rtl/setup.v"
+Module <pci> compiled
+Compiling verilog file "../../rtl/setup.v" in library work
+Compiling verilog file "../../../../cores/gmii2fifo9/rtl/gmii2fifo9.v" in library work
+Module <top> compiled
+Compiling verilog file "../../../../cores/rgmii2gmii/rtl/rgmii_io.v" in library work
+Module <gmii2fifo9> compiled
+Compiling verilog file "../../../../cores/crc/rtl/crc.v" in library work
+Module <rgmii_io> compiled
+Compiling verilog file "../../../../cores/coregen/asfifo9_4.v" in library work
+Module <crc_gen> compiled
+Compiling verilog file "../../../../cores/measure/rtl/measure.v" in library work
+Compiling verilog include file "../../../../cores/measure/rtl/../rtl/setup.v"
+Module <asfifo9_4> compiled
+Compiling verilog file "../../../../cores/measure/rtl/measure_core.v" in library work
+Compiling verilog include file "../../../../cores/measure/rtl/../rtl/setup.v"
+Module <measure> compiled
+Compiling verilog file "../../../../cores/measure/rtl/setup.v" in library work
+Module <measure_core> compiled
+No errors in compilation
+Analysis of file <"top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <top> in library <work>.
+
+Analyzing hierarchy for module <rgmii_io> in library <work>.
+
+Analyzing hierarchy for module <measure> in library <work> with parameters.
+	TX_GAP = "100"
+	TX_REQ_ARP = "000"
+	TX_V4_SEND = "010"
+	TX_V6_SEND = "011"
+	TX_WAIT_ARPREP = "001"
+
+Analyzing hierarchy for module <pci> in library <work> with parameters.
+	CFG_BaseClass = "00000000"
+	CFG_Command = "0000000000000000"
+	CFG_DeviceID = "1000000000000000"
+	CFG_HeaderType = "00000000"
+	CFG_Int_Pin = "00000000"
+	CFG_ProgramIF = "00000000"
+	CFG_RevisionID = "00000000"
+	CFG_Status = "0000001000000000"
+	CFG_SubClass = "00000000"
+	CFG_VendorID = "0011011101110110"
+	INI_ABORT = "101"
+	INI_ADDR2DATA = "010"
+	INI_IDLE = "000"
+	INI_TURN_AROUND = "110"
+	INI_WAIT_COMPLETE = "100"
+	INI_WAIT_DEVSEL = "011"
+	INI_WAIT_GNT = "001"
+	PCI_CFG_CYCLE = "101"
+	PCI_CFG_READ_CYCLE = "1010"
+	PCI_CFG_WRITE_CYCLE = "1011"
+	PCI_IO_CYCLE = "001"
+	PCI_IO_READ_CYCLE = "0010"
+	PCI_IO_WRITE_CYCLE = "0011"
+	PCI_MEM_CYCLE = "011"
+	PCI_MEM_READ_CYCLE = "0110"
+	PCI_MEM_WRITE_CYCLE = "0111"
+	SEQ_CFG_ACCESS = "011"
+	SEQ_COMPLETE = "111"
+	SEQ_IDLE = "000"
+	SEQ_IO_ACCESS = "001"
+	SEQ_MEM_ACCESS = "010"
+	SEQ_ROM_ACCESS = "100"
+	TGT_ACC_COMPLETE = "101"
+	TGT_ADDR_COMPARE = "001"
+	TGT_BUS_BUSY = "010"
+	TGT_DISCONNECT = "110"
+	TGT_IDLE = "000"
+	TGT_TURN_AROUND = "111"
+	TGT_WAIT_IRDY = "011"
+	TGT_WAIT_LOCAL_ACK = "100"
+
+Analyzing hierarchy for module <crc_gen> in library <work>.
+
+Analyzing hierarchy for module <gmii2fifo9> in library <work> with parameters.
+	Gap = "1000"
+	STATE_DATA = "1"
+	STATE_IDLE = "0"
+
+Analyzing hierarchy for module <measure_core> in library <work> with parameters.
+	ARP_IDLE = "00"
+	ARP_SEND = "01"
+	Int_ipv4_addr = "00001010000000000001010101101001"
+	Int_ipv6_addr = "00110111011101100000000000000000000000000000000000000000001000010000000000000000000000000000000000000000000000000000000100000101"
+	Int_mac_addr = "000000000011011101110110000000000000000100000001"
+	NEIGHBOR_SEND = "10"
+
+Analyzing hierarchy for module <measure_core> in library <work> with parameters.
+	ARP_IDLE = "00"
+	ARP_SEND = "01"
+	Int_ipv4_addr = "00001010000000000001011001101001"
+	Int_ipv6_addr = "00110111011101100000000000000000000000000000000000000000001000100000000000000000000000000000000000000000000000000000000100000101"
+	Int_mac_addr = "000000000011011101110110000000000000000100000010"
+	NEIGHBOR_SEND = "10"
+
+Analyzing hierarchy for module <measure_core> in library <work> with parameters.
+	ARP_IDLE = "00"
+	ARP_SEND = "01"
+	Int_ipv4_addr = "00001010000000000001011101101001"
+	Int_ipv6_addr = "00110111011101100000000000000000000000000000000000000000001000110000000000000000000000000000000000000000000000000000000100000101"
+	Int_mac_addr = "000000000011011101110110000000000000000100000011"
+	NEIGHBOR_SEND = "10"
+
+Analyzing hierarchy for module <gmii2fifo9> in library <work> with parameters.
+	Gap = "1000"
+	STATE_DATA = "1"
+	STATE_IDLE = "0"
+
+Analyzing hierarchy for module <crc_gen> in library <work>.
+
+Analyzing hierarchy for module <crc_gen> in library <work>.
+
+Analyzing hierarchy for module <gmii2fifo9> in library <work> with parameters.
+	Gap = "1000"
+	STATE_DATA = "1"
+	STATE_IDLE = "0"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <top>.
+Module <top> is correct for synthesis.
+ 
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <ibufg_gtx_clk> in unit <top>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <ibufg_gtx_clk> in unit <top>.
+    Set user-defined property "IFD_DELAY_VALUE =  AUTO" for instance <ibufg_gtx_clk> in unit <top>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <ibufg_gtx_clk> in unit <top>.
+    Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "CLKFX_DIVIDE =  1" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "CLKFX_MULTIPLY =  4" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "CLKIN_PERIOD =  10.0000000000000000" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "DSS_MODE =  NONE" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "FACTORY_JF =  C080" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "SIM_MODE =  SAFE" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <RGMII_TX_DCM> in unit <top>.
+    Set user-defined property "INIT =  0" for instance <gmii_0_tx_clk_ddr_iob> in unit <top>.
+    Set user-defined property "INIT =  0" for instance <gmii_1_tx_clk_ddr_iob> in unit <top>.
+    Set user-defined property "INIT =  0" for instance <gmii_2_tx_clk_ddr_iob> in unit <top>.
+    Set user-defined property "INIT =  0" for instance <gmii_3_tx_clk_ddr_iob> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_0_txc> in unit <top>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_0_txc> in unit <top>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_0_txc> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_0_txc> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_1_txc> in unit <top>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_1_txc> in unit <top>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_1_txc> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_1_txc> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_2_txc> in unit <top>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_2_txc> in unit <top>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_2_txc> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_2_txc> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_3_txc> in unit <top>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_3_txc> in unit <top>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_3_txc> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_3_txc> in unit <top>.
+Analyzing module <rgmii_io> in library <work>.
+WARNING:Xst:863 - "../../../../cores/rgmii2gmii/rtl/rgmii_io.v" line 53: Name conflict (<RESET> and <reset>, renaming RESET as reset_rnm0).
+Module <rgmii_io> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  0" for instance <fdce_txd0> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd3> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd4> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd5> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd6> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txd7> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fddrse_txd0> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fddrse_txd1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fddrse_txd2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fddrse_txd3> in unit <rgmii_io>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_txd0> in unit <rgmii_io>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_txd0> in unit <rgmii_io>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_txd0> in unit <rgmii_io>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_txd0> in unit <rgmii_io>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_txd1> in unit <rgmii_io>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_txd1> in unit <rgmii_io>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_txd1> in unit <rgmii_io>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_txd1> in unit <rgmii_io>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_txd2> in unit <rgmii_io>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_txd2> in unit <rgmii_io>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_txd2> in unit <rgmii_io>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_txd2> in unit <rgmii_io>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_txd3> in unit <rgmii_io>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_txd3> in unit <rgmii_io>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_txd3> in unit <rgmii_io>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_txd3> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txen> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_txer> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce1_txer> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fddrse_txctl> in unit <rgmii_io>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <drive_rgmii_txctl> in unit <rgmii_io>.
+    Set user-defined property "DRIVE =  12" for instance <drive_rgmii_txctl> in unit <rgmii_io>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <drive_rgmii_txctl> in unit <rgmii_io>.
+    Set user-defined property "SLEW =  SLOW" for instance <drive_rgmii_txctl> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd0> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd3> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd4> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd5> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd6> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxd7> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd0> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd3> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd4> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd5> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd6> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxd7> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd0> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd3> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd4> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd5> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd6> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxd7> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxctl1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce_rxctl2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxctl1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce2_rxctl2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxctl1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdce3_rxctl2> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdrse_link> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdrse_speed0> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdrse_speed1> in unit <rgmii_io>.
+    Set user-defined property "INIT =  0" for instance <fdrse_duplex> in unit <rgmii_io>.
+Analyzing module <measure> in library <work>.
+	TX_GAP = 3'b100
+	TX_REQ_ARP = 3'b000
+	TX_V4_SEND = 3'b010
+	TX_V6_SEND = 3'b011
+	TX_WAIT_ARPREP = 3'b001
+WARNING:Xst:2211 - "../../../../cores/coregen/asfifo9_4.v" line 137: Instantiating black box module <asfifo9_4>.
+Module <measure> is correct for synthesis.
+ 
+Analyzing module <crc_gen> in library <work>.
+	Calling function <NextCRC>.
+Module <crc_gen> is correct for synthesis.
+ 
+Analyzing module <gmii2fifo9> in library <work>.
+	Gap = 4'b1000
+	STATE_DATA = 1'b1
+	STATE_IDLE = 1'b0
+WARNING:Xst:2725 - "../../../../cores/gmii2fifo9/rtl/gmii2fifo9.v" line 64: Size mismatch between case item and case selector.
+WARNING:Xst:2725 - "../../../../cores/gmii2fifo9/rtl/gmii2fifo9.v" line 68: Size mismatch between case item and case selector.
+Module <gmii2fifo9> is correct for synthesis.
+ 
+Analyzing module <measure_core.1> in library <work>.
+	ARP_IDLE = 2'b00
+	ARP_SEND = 2'b01
+	Int_ipv4_addr = 32'b00001010000000000001010101101001
+	Int_ipv6_addr = 128'b00110111011101100000000000000000000000000000000000000000001000010000000000000000000000000000000000000000000000000000000100000101
+	Int_mac_addr = 48'b000000000011011101110110000000000000000100000001
+	NEIGHBOR_SEND = 2'b10
+WARNING:Xst:2211 - "../../../../cores/coregen/asfifo9_4.v" line 54: Instantiating black box module <asfifo9_4>.
+Module <measure_core.1> is correct for synthesis.
+ 
+Analyzing module <measure_core.2> in library <work>.
+	ARP_IDLE = 2'b00
+	ARP_SEND = 2'b01
+	Int_ipv4_addr = 32'b00001010000000000001011001101001
+	Int_ipv6_addr = 128'b00110111011101100000000000000000000000000000000000000000001000100000000000000000000000000000000000000000000000000000000100000101
+	Int_mac_addr = 48'b000000000011011101110110000000000000000100000010
+	NEIGHBOR_SEND = 2'b10
+WARNING:Xst:2211 - "../../../../cores/coregen/asfifo9_4.v" line 54: Instantiating black box module <asfifo9_4>.
+Module <measure_core.2> is correct for synthesis.
+ 
+Analyzing module <measure_core.3> in library <work>.
+	ARP_IDLE = 2'b00
+	ARP_SEND = 2'b01
+	Int_ipv4_addr = 32'b00001010000000000001011101101001
+	Int_ipv6_addr = 128'b00110111011101100000000000000000000000000000000000000000001000110000000000000000000000000000000000000000000000000000000100000101
+	Int_mac_addr = 48'b000000000011011101110110000000000000000100000011
+	NEIGHBOR_SEND = 2'b10
+WARNING:Xst:2211 - "../../../../cores/coregen/asfifo9_4.v" line 54: Instantiating black box module <asfifo9_4>.
+Module <measure_core.3> is correct for synthesis.
+ 
+Analyzing module <pci> in library <work>.
+	CFG_BaseClass = 8'b00000000
+	CFG_Command = 16'b0000000000000000
+	CFG_DeviceID = 16'b1000000000000000
+	CFG_HeaderType = 8'b00000000
+	CFG_Int_Pin = 8'b00000000
+	CFG_ProgramIF = 8'b00000000
+	CFG_RevisionID = 8'b00000000
+	CFG_Status = 16'b0000001000000000
+	CFG_SubClass = 8'b00000000
+	CFG_VendorID = 16'b0011011101110110
+	INI_ABORT = 3'b101
+	INI_ADDR2DATA = 3'b010
+	INI_IDLE = 3'b000
+	INI_TURN_AROUND = 3'b110
+	INI_WAIT_COMPLETE = 3'b100
+	INI_WAIT_DEVSEL = 3'b011
+	INI_WAIT_GNT = 3'b001
+	PCI_CFG_CYCLE = 3'b101
+	PCI_CFG_READ_CYCLE = 4'b1010
+	PCI_CFG_WRITE_CYCLE = 4'b1011
+	PCI_IO_CYCLE = 3'b001
+	PCI_IO_READ_CYCLE = 4'b0010
+	PCI_IO_WRITE_CYCLE = 4'b0011
+	PCI_MEM_CYCLE = 3'b011
+	PCI_MEM_READ_CYCLE = 4'b0110
+	PCI_MEM_WRITE_CYCLE = 4'b0111
+	SEQ_CFG_ACCESS = 3'b011
+	SEQ_COMPLETE = 3'b111
+	SEQ_IDLE = 3'b000
+	SEQ_IO_ACCESS = 3'b001
+	SEQ_MEM_ACCESS = 3'b010
+	SEQ_ROM_ACCESS = 3'b100
+	TGT_ACC_COMPLETE = 3'b101
+	TGT_ADDR_COMPARE = 3'b001
+	TGT_BUS_BUSY = 3'b010
+	TGT_DISCONNECT = 3'b110
+	TGT_IDLE = 3'b000
+	TGT_TURN_AROUND = 3'b111
+	TGT_WAIT_IRDY = 3'b011
+	TGT_WAIT_LOCAL_ACK = 3'b100
+Module <pci> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2561 - Always blocking tristate driving signal <PAR_IO> in unit <pci> is removed.
+INFO:Xst:2679 - Register <counter_end> in unit <measure_core_1> has a constant value of 00000000000000000000000000000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <counter_end> in unit <measure_core_2> has a constant value of 00000000000000000000000000000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <counter_end> in unit <measure_core_3> has a constant value of 00000000000000000000000000000000 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <pci>.
+    Related source file is "../../rtl/pci.v".
+WARNING:Xst:2563 - Inout <SERR_IO> is never assigned. Tied to value Z.
+WARNING:Xst:647 - Input <GNT_I> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2563 - Inout <PERR_IO> is never assigned. Tied to value Z.
+WARNING:Xst:1305 - Output <FRAME_HIZ> is never assigned. Tied to value 1.
+WARNING:Xst:647 - Input <cpci_id> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <CBE_HIZ> is never assigned. Tied to value 1.
+WARNING:Xst:2563 - Inout <PAR_IO> is never assigned. Tied to value Z.
+WARNING:Xst:1305 - Output <PAR_HIZ> is never assigned. Tied to value 1.
+WARNING:Xst:1305 - Output <IRDY_HIZ> is never assigned. Tied to value 1.
+WARNING:Xst:1780 - Signal <sora> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <initiator_next_state> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <REQ_Port> is used but never assigned. This sourceless signal will be automatically connected to value 1.
+WARNING:Xst:653 - Signal <IRDY_Port> is used but never assigned. This sourceless signal will be automatically connected to value 1.
+WARNING:Xst:653 - Signal <FRAME_Port> is used but never assigned. This sourceless signal will be automatically connected to value 1.
+WARNING:Xst:646 - Signal <CFG_Sta_TAbt_Clr> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <CFG_Sta_TAbt> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <CFG_Sta_MAbt_Clr> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <CFG_Sta_MAbt> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <CFG_Sta_IntSta> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <CBE_Port> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
+    Register <STOP_HIZ> equivalent to <DEVSEL_HIZ> has been removed
+    Register <TRDY_HIZ> equivalent to <DEVSEL_HIZ> has been removed
+    Found finite state machine <FSM_0> for signal <target_next_state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 18                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 7                                              |
+    | Clock              | pci_clk (rising_edge)                          |
+    | Reset              | sys_rst (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Power Up State     | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_1> for signal <seq_next_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 6                                              |
+    | Clock              | pci_clk (rising_edge)                          |
+    | Reset              | sys_rst (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Power Up State     | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 1-bit tristate buffer for signal <SERR_IO>.
+    Found 1-bit register for signal <tx0_req_arp>.
+    Found 32-bit register for signal <tx0_inter_frame_gap>.
+    Found 32-bit tristate buffer for signal <AD_IO>.
+    Found 1-bit tristate buffer for signal <IRDY_IO>.
+    Found 1-bit tristate buffer for signal <PERR_IO>.
+    Found 1-bit tristate buffer for signal <FRAME_IO>.
+    Found 48-bit register for signal <tx0_src_mac>.
+    Found 1-bit tristate buffer for signal <INTA_O>.
+    Found 128-bit register for signal <tx0_ipv6_srcip>.
+    Found 32-bit register for signal <tx0_ipv4_srcip>.
+    Found 1-bit register for signal <DEVSEL_HIZ>.
+    Found 1-bit register for signal <tx0_enable>.
+    Found 1-bit tristate buffer for signal <PAR_IO>.
+    Found 128-bit register for signal <tx0_ipv6_dstip>.
+    Found 1-bit tristate buffer for signal <TRDY_IO>.
+    Found 32-bit register for signal <tx0_ipv4_dstip>.
+    Found 32-bit register for signal <tx0_ipv4_gwip>.
+    Found 1-bit tristate buffer for signal <DEVSEL_IO>.
+    Found 1-bit register for signal <tx0_fullroute>.
+    Found 4-bit tristate buffer for signal <CBE_IO>.
+    Found 12-bit register for signal <tx0_frame_len>.
+    Found 1-bit tristate buffer for signal <STOP_IO>.
+    Found 1-bit register for signal <tx0_ipv6>.
+    Found 32-bit register for signal <AD_Port>.
+    Found 8-bit register for signal <CFG_Base_Addr0>.
+    Found 11-bit register for signal <CFG_Base_Addr1>.
+    Found 1-bit register for signal <CFG_Cmd_IntDis>.
+    Found 1-bit register for signal <CFG_Cmd_IO>.
+    Found 1-bit register for signal <CFG_Cmd_Mem>.
+    Found 1-bit register for signal <CFG_Cmd_Mst>.
+    Found 8-bit register for signal <CFG_Int_Line>.
+    Found 1-bit register for signal <DEVSEL_Port>.
+    Found 27-bit comparator equal for signal <Hit_IO$cmp_eq0001> created at line 157.
+    Found 8-bit comparator equal for signal <Hit_Memory$cmp_eq0001> created at line 158.
+    Found 1-bit register for signal <Local_Bus_Start>.
+    Found 1-bit register for signal <Local_DTACK>.
+    Found 32-bit register for signal <PCI_Address>.
+    Found 4-bit register for signal <PCI_BusCommand>.
+    Found 1-bit register for signal <PCI_IDSel>.
+    Found 1-bit register for signal <SLAD_HIZ>.
+    Found 1-bit register for signal <STOP_Port>.
+    Found 1-bit register for signal <TRDY_Port>.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred 555 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  45 Tristate(s).
+Unit <pci> synthesized.
+
+
+Synthesizing Unit <crc_gen>.
+    Related source file is "../../../../cores/crc/rtl/crc.v".
+WARNING:Xst:647 - Input <CRC_rd> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <CRC_end> is never assigned. Tied to value 0.
+WARNING:Xst:1780 - Signal <Counter> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit register for signal <CRC_reg>.
+    Found 1-bit xor2 for signal <CRC_reg$xor0000> created at line 99.
+    Found 1-bit xor3 for signal <CRC_reg$xor0001> created at line 98.
+    Found 1-bit xor4 for signal <CRC_reg$xor0002> created at line 97.
+    Found 1-bit xor4 for signal <CRC_reg$xor0003> created at line 96.
+    Found 1-bit xor4 for signal <CRC_reg$xor0004> created at line 95.
+    Found 1-bit xor4 for signal <CRC_reg$xor0005> created at line 94.
+    Found 1-bit xor3 for signal <CRC_reg$xor0006> created at line 93.
+    Found 1-bit xor3 for signal <CRC_reg$xor0007> created at line 92.
+    Found 1-bit xor3 for signal <CRC_reg$xor0008> created at line 91.
+    Found 1-bit xor2 for signal <CRC_reg$xor0009> created at line 90.
+    Found 1-bit xor2 for signal <CRC_reg$xor0010> created at line 89.
+    Found 1-bit xor2 for signal <CRC_reg$xor0011> created at line 88.
+    Found 1-bit xor3 for signal <CRC_reg$xor0012> created at line 87.
+    Found 1-bit xor4 for signal <CRC_reg$xor0013> created at line 86.
+    Found 1-bit xor4 for signal <CRC_reg$xor0014> created at line 85.
+    Found 1-bit xor4 for signal <CRC_reg$xor0015> created at line 84.
+    Found 1-bit xor4 for signal <CRC_reg$xor0016> created at line 83.
+    Found 1-bit xor4 for signal <CRC_reg$xor0017> created at line 82.
+    Found 1-bit xor6 for signal <CRC_reg$xor0018> created at line 81.
+    Found 1-bit xor6 for signal <CRC_reg$xor0019> created at line 80.
+    Found 1-bit xor4 for signal <CRC_reg$xor0020> created at line 79.
+    Found 1-bit xor3 for signal <CRC_reg$xor0021> created at line 78.
+    Found 1-bit xor3 for signal <CRC_reg$xor0022> created at line 77.
+    Found 1-bit xor3 for signal <CRC_reg$xor0023> created at line 76.
+    Found 1-bit xor3 for signal <CRC_reg$xor0024> created at line 75.
+    Found 1-bit xor4 for signal <CRC_reg$xor0025> created at line 74.
+    Found 1-bit xor4 for signal <CRC_reg$xor0026> created at line 73.
+    Found 1-bit xor4 for signal <CRC_reg$xor0027> created at line 72.
+    Found 1-bit xor3 for signal <CRC_reg$xor0028> created at line 71.
+    Found 1-bit xor3 for signal <CRC_reg$xor0029> created at line 70.
+    Found 1-bit xor3 for signal <CRC_reg$xor0030> created at line 69.
+    Found 1-bit xor2 for signal <CRC_reg$xor0031> created at line 68.
+    Found 1-bit xor2 for signal <CRC_reg$xor0032> created at line 99.
+    Found 1-bit xor2 for signal <CRC_reg$xor0033> created at line 98.
+    Found 1-bit xor2 for signal <CRC_reg$xor0034> created at line 98.
+    Found 1-bit xor2 for signal <CRC_reg$xor0035> created at line 97.
+    Found 1-bit xor2 for signal <CRC_reg$xor0036> created at line 97.
+    Found 1-bit xor2 for signal <CRC_reg$xor0037> created at line 96.
+    Found 1-bit xor2 for signal <CRC_reg$xor0038> created at line 95.
+    Found 1-bit xor2 for signal <CRC_reg$xor0040> created at line 94.
+    Found 1-bit xor2 for signal <CRC_reg$xor0044> created at line 91.
+    Found 1-bit xor2 for signal <CRC_reg$xor0045> created at line 90.
+    Found 1-bit xor2 for signal <CRC_reg$xor0050> created at line 83.
+    Found 1-bit xor2 for signal <CRC_reg$xor0052> created at line 82.
+    Found 1-bit xor2 for signal <CRC_reg$xor0058> created at line 80.
+    Found 1-bit xor2 for signal <CRC_reg$xor0060> created at line 79.
+    Found 1-bit xor2 for signal <CRC_reg$xor0061> created at line 78.
+    Found 1-bit xor2 for signal <CRC_reg$xor0065> created at line 74.
+    Found 1-bit xor2 for signal <CRC_reg$xor0067> created at line 73.
+    Found 1-bit xor2 for signal <CRC_reg$xor0071> created at line 71.
+    Found 1-bit xor2 for signal <CRC_reg$xor0072> created at line 70.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred  27 Xor(s).
+Unit <crc_gen> synthesized.
+
+
+Synthesizing Unit <gmii2fifo9>.
+    Related source file is "../../../../cores/gmii2fifo9/rtl/gmii2fifo9.v".
+WARNING:Xst:647 - Input <full> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <wr_en>.
+    Found 4-bit down counter for signal <gap_count>.
+    Found 1-bit register for signal <rxc>.
+    Found 8-bit register for signal <rxd>.
+    Found 2-bit register for signal <state>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  12 D-type flip-flop(s).
+Unit <gmii2fifo9> synthesized.
+
+
+Synthesizing Unit <rgmii_io>.
+    Related source file is "../../../../cores/rgmii2gmii/rtl/rgmii_io.v".
+WARNING:Xst:653 - Signal <reset_rnm0> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <fdce2_rxctl2_1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit xor2 for signal <fdce_xor>.
+    Found 1-bit xor2 for signal <tx_en_xor_tx_er>.
+Unit <rgmii_io> synthesized.
+
+
+Synthesizing Unit <measure_core_1>.
+    Related source file is "../../../../cores/measure/rtl/measure_core.v".
+WARNING:Xst:647 - Input <global_counter<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sys_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <counter_start<31:24>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <counter_end> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <rx_ipv4_srcip<0>> equivalent to <rx_ipv4_ip1<16>> has been removed
+    Register <rx_ipv4_srcip<1>> equivalent to <rx_ipv4_ip1<17>> has been removed
+    Register <rx_ipv4_srcip<2>> equivalent to <rx_ipv4_ip1<18>> has been removed
+    Register <rx_ipv4_srcip<3>> equivalent to <rx_ipv4_ip1<19>> has been removed
+    Register <rx_ipv4_srcip<4>> equivalent to <rx_ipv4_ip1<20>> has been removed
+    Register <rx_ipv4_srcip<5>> equivalent to <rx_ipv4_ip1<21>> has been removed
+    Register <rx_ipv4_srcip<6>> equivalent to <rx_ipv4_ip1<22>> has been removed
+    Register <rx_ipv4_srcip<7>> equivalent to <rx_ipv4_ip1<23>> has been removed
+    Register <rx_ipv4_srcip<8>> equivalent to <rx_ipv4_ip1<24>> has been removed
+    Register <rx_ipv4_srcip<9>> equivalent to <rx_ipv4_ip1<25>> has been removed
+    Register <rx_ipv4_srcip<10>> equivalent to <rx_ipv4_ip1<26>> has been removed
+    Register <rx_ipv4_srcip<11>> equivalent to <rx_ipv4_ip1<27>> has been removed
+    Register <rx_ipv4_srcip<12>> equivalent to <rx_ipv4_ip1<28>> has been removed
+    Register <rx_ipv4_srcip<13>> equivalent to <rx_ipv4_ip1<29>> has been removed
+    Register <rx_ipv4_srcip<14>> equivalent to <rx_ipv4_ip1<30>> has been removed
+    Register <rx_ipv4_srcip<15>> equivalent to <rx_ipv4_ip1<31>> has been removed
+    Found finite state machine <FSM_2> for signal <arp_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 3                                              |
+    | Clock              | gmii_tx_clk (rising_edge)                      |
+    | Reset              | sys_rst (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 32-bit register for signal <rx_throughput>.
+    Found 32-bit register for signal <rx_pps>.
+    Found 32-bit register for signal <rx_ipv4_ip>.
+    Found 24-bit register for signal <rx_latency>.
+    Found 7-bit register for signal <arp_count>.
+    Found 7-bit adder for signal <arp_count$addsub0000> created at line 429.
+    Found 1-bit register for signal <arp_crc_rd>.
+    Found 1-bit register for signal <arp_request>.
+    Found 40-bit comparator equal for signal <arp_request$cmp_eq0000> created at line 216.
+    Found 24-bit register for signal <counter_start<23:0>>.
+    Found 7-bit register for signal <neighbor_count>.
+    Found 7-bit adder for signal <neighbor_count$addsub0000> created at line 546.
+    Found 1-bit register for signal <neighbor_request>.
+    Found 128-bit comparator not equal for signal <neighbor_request$cmp_ne0003> created at line 273.
+    Found 32-bit register for signal <pps>.
+    Found 32-bit adder for signal <pps$addsub0000> created at line 179.
+    Found 32-bit register for signal <rx_arp_dst>.
+    Found 14-bit up counter for signal <rx_count>.
+    Found 32-bit register for signal <rx_ipv4_ip1>.
+    Found 32-bit register for signal <rx_ipv4_ip2>.
+    Found 16-bit register for signal <rx_ipv4_srcip<31:16>>.
+    Found 24-bit register for signal <rx_latency1>.
+    Found 24-bit subtractor for signal <rx_latency1$addsub0000>.
+    Found 24-bit register for signal <rx_latency2>.
+    Found 40-bit register for signal <rx_magic>.
+    Found 16-bit register for signal <rx_opcode>.
+    Found 32-bit register for signal <rx_pps1>.
+    Found 32-bit register for signal <rx_pps2>.
+    Found 48-bit register for signal <rx_src_mac>.
+    Found 32-bit register for signal <rx_throughput1>.
+    Found 32-bit register for signal <rx_throughput2>.
+    Found 16-bit register for signal <rx_type>.
+    Found 1-bit register for signal <rxq_rd_en>.
+    Found 32-bit register for signal <throughput>.
+    Found 32-bit adder for signal <throughput$addsub0000> created at line 282.
+    Found 8-bit register for signal <tx_data>.
+    Found 48-bit register for signal <tx_dst_mac>.
+    Found 128-bit comparator equal for signal <tx_dst_mac$cmp_eq0008> created at line 273.
+    Found 1-bit register for signal <tx_en>.
+    Found 32-bit register for signal <tx_ipv4_dstip>.
+    Found 128-bit register for signal <v6target>.
+    Found 8-bit register for signal <v6type>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred 859 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+Unit <measure_core_1> synthesized.
+
+
+Synthesizing Unit <measure_core_2>.
+    Related source file is "../../../../cores/measure/rtl/measure_core.v".
+WARNING:Xst:647 - Input <global_counter<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sys_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <counter_start<31:24>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <counter_end> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <rx_ipv4_srcip<0>> equivalent to <rx_ipv4_ip1<16>> has been removed
+    Register <rx_ipv4_srcip<1>> equivalent to <rx_ipv4_ip1<17>> has been removed
+    Register <rx_ipv4_srcip<2>> equivalent to <rx_ipv4_ip1<18>> has been removed
+    Register <rx_ipv4_srcip<3>> equivalent to <rx_ipv4_ip1<19>> has been removed
+    Register <rx_ipv4_srcip<4>> equivalent to <rx_ipv4_ip1<20>> has been removed
+    Register <rx_ipv4_srcip<5>> equivalent to <rx_ipv4_ip1<21>> has been removed
+    Register <rx_ipv4_srcip<6>> equivalent to <rx_ipv4_ip1<22>> has been removed
+    Register <rx_ipv4_srcip<7>> equivalent to <rx_ipv4_ip1<23>> has been removed
+    Register <rx_ipv4_srcip<8>> equivalent to <rx_ipv4_ip1<24>> has been removed
+    Register <rx_ipv4_srcip<9>> equivalent to <rx_ipv4_ip1<25>> has been removed
+    Register <rx_ipv4_srcip<10>> equivalent to <rx_ipv4_ip1<26>> has been removed
+    Register <rx_ipv4_srcip<11>> equivalent to <rx_ipv4_ip1<27>> has been removed
+    Register <rx_ipv4_srcip<12>> equivalent to <rx_ipv4_ip1<28>> has been removed
+    Register <rx_ipv4_srcip<13>> equivalent to <rx_ipv4_ip1<29>> has been removed
+    Register <rx_ipv4_srcip<14>> equivalent to <rx_ipv4_ip1<30>> has been removed
+    Register <rx_ipv4_srcip<15>> equivalent to <rx_ipv4_ip1<31>> has been removed
+    Found finite state machine <FSM_3> for signal <arp_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 3                                              |
+    | Clock              | gmii_tx_clk (rising_edge)                      |
+    | Reset              | sys_rst (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 32-bit register for signal <rx_throughput>.
+    Found 32-bit register for signal <rx_pps>.
+    Found 32-bit register for signal <rx_ipv4_ip>.
+    Found 24-bit register for signal <rx_latency>.
+    Found 7-bit register for signal <arp_count>.
+    Found 7-bit adder for signal <arp_count$addsub0000> created at line 429.
+    Found 1-bit register for signal <arp_crc_rd>.
+    Found 1-bit register for signal <arp_request>.
+    Found 40-bit comparator equal for signal <arp_request$cmp_eq0000> created at line 216.
+    Found 24-bit register for signal <counter_start<23:0>>.
+    Found 7-bit register for signal <neighbor_count>.
+    Found 7-bit adder for signal <neighbor_count$addsub0000> created at line 546.
+    Found 1-bit register for signal <neighbor_request>.
+    Found 128-bit comparator not equal for signal <neighbor_request$cmp_ne0003> created at line 273.
+    Found 32-bit register for signal <pps>.
+    Found 32-bit adder for signal <pps$addsub0000> created at line 179.
+    Found 32-bit register for signal <rx_arp_dst>.
+    Found 14-bit up counter for signal <rx_count>.
+    Found 32-bit register for signal <rx_ipv4_ip1>.
+    Found 32-bit register for signal <rx_ipv4_ip2>.
+    Found 16-bit register for signal <rx_ipv4_srcip<31:16>>.
+    Found 24-bit register for signal <rx_latency1>.
+    Found 24-bit subtractor for signal <rx_latency1$addsub0000>.
+    Found 24-bit register for signal <rx_latency2>.
+    Found 40-bit register for signal <rx_magic>.
+    Found 16-bit register for signal <rx_opcode>.
+    Found 32-bit register for signal <rx_pps1>.
+    Found 32-bit register for signal <rx_pps2>.
+    Found 48-bit register for signal <rx_src_mac>.
+    Found 32-bit register for signal <rx_throughput1>.
+    Found 32-bit register for signal <rx_throughput2>.
+    Found 16-bit register for signal <rx_type>.
+    Found 1-bit register for signal <rxq_rd_en>.
+    Found 32-bit register for signal <throughput>.
+    Found 32-bit adder for signal <throughput$addsub0000> created at line 282.
+    Found 8-bit register for signal <tx_data>.
+    Found 48-bit register for signal <tx_dst_mac>.
+    Found 128-bit comparator equal for signal <tx_dst_mac$cmp_eq0008> created at line 273.
+    Found 1-bit register for signal <tx_en>.
+    Found 32-bit register for signal <tx_ipv4_dstip>.
+    Found 128-bit register for signal <v6target>.
+    Found 8-bit register for signal <v6type>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred 859 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+Unit <measure_core_2> synthesized.
+
+
+Synthesizing Unit <measure_core_3>.
+    Related source file is "../../../../cores/measure/rtl/measure_core.v".
+WARNING:Xst:647 - Input <global_counter<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sys_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <counter_start<31:24>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <counter_end> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <rx_ipv4_srcip<0>> equivalent to <rx_ipv4_ip1<16>> has been removed
+    Register <rx_ipv4_srcip<1>> equivalent to <rx_ipv4_ip1<17>> has been removed
+    Register <rx_ipv4_srcip<2>> equivalent to <rx_ipv4_ip1<18>> has been removed
+    Register <rx_ipv4_srcip<3>> equivalent to <rx_ipv4_ip1<19>> has been removed
+    Register <rx_ipv4_srcip<4>> equivalent to <rx_ipv4_ip1<20>> has been removed
+    Register <rx_ipv4_srcip<5>> equivalent to <rx_ipv4_ip1<21>> has been removed
+    Register <rx_ipv4_srcip<6>> equivalent to <rx_ipv4_ip1<22>> has been removed
+    Register <rx_ipv4_srcip<7>> equivalent to <rx_ipv4_ip1<23>> has been removed
+    Register <rx_ipv4_srcip<8>> equivalent to <rx_ipv4_ip1<24>> has been removed
+    Register <rx_ipv4_srcip<9>> equivalent to <rx_ipv4_ip1<25>> has been removed
+    Register <rx_ipv4_srcip<10>> equivalent to <rx_ipv4_ip1<26>> has been removed
+    Register <rx_ipv4_srcip<11>> equivalent to <rx_ipv4_ip1<27>> has been removed
+    Register <rx_ipv4_srcip<12>> equivalent to <rx_ipv4_ip1<28>> has been removed
+    Register <rx_ipv4_srcip<13>> equivalent to <rx_ipv4_ip1<29>> has been removed
+    Register <rx_ipv4_srcip<14>> equivalent to <rx_ipv4_ip1<30>> has been removed
+    Register <rx_ipv4_srcip<15>> equivalent to <rx_ipv4_ip1<31>> has been removed
+    Found finite state machine <FSM_4> for signal <arp_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 3                                              |
+    | Clock              | gmii_tx_clk (rising_edge)                      |
+    | Reset              | sys_rst (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 32-bit register for signal <rx_throughput>.
+    Found 32-bit register for signal <rx_pps>.
+    Found 32-bit register for signal <rx_ipv4_ip>.
+    Found 24-bit register for signal <rx_latency>.
+    Found 7-bit register for signal <arp_count>.
+    Found 7-bit adder for signal <arp_count$addsub0000> created at line 429.
+    Found 1-bit register for signal <arp_crc_rd>.
+    Found 1-bit register for signal <arp_request>.
+    Found 40-bit comparator equal for signal <arp_request$cmp_eq0000> created at line 216.
+    Found 24-bit register for signal <counter_start<23:0>>.
+    Found 7-bit register for signal <neighbor_count>.
+    Found 7-bit adder for signal <neighbor_count$addsub0000> created at line 546.
+    Found 1-bit register for signal <neighbor_request>.
+    Found 128-bit comparator not equal for signal <neighbor_request$cmp_ne0003> created at line 273.
+    Found 32-bit register for signal <pps>.
+    Found 32-bit adder for signal <pps$addsub0000> created at line 179.
+    Found 32-bit register for signal <rx_arp_dst>.
+    Found 14-bit up counter for signal <rx_count>.
+    Found 32-bit register for signal <rx_ipv4_ip1>.
+    Found 32-bit register for signal <rx_ipv4_ip2>.
+    Found 16-bit register for signal <rx_ipv4_srcip<31:16>>.
+    Found 24-bit register for signal <rx_latency1>.
+    Found 24-bit subtractor for signal <rx_latency1$addsub0000>.
+    Found 24-bit register for signal <rx_latency2>.
+    Found 40-bit register for signal <rx_magic>.
+    Found 16-bit register for signal <rx_opcode>.
+    Found 32-bit register for signal <rx_pps1>.
+    Found 32-bit register for signal <rx_pps2>.
+    Found 48-bit register for signal <rx_src_mac>.
+    Found 32-bit register for signal <rx_throughput1>.
+    Found 32-bit register for signal <rx_throughput2>.
+    Found 16-bit register for signal <rx_type>.
+    Found 1-bit register for signal <rxq_rd_en>.
+    Found 32-bit register for signal <throughput>.
+    Found 32-bit adder for signal <throughput$addsub0000> created at line 282.
+    Found 8-bit register for signal <tx_data>.
+    Found 48-bit register for signal <tx_dst_mac>.
+    Found 128-bit comparator equal for signal <tx_dst_mac$cmp_eq0008> created at line 273.
+    Found 1-bit register for signal <tx_en>.
+    Found 32-bit register for signal <tx_ipv4_dstip>.
+    Found 128-bit register for signal <v6target>.
+    Found 8-bit register for signal <v6type>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred 859 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+Unit <measure_core_3> synthesized.
+
+
+Synthesizing Unit <measure>.
+    Related source file is "../../../../cores/measure/rtl/measure.v".
+WARNING:Xst:647 - Input <sys_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <rx_dst_mac> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <ipv4_ttl> is used but never assigned. This sourceless signal will be automatically connected to value 01000000.
+    Found finite state machine <FSM_5> for signal <tx_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 14                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 6                                              |
+    | Clock              | gmii_tx_clk (rising_edge)                      |
+    | Reset              | sys_rst (positive)                             |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+    Found 48-bit register for signal <tx0_dst_mac>.
+    Found 32-bit register for signal <tx0_throughput>.
+    Found 32-bit register for signal <tx0_pps>.
+    Found 1-bit register for signal <arp_reply>.
+    Found 16-bit register for signal <arp_wait_count>.
+    Found 16-bit subtractor for signal <arp_wait_count$addsub0000> created at line 408.
+    Found 1-bit register for signal <crc_rd>.
+    Found 12-bit adder for signal <frame_crc1_count>.
+    Found 12-bit adder for signal <frame_crc2_count>.
+    Found 12-bit adder for signal <frame_crc3_count>.
+    Found 12-bit adder for signal <frame_crc4_count>.
+    Found 12-bit adder for signal <frame_end_count>.
+    Found 24-bit up counter for signal <full_ipv4>.
+    Found 32-bit register for signal <gap_count>.
+    Found 32-bit comparator greatequal for signal <gap_count$cmp_ge0000> created at line 505.
+    Found 32-bit subtractor for signal <gap_count$share0000> created at line 328.
+    Found 32-bit up counter for signal <global_counter>.
+    Found 24-bit register for signal <ip_sum>.
+    Found 15-bit adder for signal <ip_sum$addsub0000> created at line 424.
+    Found 18-bit adder for signal <ip_sum$addsub0003> created at line 424.
+    Found 19-bit adder for signal <ip_sum$addsub0005> created at line 424.
+    Found 16-bit adder carry out for signal <ip_sum$addsub0006> created at line 433.
+    Found 19-bit adder carry out for signal <ip_sum$addsub0007> created at line 424.
+    Found 16-bit adder carry out for signal <ip_sum$addsub0008> created at line 424.
+    Found 17-bit adder carry out for signal <ip_sum$addsub0009> created at line 424.
+    Found 18-bit adder carry out for signal <ip_sum$addsub0010> created at line 424.
+    Found 17-bit up counter for signal <ipv4_id>.
+    Found 14-bit comparator not equal for signal <ipv4_id$cmp_ne0000>.
+    Found 32-bit register for signal <pps>.
+    Found 32-bit adder for signal <pps$addsub0000>.
+    Found 32-bit 8-to-1 multiplexer for signal <pps$mux0000> created at line 328.
+    Found 32-bit register for signal <rx_arp_dst>.
+    Found 14-bit up counter for signal <rx_count>.
+    Found 32-bit register for signal <rx_ipv4_srcip>.
+    Found 16-bit register for signal <rx_opcode>.
+    Found 48-bit register for signal <rx_src_mac>.
+    Found 16-bit register for signal <rx_type>.
+    Found 1-bit register for signal <rxq_rd_en>.
+    Found 27-bit down counter for signal <sec_counter>.
+    Found 1-bit register for signal <sec_oneshot>.
+    Found 32-bit register for signal <throughput>.
+    Found 32-bit adder for signal <throughput$addsub0000> created at line 328.
+    Found 32-bit subtractor for signal <throughput$addsub0001>.
+    Found 32-bit 8-to-1 multiplexer for signal <throughput$mux0000> created at line 328.
+    Found 24-bit register for signal <tmp_counter>.
+    Found 32-bit comparator equal for signal <tx0_dst_mac$cmp_eq0003> created at line 262.
+    Found 32-bit comparator equal for signal <tx0_dst_mac$cmp_eq0004> created at line 262.
+    Found 32-bit comparator not equal for signal <tx0_dst_mac$cmp_ne0002> created at line 262.
+    Found 32-bit comparator not equal for signal <tx0_dst_mac$cmp_ne0003> created at line 262.
+    Found 12-bit subtractor for signal <tx0_ip_len>.
+    Found 12-bit subtractor for signal <tx0_udp_len>.
+    Found 14-bit register for signal <tx_count>.
+    Found 14-bit adder for signal <tx_count$addsub0000>.
+    Found 8-bit register for signal <tx_data>.
+    Found 14-bit comparator equal for signal <tx_data$cmp_eq0000>.
+    Found 14-bit comparator equal for signal <tx_data$cmp_eq0001>.
+    Found 14-bit comparator equal for signal <tx_data$cmp_eq0002>.
+    Found 14-bit comparator equal for signal <tx_data$cmp_eq0003>.
+    Found 1-bit register for signal <tx_en>.
+    Found 14-bit comparator equal for signal <tx_state$cmp_eq0002>.
+    Found 48-bit comparator not equal for signal <tx_state$cmp_ne0000> created at line 639.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   5 Counter(s).
+	inferred 443 D-type flip-flop(s).
+	inferred  21 Adder/Subtractor(s).
+	inferred  12 Comparator(s).
+	inferred  64 Multiplexer(s).
+Unit <measure> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "../../rtl/top.v".
+WARNING:Xst:647 - Input <cpci_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <DEBUG_PIN0> is never assigned.
+WARNING:Xst:1306 - Output <DEBUG_PIN1> is never assigned.
+WARNING:Xst:1780 - Signal <rgmii_3_tx_clk> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <rgmii_2_tx_clk> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <rgmii_1_tx_clk> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <rgmii_0_tx_clk> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_3_speed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_3_rx_er> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_3_link> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_3_duplex> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_2_speed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_2_rx_er> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_2_link> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_2_duplex> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_1_speed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_1_rx_er> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_1_link> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_1_duplex> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_0_speed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_0_rx_er> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_0_link> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <gmii_0_duplex> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 36
+ 12-bit adder                                          : 5
+ 12-bit subtractor                                     : 2
+ 14-bit adder                                          : 1
+ 15-bit adder                                          : 1
+ 16-bit adder carry out                                : 2
+ 16-bit subtractor                                     : 1
+ 17-bit adder carry out                                : 1
+ 18-bit adder                                          : 1
+ 18-bit adder carry out                                : 1
+ 19-bit adder                                          : 1
+ 19-bit adder carry out                                : 1
+ 24-bit subtractor                                     : 3
+ 32-bit adder                                          : 8
+ 32-bit subtractor                                     : 2
+ 7-bit adder                                           : 6
+# Counters                                             : 12
+ 14-bit up counter                                     : 4
+ 17-bit up counter                                     : 1
+ 24-bit up counter                                     : 1
+ 27-bit down counter                                   : 1
+ 32-bit up counter                                     : 1
+ 4-bit down counter                                    : 4
+# Registers                                            : 1815
+ 1-bit register                                        : 1731
+ 14-bit register                                       : 1
+ 16-bit register                                       : 1
+ 2-bit register                                        : 4
+ 24-bit register                                       : 11
+ 32-bit register                                       : 43
+ 4-bit register                                        : 1
+ 48-bit register                                       : 4
+ 7-bit register                                        : 6
+ 8-bit register                                        : 13
+# Comparators                                          : 23
+ 128-bit comparator equal                              : 3
+ 128-bit comparator not equal                          : 3
+ 14-bit comparator equal                               : 5
+ 14-bit comparator not equal                           : 1
+ 27-bit comparator equal                               : 1
+ 32-bit comparator equal                               : 2
+ 32-bit comparator greatequal                          : 1
+ 32-bit comparator not equal                           : 2
+ 40-bit comparator equal                               : 3
+ 48-bit comparator not equal                           : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 2
+ 32-bit 8-to-1 multiplexer                             : 2
+# Tristates                                            : 11
+ 1-bit tristate buffer                                 : 9
+ 32-bit tristate buffer                                : 1
+ 4-bit tristate buffer                                 : 1
+# Xors                                                 : 212
+ 1-bit xor2                                            : 104
+ 1-bit xor3                                            : 48
+ 1-bit xor4                                            : 52
+ 1-bit xor6                                            : 8
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_5> for best encoding.
+Optimizing FSM <measure_inst/tx_state/FSM> on signal <tx_state[1:3]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+-------------------
+Analyzing FSM <FSM_4> for best encoding.
+Optimizing FSM <measure_inst/measure_phy3/arp_state/FSM> on signal <arp_state[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <FSM_3> for best encoding.
+Optimizing FSM <measure_inst/measure_phy2/arp_state/FSM> on signal <arp_state[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <measure_inst/measure_phy1/arp_state/FSM> on signal <arp_state[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <pci_inst/seq_next_state/FSM> on signal <seq_next_state[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 011
+ 011   | 010
+ 111   | 110
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <pci_inst/target_next_state/FSM> on signal <target_next_state[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 011   | 011
+ 010   | 010
+ 100   | 100
+ 101   | 101
+ 110   | 110
+ 111   | 111
+-------------------
+WARNING:Xst:2404 -  FFs/Latches <state<1:1>> (without init value) have a constant value of 0 in block <gmii2fifo9>.
+Loading device for application Rf_Device from file '2vp50.nph' in environment /home/sora/opt/Xilinx/10.1/ISE.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 6
+# Adders/Subtractors                                   : 36
+ 12-bit adder                                          : 5
+ 12-bit subtractor                                     : 2
+ 14-bit adder                                          : 1
+ 15-bit adder                                          : 1
+ 16-bit adder carry out                                : 2
+ 16-bit subtractor                                     : 1
+ 17-bit adder carry out                                : 1
+ 18-bit adder                                          : 1
+ 18-bit adder carry out                                : 1
+ 19-bit adder                                          : 1
+ 19-bit adder carry out                                : 1
+ 24-bit subtractor                                     : 3
+ 32-bit adder                                          : 8
+ 32-bit subtractor                                     : 2
+ 7-bit adder                                           : 6
+# Counters                                             : 12
+ 14-bit up counter                                     : 4
+ 17-bit up counter                                     : 1
+ 24-bit up counter                                     : 1
+ 27-bit down counter                                   : 1
+ 32-bit up counter                                     : 1
+ 4-bit down counter                                    : 4
+# Registers                                            : 3927
+ Flip-Flops                                            : 3927
+# Comparators                                          : 23
+ 128-bit comparator equal                              : 3
+ 128-bit comparator not equal                          : 3
+ 14-bit comparator equal                               : 5
+ 14-bit comparator not equal                           : 1
+ 27-bit comparator equal                               : 1
+ 32-bit comparator equal                               : 2
+ 32-bit comparator greatequal                          : 1
+ 32-bit comparator not equal                           : 2
+ 40-bit comparator equal                               : 3
+ 48-bit comparator not equal                           : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 2
+ 32-bit 8-to-1 multiplexer                             : 2
+# Xors                                                 : 212
+ 1-bit xor2                                            : 104
+ 1-bit xor3                                            : 48
+ 1-bit xor4                                            : 52
+ 1-bit xor6                                            : 8
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <ipv4_id_16> of sequential type is unconnected in block <measure>.
+
+Optimizing unit <top> ...
+
+Optimizing unit <crc_gen> ...
+
+Optimizing unit <gmii2fifo9> ...
+
+Optimizing unit <rgmii_io> ...
+
+Optimizing unit <measure_core_1> ...
+
+Optimizing unit <measure_core_2> ...
+
+Optimizing unit <measure_core_3> ...
+
+Optimizing unit <measure> ...
+WARNING:Xst:1710 - FF/Latch <tx0_dst_mac_40> (without init value) has a constant value of 0 in block <measure>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx0_dst_mac_40> (without init value) has a constant value of 0 in block <measure>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx0_dst_mac_40> (without init value) has a constant value of 0 in block <measure>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx0_dst_mac_40> (without init value) has a constant value of 0 in block <measure>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Forward register balancing over carry chain measure_inst/Mcount_ipv4_id_cy<0>
+Forward register balancing over carry chain measure_inst/Madd_tx_count_addsub0000_cy<0>
+INFO:Xst:2260 - The FF/Latch <rgmii_2_io/fdce_txer> in Unit <top> is equivalent to the following FF/Latch : <rgmii_2_io/fdce_txen> 
+INFO:Xst:2260 - The FF/Latch <rgmii_3_io/fdce_txer> in Unit <top> is equivalent to the following FF/Latch : <rgmii_3_io/fdce_txen> 
+INFO:Xst:2260 - The FF/Latch <rgmii_0_io/fdce_txer> in Unit <top> is equivalent to the following FF/Latch : <rgmii_0_io/fdce_txen> 
+INFO:Xst:2260 - The FF/Latch <rgmii_1_io/fdce_txer> in Unit <top> is equivalent to the following FF/Latch : <rgmii_1_io/fdce_txen> 
+
+Pipelining and Register Balancing Report ...
+
+Processing Unit <top> :
+	Register(s) measure_inst/ip_sum_10 has(ve) been backward balanced into : measure_inst/ip_sum_10_BRB0 measure_inst/ip_sum_10_BRB1 measure_inst/ip_sum_10_BRB2.
+	Register(s) measure_inst/ip_sum_11 has(ve) been backward balanced into : measure_inst/ip_sum_11_BRB0 measure_inst/ip_sum_11_BRB1 measure_inst/ip_sum_11_BRB2.
+	Register(s) measure_inst/ip_sum_12 has(ve) been backward balanced into : measure_inst/ip_sum_12_BRB0 measure_inst/ip_sum_12_BRB1 measure_inst/ip_sum_12_BRB2.
+	Register(s) measure_inst/ip_sum_13 has(ve) been backward balanced into : measure_inst/ip_sum_13_BRB0 measure_inst/ip_sum_13_BRB1 measure_inst/ip_sum_13_BRB2.
+	Register(s) measure_inst/ip_sum_14 has(ve) been backward balanced into : measure_inst/ip_sum_14_BRB0 measure_inst/ip_sum_14_BRB1 measure_inst/ip_sum_14_BRB2.
+	Register(s) measure_inst/ip_sum_15 has(ve) been backward balanced into : measure_inst/ip_sum_15_BRB0 measure_inst/ip_sum_15_BRB1 measure_inst/ip_sum_15_BRB2.
+	Register(s) measure_inst/ip_sum_16 has(ve) been backward balanced into : measure_inst/ip_sum_16_BRB0 measure_inst/ip_sum_16_BRB1 measure_inst/ip_sum_16_BRB2.
+	Register(s) measure_inst/ip_sum_17 has(ve) been backward balanced into : measure_inst/ip_sum_17_BRB1 measure_inst/ip_sum_17_BRB3.
+	Register(s) measure_inst/ip_sum_18 has(ve) been backward balanced into : measure_inst/ip_sum_18_BRB1 measure_inst/ip_sum_18_BRB3.
+	Register(s) measure_inst/ip_sum_19 has(ve) been backward balanced into : measure_inst/ip_sum_19_BRB0 measure_inst/ip_sum_19_BRB1 measure_inst/ip_sum_19_BRB2 measure_inst/ip_sum_19_BRB3.
+	Register(s) measure_inst/ip_sum_4 has(ve) been backward balanced into : measure_inst/ip_sum_4_BRB0 measure_inst/ip_sum_4_BRB1 measure_inst/ip_sum_4_BRB2.
+	Register(s) measure_inst/ip_sum_5 has(ve) been backward balanced into : measure_inst/ip_sum_5_BRB0 measure_inst/ip_sum_5_BRB1 measure_inst/ip_sum_5_BRB2.
+	Register(s) measure_inst/ip_sum_6 has(ve) been backward balanced into : measure_inst/ip_sum_6_BRB0 measure_inst/ip_sum_6_BRB1 measure_inst/ip_sum_6_BRB2.
+	Register(s) measure_inst/ip_sum_7 has(ve) been backward balanced into : measure_inst/ip_sum_7_BRB0 measure_inst/ip_sum_7_BRB1 measure_inst/ip_sum_7_BRB2.
+	Register(s) measure_inst/ip_sum_8 has(ve) been backward balanced into : measure_inst/ip_sum_8_BRB0 measure_inst/ip_sum_8_BRB1 measure_inst/ip_sum_8_BRB2.
+	Register(s) measure_inst/ip_sum_9 has(ve) been backward balanced into : measure_inst/ip_sum_9_BRB0 measure_inst/ip_sum_9_BRB1 measure_inst/ip_sum_9_BRB2.
+Unit <top> processed.
+
+Final Macro Processing ...
+
+Processing Unit <top> :
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_latency_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_throughput_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_pps_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy3/rx_ipv4_ip_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_latency_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_throughput_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_pps_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy2/rx_ipv4_ip_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_latency_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_throughput_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_pps_31>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_0>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_1>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_2>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_3>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_4>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_5>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_6>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_7>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_8>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_9>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_10>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_11>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_12>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_13>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_14>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_15>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_16>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_17>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_18>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_19>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_20>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_21>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_22>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_23>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_24>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_25>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_26>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_27>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_28>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_29>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_30>.
+	Found 2-bit shift register for signal <measure_inst/measure_phy1/rx_ipv4_ip_31>.
+Unit <top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 3453
+ Flip-Flops                                            : 3453
+# Shift Registers                                      : 360
+ 2-bit shift register                                  : 360
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+Top Level Output File Name         : top.ngc
+Output Format                      : ngc
+Optimization Goal                  : SPEED
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 150
+
+Cell Usage :
+# BELS                             : 7215
+#      GND                         : 1
+#      INV                         : 123
+#      LUT1                        : 386
+#      LUT2                        : 564
+#      LUT2_D                      : 8
+#      LUT2_L                      : 2
+#      LUT3                        : 858
+#      LUT3_D                      : 7
+#      LUT3_L                      : 2
+#      LUT4                        : 3281
+#      LUT4_D                      : 41
+#      LUT4_L                      : 47
+#      MUXCY                       : 1016
+#      MUXF5                       : 157
+#      VCC                         : 1
+#      XORCY                       : 721
+# FlipFlops/Latches                : 3857
+#      FD                          : 360
+#      FDCE                        : 124
+#      FDCE_1                      : 40
+#      FDDRRSE                     : 24
+#      FDE                         : 175
+#      FDR                         : 247
+#      FDRE                        : 2546
+#      FDRS                        : 91
+#      FDRSE                       : 16
+#      FDS                         : 19
+#      FDSE                        : 67
+#      FDSE_1                      : 128
+#      IFDDRRSE                    : 20
+# Shift Registers                  : 360
+#      SRL16                       : 360
+# Clock Buffers                    : 7
+#      BUFGMUX                     : 2
+#      BUFGP                       : 5
+# IO Buffers                       : 117
+#      IBUF                        : 4
+#      IOBUF                       : 38
+#      OBUF                        : 68
+#      OBUFT                       : 7
+# DCMs                             : 1
+#      DCM                         : 1
+# Others                           : 4
+#      asfifo9_4                   : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 2vp50ff1152-7 
+
+ Number of Slices:                     3638  out of  23616    15%  
+ Number of Slice Flip Flops:           3857  out of  47232     8%  
+ Number of 4 input LUTs:               5679  out of  47232    12%  
+    Number used as logic:              5319
+    Number used as Shift registers:     360
+ Number of IOs:                         150
+ Number of bonded IOBs:                 142  out of    692    20%  
+ Number of GCLKs:                         7  out of     16    43%  
+ Number of DCMs:                          1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+gtx_clk                            | RGMII_TX_DCM:CLK90     | 8     |
+PCLK2                              | BUFGP                  | 1281  |
+rgmii_3_rxc                        | BUFGP                  | 59    |
+gtx_clk                            | RGMII_TX_DCM:CLK0      | 2736  |
+rgmii_2_rxc                        | BUFGP                  | 59    |
+rgmii_1_rxc                        | BUFGP                  | 59    |
+rgmii_0_rxc                        | BUFGP                  | 59    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+-----------------------------+-------+
+Control Signal                     | Buffer(FF name)             | Load  |
+-----------------------------------+-----------------------------+-------+
+reset1_INV_0_1(reset1_INV_0_1:O)   | NONE(rgmii_3_io/fdce_rxctl1)| 164   |
+-----------------------------------+-----------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -7
+
+   Minimum period: 11.656ns (Maximum Frequency: 85.795MHz)
+   Minimum input arrival time before clock: 4.581ns
+   Maximum output required time after clock: 3.636ns
+   Maximum combinational path delay: 3.172ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'PCLK2'
+  Clock period: 6.151ns (frequency: 162.566MHz)
+  Total number of paths / destination ports: 12975 / 957
+-------------------------------------------------------------------------
+Delay:               6.151ns (Levels of Logic = 12)
+  Source:            pci_inst/PCI_Address_7 (FF)
+  Destination:       pci_inst/target_next_state_FSM_FFd3 (FF)
+  Source Clock:      PCLK2 rising
+  Destination Clock: PCLK2 rising
+
+  Data Path: pci_inst/PCI_Address_7 to pci_inst/target_next_state_FSM_FFd3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            46   0.370   0.827  pci_inst/PCI_Address_7 (pci_inst/PCI_Address_7)
+     LUT4:I0->O            1   0.275   0.000  pci_inst/Mcompar_Hit_IO_cmp_eq0001_lut<5> (pci_inst/Mcompar_Hit_IO_cmp_eq0001_lut<5>)
+     MUXCY:S->O            1   0.334   0.000  pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<5> (pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<5>)
+     MUXCY:CI->O           1   0.036   0.000  pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<6> (pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<6>)
+     MUXCY:CI->O           1   0.036   0.000  pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<7> (pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<7>)
+     MUXCY:CI->O           1   0.036   0.000  pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<8> (pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<8>)
+     MUXCY:CI->O           1   0.415   0.467  pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<9> (pci_inst/Mcompar_Hit_IO_cmp_eq0001_cy<9>)
+     LUT4:I0->O            1   0.275   0.000  pci_inst/Hit_IO1 (pci_inst/Hit_IO1)
+     MUXF5:I0->O           3   0.303   0.533  pci_inst/Hit_IO_f5 (pci_inst/Hit_IO)
+     LUT4:I0->O            2   0.275   0.476  pci_inst/Hit_Device1 (pci_inst/Hit_Device)
+     LUT3:I1->O            1   0.275   0.000  pci_inst/target_next_state_FSM_FFd3-In56_G (N868)
+     MUXF5:I1->O           1   0.303   0.430  pci_inst/target_next_state_FSM_FFd3-In56 (pci_inst/target_next_state_FSM_FFd3-In56)
+     LUT2:I1->O            1   0.275   0.000  pci_inst/target_next_state_FSM_FFd3-In851 (pci_inst/target_next_state_FSM_FFd3-In85)
+     FDRS:D                    0.208          pci_inst/target_next_state_FSM_FFd3
+    ----------------------------------------
+    Total                      6.151ns (3.418ns logic, 2.733ns route)
+                                       (55.6% logic, 44.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'gtx_clk'
+  Clock period: 11.656ns (frequency: 85.795MHz)
+  Total number of paths / destination ports: 7006041 / 4210
+-------------------------------------------------------------------------
+Delay:               11.656ns (Levels of Logic = 30)
+  Source:            measure_inst/ipv4_id_0 (FF)
+  Destination:       measure_inst/ip_sum_18_BRB1 (FF)
+  Source Clock:      gtx_clk falling
+  Destination Clock: gtx_clk falling
+
+  Data Path: measure_inst/ipv4_id_0 to measure_inst/ip_sum_18_BRB1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.370   0.476  measure_inst/ipv4_id_0 (measure_inst/ipv4_id_0)
+     LUT2:I1->O            1   0.275   0.000  measure_inst/Madd_ip_sum_addsub0008_lut<0> (measure_inst/Madd_ip_sum_addsub0008_lut<0>)
+     MUXCY:S->O            1   0.334   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<0> (measure_inst/Madd_ip_sum_addsub0008_cy<0>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<1> (measure_inst/Madd_ip_sum_addsub0008_cy<1>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<2> (measure_inst/Madd_ip_sum_addsub0008_cy<2>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<3> (measure_inst/Madd_ip_sum_addsub0008_cy<3>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<4> (measure_inst/Madd_ip_sum_addsub0008_cy<4>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<5> (measure_inst/Madd_ip_sum_addsub0008_cy<5>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<6> (measure_inst/Madd_ip_sum_addsub0008_cy<6>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<7> (measure_inst/Madd_ip_sum_addsub0008_cy<7>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<8> (measure_inst/Madd_ip_sum_addsub0008_cy<8>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<9> (measure_inst/Madd_ip_sum_addsub0008_cy<9>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<10> (measure_inst/Madd_ip_sum_addsub0008_cy<10>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<11> (measure_inst/Madd_ip_sum_addsub0008_cy<11>)
+     MUXCY:CI->O           1   0.036   0.000  measure_inst/Madd_ip_sum_addsub0008_cy<12> (measure_inst/Madd_ip_sum_addsub0008_cy<12>)
+     XORCY:CI->O           1   0.708   0.467  measure_inst/Madd_ip_sum_addsub0008_xor<13> (measure_inst/ip_sum_addsub0008<13>)
+     LUT1:I0->O            1   0.275   0.000  measure_inst/Madd_ip_sum_addsub0009_cy<13>_rt (measure_inst/Madd_ip_sum_addsub0009_cy<13>_rt)
+     MUXCY:S->O            1   0.334   0.000  measure_inst/Madd_ip_sum_addsub0009_cy<13> (measure_inst/Madd_ip_sum_addsub0009_cy<13>)
+     XORCY:CI->O           1   0.708   0.430  measure_inst/Madd_ip_sum_addsub0009_xor<14> (measure_inst/ip_sum_addsub0009<14>)
+     LUT2:I1->O            1   0.275   0.000  measure_inst/Madd_ip_sum_addsub0003_lut<14> (measure_inst/Madd_ip_sum_addsub0003_lut<14>)
+     MUXCY:S->O            1   0.334   0.000  measure_inst/Madd_ip_sum_addsub0003_cy<14> (measure_inst/Madd_ip_sum_addsub0003_cy<14>)
+     XORCY:CI->O           1   0.708   0.430  measure_inst/Madd_ip_sum_addsub0003_xor<15> (measure_inst/ip_sum_addsub0003<15>)
+     LUT2:I1->O            1   0.275   0.000  measure_inst/Madd_ip_sum_addsub0010_lut<15> (measure_inst/Madd_ip_sum_addsub0010_lut<15>)
+     MUXCY:S->O            1   0.334   0.000  measure_inst/Madd_ip_sum_addsub0010_cy<15> (measure_inst/Madd_ip_sum_addsub0010_cy<15>)
+     XORCY:CI->O           1   0.708   0.467  measure_inst/Madd_ip_sum_addsub0010_xor<16> (measure_inst/ip_sum_addsub0010<16>)
+     LUT1:I0->O            1   0.275   0.000  measure_inst/Madd_ip_sum_addsub0005_cy<16>_rt (measure_inst/Madd_ip_sum_addsub0005_cy<16>_rt)
+     MUXCY:S->O            1   0.334   0.000  measure_inst/Madd_ip_sum_addsub0005_cy<16> (measure_inst/Madd_ip_sum_addsub0005_cy<16>)
+     XORCY:CI->O           1   0.708   0.467  measure_inst/Madd_ip_sum_addsub0005_xor<17> (measure_inst/ip_sum_addsub0005<17>)
+     LUT1:I0->O            1   0.275   0.000  measure_inst/Madd_ip_sum_addsub0007_cy<17>_rt (measure_inst/Madd_ip_sum_addsub0007_cy<17>_rt)
+     MUXCY:S->O            1   0.334   0.000  measure_inst/Madd_ip_sum_addsub0007_cy<17> (measure_inst/Madd_ip_sum_addsub0007_cy<17>)
+     XORCY:CI->O           1   0.708   0.000  measure_inst/Madd_ip_sum_addsub0007_xor<18> (measure_inst/ip_sum_addsub0007<18>)
+     FDE:D                     0.208          measure_inst/ip_sum_18_BRB1
+    ----------------------------------------
+    Total                     11.656ns (8.918ns logic, 2.738ns route)
+                                       (76.5% logic, 23.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'rgmii_3_rxc'
+  Clock period: 5.982ns (frequency: 167.157MHz)
+  Total number of paths / destination ports: 168 / 67
+-------------------------------------------------------------------------
+Delay:               2.991ns (Levels of Logic = 2)
+  Source:            rgmii_3_io/fdce3_rxctl1 (FF)
+  Destination:       measure_inst/measure_phy3/rxgmii2fifo/rxc (FF)
+  Source Clock:      rgmii_3_rxc falling
+  Destination Clock: rgmii_3_rxc rising
+
+  Data Path: rgmii_3_io/fdce3_rxctl1 to measure_inst/measure_phy3/rxgmii2fifo/rxc
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            16   0.370   0.766  rgmii_3_io/fdce3_rxctl1 (gmii_3_rx_dv)
+     LUT4:I0->O            6   0.275   0.543  measure_inst/measure_phy3/rxgmii2fifo/gap_count_not00011 (measure_inst/measure_phy3/rxgmii2fifo/gap_count_not0001)
+     LUT2:I1->O            9   0.275   0.499  measure_inst/measure_phy3/rxgmii2fifo/rxd_not00011 (measure_inst/measure_phy3/rxgmii2fifo/rxd_not0001)
+     FDE:CE                    0.263          measure_inst/measure_phy3/rxgmii2fifo/rxd_0
+    ----------------------------------------
+    Total                      2.991ns (1.183ns logic, 1.808ns route)
+                                       (39.5% logic, 60.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'rgmii_2_rxc'
+  Clock period: 5.982ns (frequency: 167.157MHz)
+  Total number of paths / destination ports: 168 / 67
+-------------------------------------------------------------------------
+Delay:               2.991ns (Levels of Logic = 2)
+  Source:            rgmii_2_io/fdce3_rxctl1 (FF)
+  Destination:       measure_inst/measure_phy2/rxgmii2fifo/rxc (FF)
+  Source Clock:      rgmii_2_rxc falling
+  Destination Clock: rgmii_2_rxc rising
+
+  Data Path: rgmii_2_io/fdce3_rxctl1 to measure_inst/measure_phy2/rxgmii2fifo/rxc
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            16   0.370   0.766  rgmii_2_io/fdce3_rxctl1 (gmii_2_rx_dv)
+     LUT4:I0->O            6   0.275   0.543  measure_inst/measure_phy2/rxgmii2fifo/gap_count_not00011 (measure_inst/measure_phy2/rxgmii2fifo/gap_count_not0001)
+     LUT2:I1->O            9   0.275   0.499  measure_inst/measure_phy2/rxgmii2fifo/rxd_not00011 (measure_inst/measure_phy2/rxgmii2fifo/rxd_not0001)
+     FDE:CE                    0.263          measure_inst/measure_phy2/rxgmii2fifo/rxd_0
+    ----------------------------------------
+    Total                      2.991ns (1.183ns logic, 1.808ns route)
+                                       (39.5% logic, 60.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'rgmii_1_rxc'
+  Clock period: 5.982ns (frequency: 167.157MHz)
+  Total number of paths / destination ports: 168 / 67
+-------------------------------------------------------------------------
+Delay:               2.991ns (Levels of Logic = 2)
+  Source:            rgmii_1_io/fdce3_rxctl1 (FF)
+  Destination:       measure_inst/measure_phy1/rxgmii2fifo/rxc (FF)
+  Source Clock:      rgmii_1_rxc falling
+  Destination Clock: rgmii_1_rxc rising
+
+  Data Path: rgmii_1_io/fdce3_rxctl1 to measure_inst/measure_phy1/rxgmii2fifo/rxc
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            16   0.370   0.766  rgmii_1_io/fdce3_rxctl1 (gmii_1_rx_dv)
+     LUT4:I0->O            6   0.275   0.543  measure_inst/measure_phy1/rxgmii2fifo/gap_count_not00011 (measure_inst/measure_phy1/rxgmii2fifo/gap_count_not0001)
+     LUT2:I1->O            9   0.275   0.499  measure_inst/measure_phy1/rxgmii2fifo/rxd_not00011 (measure_inst/measure_phy1/rxgmii2fifo/rxd_not0001)
+     FDE:CE                    0.263          measure_inst/measure_phy1/rxgmii2fifo/rxd_0
+    ----------------------------------------
+    Total                      2.991ns (1.183ns logic, 1.808ns route)
+                                       (39.5% logic, 60.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'rgmii_0_rxc'
+  Clock period: 5.982ns (frequency: 167.157MHz)
+  Total number of paths / destination ports: 168 / 67
+-------------------------------------------------------------------------
+Delay:               2.991ns (Levels of Logic = 2)
+  Source:            rgmii_0_io/fdce3_rxctl1 (FF)
+  Destination:       measure_inst/rxgmii2fifo/rxd_0 (FF)
+  Source Clock:      rgmii_0_rxc falling
+  Destination Clock: rgmii_0_rxc rising
+
+  Data Path: rgmii_0_io/fdce3_rxctl1 to measure_inst/rxgmii2fifo/rxd_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            16   0.370   0.766  rgmii_0_io/fdce3_rxctl1 (gmii_0_rx_dv)
+     LUT4:I0->O            6   0.275   0.543  measure_inst/rxgmii2fifo/gap_count_not00011 (measure_inst/rxgmii2fifo/gap_count_not0001)
+     LUT2:I1->O            9   0.275   0.499  measure_inst/rxgmii2fifo/rxd_not00011 (measure_inst/rxgmii2fifo/rxd_not0001)
+     FDE:CE                    0.263          measure_inst/rxgmii2fifo/rxd_0
+    ----------------------------------------
+    Total                      2.991ns (1.183ns logic, 1.808ns route)
+                                       (39.5% logic, 60.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'gtx_clk'
+  Total number of paths / destination ports: 5990 / 5860
+-------------------------------------------------------------------------
+Offset:              4.581ns (Levels of Logic = 4)
+  Source:            measure_inst/measure_phy1/rxq:dout<8> (PAD)
+  Destination:       measure_inst/measure_phy1/v6target_109 (FF)
+  Destination Clock: gtx_clk falling
+
+  Data Path: measure_inst/measure_phy1/rxq:dout<8> to measure_inst/measure_phy1/v6target_109
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    asfifo9_4:dout<8>     11   0.000   0.619  measure_inst/measure_phy1/rxq (measure_inst/measure_phy1/rxq_dout<8>)
+     LUT2:I1->O          147   0.275   0.873  measure_inst/measure_phy1/tx_ipv4_dstip_not000111 (measure_inst/measure_phy1/rx_magic_39_not0001)
+     LUT4:I3->O            9   0.275   0.635  measure_inst/measure_phy1/rx_src_mac_15_not000111 (measure_inst/measure_phy1/N105)
+     LUT3:I0->O            8   0.275   0.614  measure_inst/measure_phy1/v6target_103_not000111 (measure_inst/measure_phy1/N120)
+     LUT4:I0->O            8   0.275   0.478  measure_inst/measure_phy1/v6target_111_not00011 (measure_inst/measure_phy1/v6target_111_not0001)
+     FDRE:CE                   0.263          measure_inst/measure_phy1/v6target_109
+    ----------------------------------------
+    Total                      4.581ns (1.363ns logic, 3.218ns route)
+                                       (29.8% logic, 70.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'PCLK2'
+  Total number of paths / destination ports: 1679 / 1599
+-------------------------------------------------------------------------
+Offset:              3.708ns (Levels of Logic = 2)
+  Source:            cpci_reset (PAD)
+  Destination:       pci_inst/target_next_state_FSM_FFd2 (FF)
+  Destination Clock: PCLK2 rising
+
+  Data Path: cpci_reset to pci_inst/target_next_state_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   0.878   0.761  cpci_reset_IBUF (cpci_reset_IBUF)
+     INV:I->O            445   0.275   1.258  reset1_INV_0_1 (reset1_INV_0_1)
+     FDRE:R                    0.536          pci_inst/tx0_src_mac_9
+    ----------------------------------------
+    Total                      3.708ns (1.689ns logic, 2.019ns route)
+                                       (45.6% logic, 54.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_3_rxc'
+  Total number of paths / destination ports: 25 / 25
+-------------------------------------------------------------------------
+Offset:              3.708ns (Levels of Logic = 2)
+  Source:            cpci_reset (PAD)
+  Destination:       rgmii_3_io/ifddrse_rxctl (UNKNOWN)
+  Destination Clock: rgmii_3_rxc falling
+
+  Data Path: cpci_reset to rgmii_3_io/ifddrse_rxctl
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   0.878   0.761  cpci_reset_IBUF (cpci_reset_IBUF)
+     INV:I->O            445   0.275   1.258  reset1_INV_0_1 (reset1_INV_0_1)
+     IFDDRRSE:R                0.536          rgmii_3_io/ifddrse_rxd3
+    ----------------------------------------
+    Total                      3.708ns (1.689ns logic, 2.019ns route)
+                                       (45.6% logic, 54.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_2_rxc'
+  Total number of paths / destination ports: 25 / 25
+-------------------------------------------------------------------------
+Offset:              3.708ns (Levels of Logic = 2)
+  Source:            cpci_reset (PAD)
+  Destination:       rgmii_2_io/ifddrse_rxctl (UNKNOWN)
+  Destination Clock: rgmii_2_rxc falling
+
+  Data Path: cpci_reset to rgmii_2_io/ifddrse_rxctl
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   0.878   0.761  cpci_reset_IBUF (cpci_reset_IBUF)
+     INV:I->O            445   0.275   1.258  reset1_INV_0_1 (reset1_INV_0_1)
+     IFDDRRSE:R                0.536          rgmii_2_io/ifddrse_rxd3
+    ----------------------------------------
+    Total                      3.708ns (1.689ns logic, 2.019ns route)
+                                       (45.6% logic, 54.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_1_rxc'
+  Total number of paths / destination ports: 25 / 25
+-------------------------------------------------------------------------
+Offset:              3.708ns (Levels of Logic = 2)
+  Source:            cpci_reset (PAD)
+  Destination:       rgmii_1_io/ifddrse_rxctl (UNKNOWN)
+  Destination Clock: rgmii_1_rxc falling
+
+  Data Path: cpci_reset to rgmii_1_io/ifddrse_rxctl
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   0.878   0.761  cpci_reset_IBUF (cpci_reset_IBUF)
+     INV:I->O            445   0.275   1.258  reset1_INV_0_1 (reset1_INV_0_1)
+     IFDDRRSE:R                0.536          rgmii_1_io/ifddrse_rxd3
+    ----------------------------------------
+    Total                      3.708ns (1.689ns logic, 2.019ns route)
+                                       (45.6% logic, 54.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_0_rxc'
+  Total number of paths / destination ports: 25 / 25
+-------------------------------------------------------------------------
+Offset:              3.708ns (Levels of Logic = 2)
+  Source:            cpci_reset (PAD)
+  Destination:       rgmii_0_io/ifddrse_rxctl (UNKNOWN)
+  Destination Clock: rgmii_0_rxc falling
+
+  Data Path: cpci_reset to rgmii_0_io/ifddrse_rxctl
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   0.878   0.761  cpci_reset_IBUF (cpci_reset_IBUF)
+     INV:I->O            445   0.275   1.258  reset1_INV_0_1 (reset1_INV_0_1)
+     IFDDRRSE:R                0.536          rgmii_0_io/ifddrse_rxd3
+    ----------------------------------------
+    Total                      3.708ns (1.689ns logic, 2.019ns route)
+                                       (45.6% logic, 54.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'PCLK2'
+  Total number of paths / destination ports: 74 / 39
+-------------------------------------------------------------------------
+Offset:              3.636ns (Levels of Logic = 1)
+  Source:            pci_inst/SLAD_HIZ (FF)
+  Destination:       AD_HIZ (PAD)
+  Source Clock:      PCLK2 rising
+
+  Data Path: pci_inst/SLAD_HIZ to AD_HIZ
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q             34   0.370   0.674  pci_inst/SLAD_HIZ (pci_inst/SLAD_HIZ)
+     OBUF:I->O                 2.592          AD_HIZ_OBUF (AD_HIZ)
+    ----------------------------------------
+    Total                      3.636ns (2.962ns logic, 0.674ns route)
+                                       (81.5% logic, 18.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'gtx_clk'
+  Total number of paths / destination ports: 28 / 28
+-------------------------------------------------------------------------
+Offset:              3.293ns (Levels of Logic = 1)
+  Source:            rgmii_3_io/fddrse_txctl (FF)
+  Destination:       rgmii_3_tx_ctl (PAD)
+  Source Clock:      gtx_clk rising
+
+  Data Path: rgmii_3_io/fddrse_txctl to rgmii_3_tx_ctl
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDDRRSE:C0->Q         1   0.370   0.332  rgmii_3_io/fddrse_txctl (rgmii_3_io/rgmii_tx_ctl_obuf)
+     OBUF:I->O                 2.592          rgmii_3_io/drive_rgmii_txctl (rgmii_3_tx_ctl)
+    ----------------------------------------
+    Total                      3.293ns (2.962ns logic, 0.332ns route)
+                                       (89.9% logic, 10.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'rgmii_3_rxc'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              0.370ns (Levels of Logic = 0)
+  Source:            measure_inst/measure_phy3/rxgmii2fifo/wr_en (FF)
+  Destination:       measure_inst/measure_phy3/rxq:wr_en (PAD)
+  Source Clock:      rgmii_3_rxc rising
+
+  Data Path: measure_inst/measure_phy3/rxgmii2fifo/wr_en to measure_inst/measure_phy3/rxq:wr_en
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              0   0.370   0.000  measure_inst/measure_phy3/rxgmii2fifo/wr_en (measure_inst/measure_phy3/rxgmii2fifo/wr_en)
+    asfifo9_4:wr_en            0.000          measure_inst/measure_phy3/rxq
+    ----------------------------------------
+    Total                      0.370ns (0.370ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'rgmii_2_rxc'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              0.370ns (Levels of Logic = 0)
+  Source:            measure_inst/measure_phy2/rxgmii2fifo/wr_en (FF)
+  Destination:       measure_inst/measure_phy2/rxq:wr_en (PAD)
+  Source Clock:      rgmii_2_rxc rising
+
+  Data Path: measure_inst/measure_phy2/rxgmii2fifo/wr_en to measure_inst/measure_phy2/rxq:wr_en
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              0   0.370   0.000  measure_inst/measure_phy2/rxgmii2fifo/wr_en (measure_inst/measure_phy2/rxgmii2fifo/wr_en)
+    asfifo9_4:wr_en            0.000          measure_inst/measure_phy2/rxq
+    ----------------------------------------
+    Total                      0.370ns (0.370ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'rgmii_1_rxc'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              0.370ns (Levels of Logic = 0)
+  Source:            measure_inst/measure_phy1/rxgmii2fifo/wr_en (FF)
+  Destination:       measure_inst/measure_phy1/rxq:wr_en (PAD)
+  Source Clock:      rgmii_1_rxc rising
+
+  Data Path: measure_inst/measure_phy1/rxgmii2fifo/wr_en to measure_inst/measure_phy1/rxq:wr_en
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              0   0.370   0.000  measure_inst/measure_phy1/rxgmii2fifo/wr_en (measure_inst/measure_phy1/rxgmii2fifo/wr_en)
+    asfifo9_4:wr_en            0.000          measure_inst/measure_phy1/rxq
+    ----------------------------------------
+    Total                      0.370ns (0.370ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'rgmii_0_rxc'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              0.370ns (Levels of Logic = 0)
+  Source:            measure_inst/rxgmii2fifo/wr_en (FF)
+  Destination:       measure_inst/rxq:wr_en (PAD)
+  Source Clock:      rgmii_0_rxc rising
+
+  Data Path: measure_inst/rxgmii2fifo/wr_en to measure_inst/rxq:wr_en
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              0   0.370   0.000  measure_inst/rxgmii2fifo/wr_en (measure_inst/rxgmii2fifo/wr_en)
+    asfifo9_4:wr_en            0.000          measure_inst/rxq
+    ----------------------------------------
+    Total                      0.370ns (0.370ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 12 / 12
+-------------------------------------------------------------------------
+Delay:               3.172ns (Levels of Logic = 2)
+  Source:            cpci_reset (PAD)
+  Destination:       measure_inst/measure_phy3/rxq:rst (PAD)
+
+  Data Path: cpci_reset to measure_inst/measure_phy3/rxq:rst
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            95   0.878   0.761  cpci_reset_IBUF (cpci_reset_IBUF)
+     INV:I->O            445   0.275   1.258  reset1_INV_0_3 (reset1_INV_0_3)
+    asfifo9_4:rst              0.000          measure_inst/rxq
+    ----------------------------------------
+    Total                      3.172ns (1.153ns logic, 2.019ns route)
+                                       (36.4% logic, 63.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 75.00 secs
+Total CPU time to Xst completion: 74.98 secs
+ 
+--> 
+
+
+Total memory usage is 326772 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   77 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
+

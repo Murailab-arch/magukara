@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta charset="UTF-8" />
+<title>FIBNIC Viewer</title>
+<!-- <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script> 
+-->
+</head>
+
+<body bgcolor="black">
+  <table border="1">
+    <tr><td><canvas id="ipaddr_matrix" width="800" height="800"></canvas></td></tr>
+  </table>
+
+<script>
+
+(function(){
+  "use strict";
+
+  var PI2  = Math.PI * 2;
+  var nrow = 256;
+  var ncol = 256;
+
+  var canvas = null;
+  var ctx    = null;
+  var gw     = 0;
+  var gh     = 0;
+
+  /* simulation pattern */
+  var oct1 = "1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010".split('');
+  var oct2 = "1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010".split('');
+
+
+  window.addEventListener("load", setup(), false);
+
+  function setup() {
+    canvas = document.getElementById('ipaddr_matrix');
+
+    ctx = canvas.getContext('2d');
+    gw  = parseInt(canvas.width);
+    gh  = parseInt(canvas.height);
+
+    setInterval(draw, 30);
+  }
+
+  function draw() {
+    var i = nrow;
+    var j = 0;
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "rgba(8,8,12,.2)";
+    ctx.fillRect(0,0,gw,gh);
+    ctx.globalCompositeOperation = "lighter";
+
+    while (i--) {
+      j = ncol;
+      while (j--) {
+        var p = Math.floor(Math.random()*10);
+        var q = Math.floor(Math.random()*10);
+        //if (oct1[i] == 1 && oct2[j] == 1) {
+        if (p == 1 && q == 1) {
+          ctx.beginPath(); 
+          ctx.rect(16+3*i, 16+3*j, 2, 2);
+          ctx.fillStyle ="rgba(192, 26, 141, 1)";
+          ctx.fill();
+          ctx.closePath();
+        }
+      }
+    }
+  }
+
+})();
+</script>
+
+</body></html>
+

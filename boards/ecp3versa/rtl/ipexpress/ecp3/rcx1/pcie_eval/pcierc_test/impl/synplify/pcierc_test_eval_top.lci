@@ -1,0 +1,65 @@
+
+[Device]
+Family = ep5c00;
+PartNumber = LFE3-95E-7FN672CES;
+Package = FPBGA672;
+PartType = LFE3-95E;
+Speed = -7;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = ep5c00.lci;
+DATE = 2002;
+TIME = 0:00:00;
+Source_Format = Schematic_Verilog_HDL;
+Synthesis = Synplify;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+
+[Global Constraints]
+
+[Location Assignments]
+layer = OFF;
+
+[Group Assignments]
+layer = OFF;
+
+[Resource Reservations]
+layer = OFF;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+layer = OFF;
+
+[Pullup]
+
+[Slewrate]
+
+[Region]
+
+[Timing Constraints]
+
+[HSI Attributes]
+
+[Input Delay]
+
+[TRACE MAP]
+Logic_Delay = 0;

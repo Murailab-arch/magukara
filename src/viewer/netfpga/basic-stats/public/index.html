@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Tahoma, Geneva, sans-serif;
+      }
+
+      div {
+        display: inline;
+      }
+    </style>
+    <script>
+      "use strict";
+      function updateStats(s) {
+        if (s.m == 0x80) {
+          document.querySelector('div#global_mode').innerText = "Normal MODE";
+        } else if (s.m == 0x81) {
+          document.querySelector('div#global_mode').innerText = "Full route MODE";
+        } else if (s.m == 0x00) {
+          document.querySelector('div#global_mode').innerText = "STOP";
+        } else {
+          document.querySelector('div#global_mode').innerText = "unknown";
+        }
+        document.querySelector('div#tx0_frame_size').innerText  = s.tx0.fs;
+        document.querySelector('div#tx0_gap').innerText         = s.tx0.g;
+        document.querySelector('div#tx0_src_ipaddr').innerText  = s.tx0.si;
+        document.querySelector('div#tx0_gw_ipaddr').innerText   = s.tx0.gi;
+        document.querySelector('div#tx0_dst_ipaddr').innerText  = s.tx0.di;
+        document.querySelector('div#tx0_src_mac').innerText     = s.tx0.sm;
+        document.querySelector('div#tx0_dst_mac').innerText     = s.tx0.dm;
+        document.querySelector('div#tx0_pps').innerText         = s.tx0.p;
+        document.querySelector('div#tx0_throughput').innerText  = s.tx0.t;
+
+        document.querySelector('div#rx1_latency').innerText     = s.rx1.l;
+        document.querySelector('div#rx1_pps').innerText         = s.rx1.p;
+        document.querySelector('div#rx1_throughput').innerText  = s.rx1.t;
+        document.querySelector('div#rx1_ipaddr').innerText      = s.rx1.i;
+        document.querySelector('div#rx2_latency').innerText     = s.rx2.l;
+        document.querySelector('div#rx2_pps').innerText         = s.rx2.p;
+        document.querySelector('div#rx2_throughput').innerText  = s.rx2.t;
+        document.querySelector('div#rx2_ipaddr').innerText      = s.rx2.i;
+        document.querySelector('div#rx3_latency').innerText     = s.rx3.l;
+        document.querySelector('div#rx3_pps').innerText         = s.rx3.p;
+        document.querySelector('div#rx3_throughput').innerText  = s.rx3.t;
+        document.querySelector('div#rx3_ipaddr').innerText      = s.rx3.i;
+      }
+
+      var ws = new WebSocket("ws://localhost:8082");
+      ws.onmessage = function (event) {
+        updateStats(JSON.parse(event.data));
+      };
+
+      var change_fs = function () {
+        var senddataObj = document.getElementById('frame_size');
+        var msg = { 
+          "cmd": "frame_size",
+          "data": senddataObj.value
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var change_gap = function () {
+        var senddataObj = document.getElementById('inter_frame_gap');
+        var msg = { 
+          "cmd": "frame_gap",
+          "data": senddataObj.value
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var mode_normal = function () {
+        var msg = { 
+          "cmd": "mode",
+          "data": 0x80
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var mode_fullroute = function () {
+        var msg = { 
+          "cmd": "mode",
+          "data": 0x81
+        };
+        ws.send(JSON.stringify(msg));
+      };
+
+      var mode_stop = function () {
+        var msg = { 
+          "cmd": "mode",
+          "data": 0x00
+        };
+        ws.send(JSON.stringify(msg));
+      };
+      var send_arp = function () {
+        var msg = { 
+          "cmd": "send_arp",
+          "data": 0x01
+        };
+        ws.send(JSON.stringify(msg));
+      };
+    </script>
+  </head>
+  <body>
+    <strong>FIBNIC Stats</strong><br><br>
+    MODE:                   <div id='global_mode'></div><br>
+    <hr>
+    TX0 FRAME SIZE:         <div id='tx0_frame_size'></div><br>
+    TX0 INTER FRAME GAP:    <div id='tx0_gap'></div><br>
+    TX0 SRC IP ADDRESS:     <div id='tx0_src_ipaddr'></div><br>
+    TX0 GW IP ADDRESS:      <div id='tx0_gw_ipaddr'></div><br>
+    TX0 DST IP ADDRESS:     <div id='tx0_dst_ipaddr'></div><br>
+    TX0 SRC MAC ADDRESS:    <div id='tx0_src_mac'></div><br>
+    TX0 DST MAC ADDRESS:    <div id='tx0_dst_mac'></div><br>
+    TX0 PPS:                <div id='tx0_pps'></div><br>
+    TX0 THROUGHPUT:         <div id='tx0_throughput'></div><br>
+    <hr>
+    RX1 LATENCY:            <div id='rx1_latency'></div><br>
+    RX1 PPS:                <div id='rx1_pps'></div><br>
+    RX1 THROUGHPUT:         <div id='rx1_throughput'></div><br>
+    RX1 RECEIVE IP ADDRESS: <div id='rx1_ipaddr'></div><br>
+    <hr>
+    RX2 LATENCY:            <div id='rx2_latency'></div><br>
+    RX2 PPS:                <div id='rx2_pps'></div><br>
+    RX2 THROUGHPUT:         <div id='rx2_throughput'></div><br>
+    RX2 RECEIVE IP ADDRESS: <div id='rx2_ipaddr'></div><br>
+    <hr>
+    RX3 LATENCY:            <div id='rx3_latency'></div><br>
+    RX3 PPS:                <div id='rx3_pps'></div><br>
+    RX3 THROUGHPUT:         <div id='rx3_throughput'></div><br>
+    RX3 RECEIVE IP ADDRESS: <div id='rx3_ipaddr'></div><br>
+    <hr>
+
+    <input type='text' id='frame_size'/>
+    <button onclick='change_fs();'>Change frame size</button><br>
+    <input type='text' id='inter_frame_gap'/>
+    <button onclick='change_gap();'>Change inter frame gap</button><br><br>
+    <button onclick='mode_normal();'>Normal mode</button>
+    <button onclick='mode_fullroute();'>Full route mode</button>
+    <button onclick='mode_stop();'>Stop NIC</button>
+    <button onclick='send_arp();'>Send ARP Request</button>
+  </body>
+</html>

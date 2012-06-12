@@ -1,0 +1,45 @@
+[Device]
+Family=ep5c00
+PartType=LFE3-95E
+PartName=LFE3-95E-7FN672CES
+SpeedGrade=-7
+Package=FPBGA672
+OperatingCondition=COM
+Status=P
+
+[IP]
+VendorName=Lattice Semiconductor Corporation
+CoreType=IPCFG
+CoreStatus=Demo
+CoreName=PCI EXP RCLite
+CoreRevision=1.0
+ModuleName=pcierc_test
+SourceFormat=Verilog HDL
+ParameterFileVersion=1.0
+Date=12/06/2010
+Time=16:01:46
+
+[Parameters]
+LANE_WIDTH=x1
+MASTER_LB=0
+MAX_TLP=128
+PH_FREQ=8
+PD_FREQ=255
+NPH_FREQ=8
+NPD_FREQ=255
+CPLH_FREQ=8
+CPLD_FREQ=255
+UPDATE_TIMER=4095
+ECRC=0
+PH_INFINITE=0
+PH_FC_0=4
+PD_INFINITE=0
+PD_FC_0=32
+NPH_INFINITE=0
+NPH_FC_0=4
+NPD_INFINITE=0
+NPD_FC_0=32
+CPLH_INFINITE=1
+CPLH_FC_0=0
+CPLD_INFINITE=1
+CPLD_FC_0=0

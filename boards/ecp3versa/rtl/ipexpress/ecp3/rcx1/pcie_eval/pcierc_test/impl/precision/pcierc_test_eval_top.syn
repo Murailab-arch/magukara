@@ -1,0 +1,17 @@
+JDF B
+// Created by Version 8.0
+PROJECT pcierc_test_eval_top.syn
+DESIGN pcierc_test_eval_top Normal
+DEVKIT LFE3-95E-7FN672CES
+ENTRY Schematic/Verilog HDL
+MODULE ../../../../pcierc_test_bb.v
+MODSTYLE pcierc_test Normal
+MODULE ../../../models/ecp3/pcs_pipe_bb.v
+MODSTYLE pcs_pipe_top Normal
+MODULE ../../../../pcie_eval/pcierc_test/src/top/pcierc_test_top.v
+MODSTYLE pcierc_test_top Normal
+MODULE ../../../../pcie_eval/pcierc_test/src/top/pcierc_test_eval_top.v
+MODSTYLE pcierc_test_eval_top Normal
+SYNTHESIS_TOOL Precision
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE pcierc_test_eval_top
