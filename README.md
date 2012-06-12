@@ -11,7 +11,7 @@ FPGA-based open-source network tester
     /boards/netfpga      -- NetFPGA 1G board
     /boards/ecp3versa    -- Lattice ECP3 Versa Development Kit
     /doc/                -- Documentation.
-    /viewer/             -- Web frontend using node.js
+    /src/viewer/         -- Web frontend using node.js
 
 ## Quickstart
 
@@ -52,7 +52,7 @@ FPGA-based open-source network tester
 
 ### NetFPGA-1G
 
-    $ cd cores/measure/test/
+    $ cd boards/netfpga/test/
     $ make
     $ gtkwave test.vcd
 
