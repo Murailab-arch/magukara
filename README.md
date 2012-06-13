@@ -5,7 +5,6 @@ FPGA-based open-source network tester
 ## Supported FPGA board
 
 * [Lattice ECP3 Versa Development Kit](http://www.latticesemi.com/products/developmenthardware/developmentkits/ecp3versadevelopmentkit/index.cfm)
-* [NetFPGA 1G](http://netfpga.org/)
 
 ## Directory Structure
 
