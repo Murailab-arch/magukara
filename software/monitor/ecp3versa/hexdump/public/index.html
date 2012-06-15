@@ -1,0 +1,242 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Magukara - hexdump</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Yohei Kuga">
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+  <style>
+  body {
+    padding-top: 60px;
+  }
+  input[type="range"] {
+    -webkit-appearance: none;
+    background-color: black;
+    height: 3px;
+    width: 120px;
+    margin: 0 0 17px 0;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: -1px;
+    z-index: 1;
+    width: 14px;
+    height: 14px;
+    border-radius: 40px;
+    background: #3F9FD9;
+  }
+  .bs-icon {
+    float: left;
+    margin: 8px 9px 0 0;
+    width: 21px;
+    height: 21px;
+  }
+  .modal-footer table {
+    font-size: 200%;
+  }
+  div.pad {
+    padding: 4px 40px 0 15px;
+  }
+  table {
+    table-layout: fixed;
+    font-size: 16px;
+  }
+  td {
+    width: 160px;
+  }
+  td.val {
+    width: 180px;
+    font-size: 150%;
+  }
+  td.unit {
+    width: 50px;
+    font-size: 120%;
+    border-left: none;
+  }
+  td.config-name {
+    width: 110px;
+    padding: 7px 4px 0 4px;
+  }
+  td.config-ctrl {
+    text-align: center;
+    width: 190px;
+  }
+  td.config-val {
+    width: 90px;
+    font-size: 140%;
+    vertical-align: middle;
+  }
+  </style>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="./index.html">MAGUKARA - hexdump</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="span6">
+        <div class="row">
+
+          <div class="span6">
+            <img class="bs-icon" src="img/logout_32.png">
+            <h2>送信ポート</h2>
+            <div class="pad">
+              <table class="table table-bordered table-condensed">
+                <tbody>
+                  <tr>
+                  <td class="config-name">Mode</td>
+                  <td class="config-ctrl">
+                    <div class="btn-group">
+                      <button class="btn" onclick='mode_normal();'>Normal</button>
+                      <button class="btn" onclick='mode_fullroute();'>FullRoute</button>
+                      <button class="btn" onclick='mode_stop();'>Stop</button>
+                    </div>
+                  </td>
+                  <td class="config-val"><div id='global_mode'>000</div></td>
+                  </tr>
+                  <tr>
+                  <td class="config-name">Frame size</td>
+                  <td class="config-ctrl">
+                    <div class="btn-group">
+                      <button class="btn dropdown-toggle" data-toggle="dropdown">Frame size<span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick='change_fs(64);'>64</a></li>
+                        <li><a href="javascript:void(0)" onclick='change_fs(128);'>128</a></li>
+                        <li><a href="javascript:void(0)" onclick='change_fs(256);'>256</a></li>
+                        <li><a href="javascript:void(0)" onclick='change_fs(512);'>512</a></li>
+                        <li><a href="javascript:void(0)" onclick='change_fs(1024);'>1024</a></li>
+                        <li><a href="javascript:void(0)" onclick='change_fs(1280);'>1280</a></li>
+                        <li><a href="javascript:void(0)" onclick='change_fs(1518);'>1518</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                  <td class="config-val"><div id='tx0_frame_size'>000</div></td>
+                  </tr>
+                  <tr>
+                  <td class="config-name">Inter frame gap</td>
+                  <td class="config-ctrl" style="padding: 12px 0 0 10px;">
+                    <input type="range" name="range" id="fs_range" min="12" max="10000" value="12" onChange='change_gap(this)'>
+                  </td>
+                  <td class="config-val"><div id='tx0_gap'>000</div></td>
+                  </tr>
+                  <tr>
+                  <td class="config-name">Debug</td>
+                  <td class="config-ctrl" colspan="2">
+                    <div class="btn-group">
+                      <button class="btn" onclick='send_arpreq();'>Send ARP Request</button>
+                    </div>
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-bordered table-condensed">
+                <tbody>
+                  <tr>
+                  <td class="">IP address: src</td>
+                  <td class="val"><div id='tx0_src_ipaddr'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">IP address: gw</td>
+                  <td class="val"><div id='tx0_gw_ipaddr'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">IP address: dst</td>
+                  <td class="val"><div id='tx0_dst_ipaddr'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">MAC address: src</td>
+                  <td class="val"><div id='tx0_src_mac'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">MAC address: dst</td>
+                  <td class="val"><div id='tx0_dst_mac'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">PPS</td>
+                  <td class="val"><div id='tx0_pps'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">Throughput</td>
+                  <td class="val"><div id='tx0_throughput'>000</div></td>
+                  <td class="unit">Mbps</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="span6">
+        <div class="row">
+
+          <div class="span6">
+            <img class="bs-icon" src="img/login_32.png">
+            <h2 style="color: #B70000">受信ポート1</h2>
+            <div class="pad">
+              <table class="table table-bordered table-condensed">
+                <tbody>
+                  <tr>
+                  <td class="">Latency</td>
+                  <td class="val"><div id='rx1_latency' class="latency">000</div></td>
+                  <td class="unit">ns</td>
+                  </tr>
+                  <tr>
+                  <td class="">PPS</td>
+                  <td class="val"><div id='rx1_pps'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                  <tr>
+                  <td class="">Throughput</td>
+                  <td class="val"><div id='rx1_throughput'>000</div></td>
+                  <td class="unit">Mbps</td>
+                  </tr>
+                  <tr>
+                  <td class="">Receive IP address</td>
+                  <td class="val"><div id='rx1_ipaddr'>000</div></td>
+                  <td class="unit"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /row -->
+
+    <hr>
+
+    <footer>
+      <p><a href="https://github.com/Murailab-arch/magukara">Github - Magukara</a></p>
+    </footer>
+  </div> <!-- /container -->
+
+  <script src="js/jquery-1.7.2.min.js"></script>
+  <script src="js/bootstrap/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
