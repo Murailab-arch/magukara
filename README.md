@@ -60,4 +60,8 @@ FPGA-based open-source network tester
     $ make
     $ gtkwave test.vcd
 
-    
+## Reference
+
+* [RFC2544 - Benchmarking Methodology for Network Interconnect Devices](http://tools.ietf.org/html/rfc2544)
+* [RFC5180 - IPv6 Benchmarking Methodology for Network Interconnect Devices](http://tools.ietf.org/html/rfc5180)
+* [RFC6201 - Device Reset Characterization](http://tools.ietf.org/html/rfc6201)
