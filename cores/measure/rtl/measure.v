@@ -39,7 +39,7 @@ module measure (
 	input         tx0_ipv6,
 	input         tx0_fullroute,
 	input         tx0_req_arp,
-	input [11:0]  tx0_frame_len,
+	input [15:0]  tx0_frame_len,
 	input [31:0]  tx0_inter_frame_gap,
         input [31:0]  tx0_ipv4_srcip,
         input [47:0]  tx0_src_mac,
@@ -91,14 +91,14 @@ end
 //-----------------------------------
 // Transmitte logic
 //-----------------------------------
-reg [13:0] tx_count = 14'b0;
+reg [15:0] tx_count = 16'h0;
 reg [7:0] tx_data;
 reg tx_en = 1'b0;
 
 //-----------------------------------
 // CRC
 //-----------------------------------
-assign crc_init = (tx_count ==  14'h08);
+assign crc_init = (tx_count ==  16'h08);
 wire [31:0] crc_out;
 reg crc_rd;
 assign crc_data_en = ~crc_rd;
@@ -284,11 +284,11 @@ reg [23:0] full_ipv4;
 reg [23:0] ip_sum;
 reg [15:0] arp_wait_count;
 
-wire [11:0] frame_crc1_count = tx0_frame_len + 12'h4;
-wire [11:0] frame_crc2_count = tx0_frame_len + 12'h5;
-wire [11:0] frame_crc3_count = tx0_frame_len + 12'h6;
-wire [11:0] frame_crc4_count = tx0_frame_len + 12'h7;
-wire [11:0] frame_end_count  = tx0_frame_len + 12'h8;
+wire [15:0] frame_crc1_count = tx0_frame_len + 16'h4;
+wire [15:0] frame_crc2_count = tx0_frame_len + 16'h5;
+wire [15:0] frame_crc3_count = tx0_frame_len + 16'h6;
+wire [15:0] frame_crc4_count = tx0_frame_len + 16'h7;
+wire [15:0] frame_end_count  = tx0_frame_len + 16'h8;
 
 reg [2:0] tx_state;
 reg [31:0] gap_count;
@@ -299,13 +299,13 @@ parameter TX_V6_SEND     = 3'h3;	// IPv6 Payload
 parameter TX_GAP         = 3'h4;	// Inter Frame Gap
 
 wire [31:0] ipv4_dstip = (tx0_fullroute == 1'b0) ? tx0_ipv4_dstip[31:0] : {full_ipv4[23:0],8'h1};  // IPv4: Destination Address
-wire [11:0] tx0_udp_len = tx0_frame_len - 11'h26;  // UDP Length
-wire [11:0] tx0_ip_len  = tx0_frame_len - 11'd18;  // IP Length (Frame Len - FCS Len - EtherFrame Len)
+wire [15:0] tx0_udp_len = tx0_frame_len - 16'h26;  // UDP Length
+wire [15:0] tx0_ip_len  = tx0_frame_len - 16'd18;  // IP Length (Frame Len - FCS Len - EtherFrame Len)
 
 reg [23:0] tmp_counter;
 always @(posedge gmii_tx_clk) begin
 	if (sys_rst) begin
-		tx_count       <= 14'h0;
+		tx_count       <= 16'h0;
 		tmp_counter    <= 24'h0;
 		ipv4_id        <= 16'h0;
 		tx_en          <= 1'b0;
@@ -401,10 +401,10 @@ always @(posedge gmii_tx_clk) begin
 			end
 			default: tx_data <= 8'h00;
 			endcase
-			tx_count <= tx_count + 7'h1;
+			tx_count <= tx_count + 16'h1;
 		end
 		TX_WAIT_ARPREP: begin
-			tx_count       <= 14'h0;
+			tx_count       <= 16'h0;
 			arp_wait_count <= arp_wait_count - 16'd1;
 			if (arp_reply == 1'b1) begin
 				tx_state <= TX_V4_SEND;
@@ -417,7 +417,7 @@ always @(posedge gmii_tx_clk) begin
 		end
 		TX_V4_SEND: begin
 			case (tx_count)
-			14'h00: begin
+			16'h00: begin
 				if (sec_oneshot == 1'b0)
 					pps <= pps + 32'h1;
 				tx_data <= 8'h55;
@@ -425,78 +425,78 @@ always @(posedge gmii_tx_clk) begin
 				if (tx0_enable == 1'b1)
 					tx_en <= 1'b1;
 			end
-			14'h01: tx_data <= 8'h55;                  // preamble
-			14'h02: tx_data <= 8'h55;
-			14'h03: tx_data <= 8'h55;
-			14'h04: begin
+			16'h01: tx_data <= 8'h55;                  // preamble
+			16'h02: tx_data <= 8'h55;
+			16'h03: tx_data <= 8'h55;
+			16'h04: begin
 				tx_data <= 8'h55;
 				ip_sum <= ~(ip_sum[15:0] + ip_sum[23:16]);
 			end
-			14'h05: tx_data <= 8'h55;
-			14'h06: tx_data <= 8'h55;
-			14'h07: tx_data <= 8'hd5;                  // preamble + SFD (0b1101_0101)
-			14'h08: tx_data <= tx0_dst_mac[47:40];     // Destination MAC
-			14'h09: tx_data <= tx0_dst_mac[39:32];
-			14'h0a: tx_data <= tx0_dst_mac[31:24];
-			14'h0b: tx_data <= tx0_dst_mac[23:16];
-			14'h0c: tx_data <= tx0_dst_mac[15:8];
-			14'h0d: tx_data <= tx0_dst_mac[7:0];
-			14'h0e: tx_data <= tx0_src_mac[47:40];     // Source MAC
-			14'h0f: tx_data <= tx0_src_mac[39:32];
-			14'h10: tx_data <= tx0_src_mac[31:24];
-			14'h11: tx_data <= tx0_src_mac[23:16];
-			14'h12: tx_data <= tx0_src_mac[15:8];
-			14'h13: tx_data <= tx0_src_mac[7:0];
-			14'h14: tx_data <= 8'h08;                  // Protocol type: IPv4
-			14'h15: tx_data <= 8'h00;
-			14'h16: tx_data <= 8'h45;                  // IPv4: Version, Header length, ToS
-			14'h17: tx_data <= 8'h00;
-			14'h18: tx_data <= {4'h0,tx0_ip_len[11:8]};// IPv4: Total length (not fixed)
-			14'h19: tx_data <= tx0_ip_len[7:0];
-			14'h1a: tx_data <= ipv4_id[15:8];          // IPv4: Identification
-			14'h1b: tx_data <= ipv4_id[7:0];
-			14'h1c: tx_data <= 8'h00;                  // IPv4: Flag, Fragment offset
-			14'h1d: tx_data <= 8'h00;
-			14'h1e: tx_data <= ipv4_ttl[7:0];          // IPv4: TTL
-			14'h1f: tx_data <= 8'h11;                  // IPv4: Protocol (testing: fake UDP)
-			14'h20: tx_data <= ip_sum[15:8];                  // IPv4: Checksum (not fixed)
-			14'h21: tx_data <= ip_sum[7:0];
-			14'h22: tx_data <= tx0_ipv4_srcip[31:24];  // IPv4: Source Address
-			14'h23: tx_data <= tx0_ipv4_srcip[23:16];
-			14'h24: tx_data <= tx0_ipv4_srcip[15:8];
-			14'h25: tx_data <= tx0_ipv4_srcip[7:0];
-			14'h26: tx_data <= ipv4_dstip[31:24];      // IPv4: Destination Address
-			14'h27: tx_data <= ipv4_dstip[23:16];
-			14'h28: tx_data <= ipv4_dstip[15:8];
-			14'h29: tx_data <= ipv4_dstip[7:0];
-			14'h2a: tx_data <= 8'h0d;                  // Src  Port=3422 (USB over IP)
-			14'h2b: tx_data <= 8'h5e;
-			14'h2c: tx_data <= 8'h0d;                  // Dst  Port,
-			14'h2d: tx_data <= 8'h5e;
-			14'h2e: tx_data <= {4'h0,tx0_udp_len[11:8]}; // UDP Length(udp header(0c)+data length)
-			14'h2f: tx_data <= tx0_udp_len[7:0];
-			14'h30: tx_data <= 8'h00;                  // Check Sum
-			14'h31: tx_data <= 8'h00;
-			14'h32: tx_data <= magic_code[39:32];      // Data: Magic code (40 bit: 0xCC00CC00CC)
-			14'h33: tx_data <= magic_code[31:24];
-			14'h34: tx_data <= magic_code[23:16];
-			14'h35: tx_data <= magic_code[15:8];
-			14'h36: tx_data <= magic_code[7:0];
-			14'h37: begin
+			16'h05: tx_data <= 8'h55;
+			16'h06: tx_data <= 8'h55;
+			16'h07: tx_data <= 8'hd5;                  // preamble + SFD (0b1101_0101)
+			16'h08: tx_data <= tx0_dst_mac[47:40];     // Destination MAC
+			16'h09: tx_data <= tx0_dst_mac[39:32];
+			16'h0a: tx_data <= tx0_dst_mac[31:24];
+			16'h0b: tx_data <= tx0_dst_mac[23:16];
+			16'h0c: tx_data <= tx0_dst_mac[15:8];
+			16'h0d: tx_data <= tx0_dst_mac[7:0];
+			16'h0e: tx_data <= tx0_src_mac[47:40];     // Source MAC
+			16'h0f: tx_data <= tx0_src_mac[39:32];
+			16'h10: tx_data <= tx0_src_mac[31:24];
+			16'h11: tx_data <= tx0_src_mac[23:16];
+			16'h12: tx_data <= tx0_src_mac[15:8];
+			16'h13: tx_data <= tx0_src_mac[7:0];
+			16'h14: tx_data <= 8'h08;                  // Protocol type: IPv4
+			16'h15: tx_data <= 8'h00;
+			16'h16: tx_data <= 8'h45;                  // IPv4: Version, Header length, ToS
+			16'h17: tx_data <= 8'h00;
+			16'h18: tx_data <= {4'h0,tx0_ip_len[11:8]};// IPv4: Total length (not fixed)
+			16'h19: tx_data <= tx0_ip_len[7:0];
+			16'h1a: tx_data <= ipv4_id[15:8];          // IPv4: Identification
+			16'h1b: tx_data <= ipv4_id[7:0];
+			16'h1c: tx_data <= 8'h00;                  // IPv4: Flag, Fragment offset
+			16'h1d: tx_data <= 8'h00;
+			16'h1e: tx_data <= ipv4_ttl[7:0];          // IPv4: TTL
+			16'h1f: tx_data <= 8'h11;                  // IPv4: Protocol (testing: fake UDP)
+			16'h20: tx_data <= ip_sum[15:8];                  // IPv4: Checksum (not fixed)
+			16'h21: tx_data <= ip_sum[7:0];
+			16'h22: tx_data <= tx0_ipv4_srcip[31:24];  // IPv4: Source Address
+			16'h23: tx_data <= tx0_ipv4_srcip[23:16];
+			16'h24: tx_data <= tx0_ipv4_srcip[15:8];
+			16'h25: tx_data <= tx0_ipv4_srcip[7:0];
+			16'h26: tx_data <= ipv4_dstip[31:24];      // IPv4: Destination Address
+			16'h27: tx_data <= ipv4_dstip[23:16];
+			16'h28: tx_data <= ipv4_dstip[15:8];
+			16'h29: tx_data <= ipv4_dstip[7:0];
+			16'h2a: tx_data <= 8'h0d;                  // Src  Port=3422 (USB over IP)
+			16'h2b: tx_data <= 8'h5e;
+			16'h2c: tx_data <= 8'h0d;                  // Dst  Port,
+			16'h2d: tx_data <= 8'h5e;
+			16'h2e: tx_data <= {4'h0,tx0_udp_len[11:8]}; // UDP Length(udp header(0c)+data length)
+			16'h2f: tx_data <= tx0_udp_len[7:0];
+			16'h30: tx_data <= 8'h00;                  // Check Sum
+			16'h31: tx_data <= 8'h00;
+			16'h32: tx_data <= magic_code[39:32];      // Data: Magic code (40 bit: 0xCC00CC00CC)
+			16'h33: tx_data <= magic_code[31:24];
+			16'h34: tx_data <= magic_code[23:16];
+			16'h35: tx_data <= magic_code[15:8];
+			16'h36: tx_data <= magic_code[7:0];
+			16'h37: begin
 				tx_data           <= global_counter[31:24];         // Data: Counter (32 bit) (not fixed)
 				tmp_counter[23:0] <= global_counter[23:0];
 			end
-			14'h38: tx_data <= tmp_counter[23:16];
-			14'h39: tx_data <= tmp_counter[15:8];
-			14'h3a: tx_data <= tmp_counter[7:0];
+			16'h38: tx_data <= tmp_counter[23:16];
+			16'h39: tx_data <= tmp_counter[15:8];
+			16'h3a: tx_data <= tmp_counter[7:0];
 			{2'b0, frame_crc1_count}: begin                              // FCS (CRC)
 				crc_rd  <= 1'b1;
 				tx_data <= crc_out[31:24];
 			end
-			{2'b0, frame_crc2_count}: tx_data <= crc_out[23:16];
-			{2'b0, frame_crc3_count}: tx_data <= crc_out[15:8];
-			{2'b0, frame_crc4_count}: tx_data <= crc_out[7:0];
-			{2'b0, frame_end_count} : begin
+			frame_crc2_count: tx_data <= crc_out[23:16];
+			frame_crc3_count: tx_data <= crc_out[15:8];
+			frame_crc4_count: tx_data <= crc_out[7:0];
+			frame_end_count : begin
 				tx_en   <= 1'b0;
 				crc_rd  <= 1'b0;
 				tx_data <= 8'h0;
@@ -508,15 +508,15 @@ always @(posedge gmii_tx_clk) begin
 					gap_count<= 32'd2;   // Inter Frame Gap = 14 (offset value -2)
 				tx_state <= TX_GAP;
 				if (sec_oneshot == 1'b0)
-					throughput <= throughput + {18'h0, tx_count} - 32'h8;
+					throughput <= throughput + {16'h0, tx_count} - 32'h8;
 			end
 			default: tx_data <= 8'h00;
 			endcase
-			tx_count <= tx_count + 14'h1;
+			tx_count <= tx_count + 16'h1;
 		end
 		TX_V6_SEND: begin
 			case (tx_count)
-			14'h00: begin
+			16'h00: begin
 				if (sec_oneshot == 1'b0)
 					pps <= pps + 32'h1;
 				tx_data <= 8'h55;
@@ -524,98 +524,98 @@ always @(posedge gmii_tx_clk) begin
 				if (tx0_enable == 1'b1)
 					tx_en <= 1'b1;
 			end
-			14'h01: tx_data <= 8'h55;                  // preamble
-			14'h02: tx_data <= 8'h55;
-			14'h03: tx_data <= 8'h55;
-			14'h04: begin
+			16'h01: tx_data <= 8'h55;                  // preamble
+			16'h02: tx_data <= 8'h55;
+			16'h03: tx_data <= 8'h55;
+			16'h04: begin
 				tx_data <= 8'h55;
 				ip_sum <= ~(ip_sum[15:0] + ip_sum[23:16]);
 			end
-			14'h05: tx_data <= 8'h55;
-			14'h06: tx_data <= 8'h55;
-			14'h07: tx_data <= 8'hd5;                  // preamble + SFD (0b1101_0101)
-			14'h08: tx_data <= tx0_dst_mac[47:40];     // Destination MAC
-			14'h09: tx_data <= tx0_dst_mac[39:32];
-			14'h0a: tx_data <= tx0_dst_mac[31:24];
-			14'h0b: tx_data <= tx0_dst_mac[23:16];
-			14'h0c: tx_data <= tx0_dst_mac[15:8];
-			14'h0d: tx_data <= tx0_dst_mac[7:0];
-			14'h0e: tx_data <= tx0_src_mac[47:40];     // Source MAC
-			14'h0f: tx_data <= tx0_src_mac[39:32];
-			14'h10: tx_data <= tx0_src_mac[31:24];
-			14'h11: tx_data <= tx0_src_mac[23:16];
-			14'h12: tx_data <= tx0_src_mac[15:8];
-			14'h13: tx_data <= tx0_src_mac[7:0];
-			14'h14: tx_data <= 8'h86;                  // Protocol type: IPv6 (0x86dd)
-			14'h15: tx_data <= 8'hdd;
-			14'h16: tx_data <= 8'h60;                  // Version:6 Traffic class: 0x0000
-			14'h17: tx_data <= 8'h00;
-			14'h18: tx_data <= 8'h00;
-			14'h19: tx_data <= 8'h00;
-			14'h1a: tx_data <= 8'h00;                  // IPv6: Payload length: 22
-			14'h1b: tx_data <= 8'h16;
-			14'h1c: tx_data <= 8'h11;                  // Next header: UDP (0x11)
-			14'h1d: tx_data <= 8'h40;		   // Hop limit: 64
-			14'h1e: tx_data <= tx0_ipv6_srcip[127:120];// IPv6: Source IP
-			14'h1f: tx_data <= tx0_ipv6_srcip[119:112];
-			14'h20: tx_data <= tx0_ipv6_srcip[111:104];
-			14'h21: tx_data <= tx0_ipv6_srcip[103: 96];
-			14'h22: tx_data <= tx0_ipv6_srcip[ 95: 88];
-			14'h23: tx_data <= tx0_ipv6_srcip[ 87: 80];
-			14'h24: tx_data <= tx0_ipv6_srcip[ 79: 72];
-			14'h25: tx_data <= tx0_ipv6_srcip[ 71: 64];
-			14'h26: tx_data <= tx0_ipv6_srcip[ 63: 56];
-			14'h27: tx_data <= tx0_ipv6_srcip[ 55: 48];
-			14'h28: tx_data <= tx0_ipv6_srcip[ 47: 40];
-			14'h29: tx_data <= tx0_ipv6_srcip[ 39: 32];
-			14'h2a: tx_data <= tx0_ipv6_srcip[ 31: 24];
-			14'h2b: tx_data <= tx0_ipv6_srcip[ 23: 16];
-			14'h2c: tx_data <= tx0_ipv6_srcip[ 15:  8];
-			14'h2d: tx_data <= tx0_ipv6_srcip[  7:  0];
-			14'h2e: tx_data <= tx0_ipv6_dstip[127:120];// IPv6: Destination IP
-			14'h2f: tx_data <= tx0_ipv6_dstip[119:112];
-			14'h30: tx_data <= tx0_ipv6_dstip[111:104];
-			14'h31: tx_data <= tx0_ipv6_dstip[103: 96];
-			14'h32: tx_data <= tx0_ipv6_dstip[ 95: 88];
-			14'h33: tx_data <= tx0_ipv6_dstip[ 87: 80];
-			14'h34: tx_data <= tx0_ipv6_dstip[ 79: 72];
-			14'h35: tx_data <= tx0_ipv6_dstip[ 71: 64];
-			14'h36: tx_data <= tx0_ipv6_dstip[ 63: 56];
-			14'h37: tx_data <= tx0_ipv6_dstip[ 55: 48];
-			14'h38: tx_data <= tx0_ipv6_dstip[ 47: 40];
-			14'h39: tx_data <= tx0_ipv6_dstip[ 39: 32];
-			14'h3a: tx_data <= tx0_ipv6_dstip[ 31: 24];
-			14'h3b: tx_data <= tx0_ipv6_dstip[ 23: 16];
-			14'h3c: tx_data <= tx0_ipv6_dstip[ 15:  8];
-			14'h3d: tx_data <= tx0_ipv6_dstip[  7:  0];
-			14'h3e: tx_data <= 8'hdb;		   // Source port: 56173
-			14'h3f: tx_data <= 8'h6d;
-			14'h40: tx_data <= 8'h0d;		   // Dest   port: rusb-sys-port(3422)
-			14'h41: tx_data <= 8'h5e;
-			14'h42: tx_data <= 8'h00;		   // UDP Length: 22 (0x0016)
-			14'h43: tx_data <= 8'h16;
-			14'h44: tx_data <= 8'h00;		   // UDP Checksum
-			14'h45: tx_data <= 8'h00;
-			14'h46: tx_data <= magic_code[39:32];      // Data: Magic code (40 bit: 0xCC00CC00CC)
-			14'h47: tx_data <= magic_code[31:24];
-			14'h48: tx_data <= magic_code[23:16];
-			14'h49: tx_data <= magic_code[15:8];
-			14'h4a: tx_data <= magic_code[7:0];
-			14'h4b: begin
+			16'h05: tx_data <= 8'h55;
+			16'h06: tx_data <= 8'h55;
+			16'h07: tx_data <= 8'hd5;                  // preamble + SFD (0b1101_0101)
+			16'h08: tx_data <= tx0_dst_mac[47:40];     // Destination MAC
+			16'h09: tx_data <= tx0_dst_mac[39:32];
+			16'h0a: tx_data <= tx0_dst_mac[31:24];
+			16'h0b: tx_data <= tx0_dst_mac[23:16];
+			16'h0c: tx_data <= tx0_dst_mac[15:8];
+			16'h0d: tx_data <= tx0_dst_mac[7:0];
+			16'h0e: tx_data <= tx0_src_mac[47:40];     // Source MAC
+			16'h0f: tx_data <= tx0_src_mac[39:32];
+			16'h10: tx_data <= tx0_src_mac[31:24];
+			16'h11: tx_data <= tx0_src_mac[23:16];
+			16'h12: tx_data <= tx0_src_mac[15:8];
+			16'h13: tx_data <= tx0_src_mac[7:0];
+			16'h14: tx_data <= 8'h86;                  // Protocol type: IPv6 (0x86dd)
+			16'h15: tx_data <= 8'hdd;
+			16'h16: tx_data <= 8'h60;                  // Version:6 Traffic class: 0x0000
+			16'h17: tx_data <= 8'h00;
+			16'h18: tx_data <= 8'h00;
+			16'h19: tx_data <= 8'h00;
+			16'h1a: tx_data <= 8'h00;                  // IPv6: Payload length: 22
+			16'h1b: tx_data <= 8'h16;
+			16'h1c: tx_data <= 8'h11;                  // Next header: UDP (0x11)
+			16'h1d: tx_data <= 8'h40;		   // Hop limit: 64
+			16'h1e: tx_data <= tx0_ipv6_srcip[127:120];// IPv6: Source IP
+			16'h1f: tx_data <= tx0_ipv6_srcip[119:112];
+			16'h20: tx_data <= tx0_ipv6_srcip[111:104];
+			16'h21: tx_data <= tx0_ipv6_srcip[103: 96];
+			16'h22: tx_data <= tx0_ipv6_srcip[ 95: 88];
+			16'h23: tx_data <= tx0_ipv6_srcip[ 87: 80];
+			16'h24: tx_data <= tx0_ipv6_srcip[ 79: 72];
+			16'h25: tx_data <= tx0_ipv6_srcip[ 71: 64];
+			16'h26: tx_data <= tx0_ipv6_srcip[ 63: 56];
+			16'h27: tx_data <= tx0_ipv6_srcip[ 55: 48];
+			16'h28: tx_data <= tx0_ipv6_srcip[ 47: 40];
+			16'h29: tx_data <= tx0_ipv6_srcip[ 39: 32];
+			16'h2a: tx_data <= tx0_ipv6_srcip[ 31: 24];
+			16'h2b: tx_data <= tx0_ipv6_srcip[ 23: 16];
+			16'h2c: tx_data <= tx0_ipv6_srcip[ 15:  8];
+			16'h2d: tx_data <= tx0_ipv6_srcip[  7:  0];
+			16'h2e: tx_data <= tx0_ipv6_dstip[127:120];// IPv6: Destination IP
+			16'h2f: tx_data <= tx0_ipv6_dstip[119:112];
+			16'h30: tx_data <= tx0_ipv6_dstip[111:104];
+			16'h31: tx_data <= tx0_ipv6_dstip[103: 96];
+			16'h32: tx_data <= tx0_ipv6_dstip[ 95: 88];
+			16'h33: tx_data <= tx0_ipv6_dstip[ 87: 80];
+			16'h34: tx_data <= tx0_ipv6_dstip[ 79: 72];
+			16'h35: tx_data <= tx0_ipv6_dstip[ 71: 64];
+			16'h36: tx_data <= tx0_ipv6_dstip[ 63: 56];
+			16'h37: tx_data <= tx0_ipv6_dstip[ 55: 48];
+			16'h38: tx_data <= tx0_ipv6_dstip[ 47: 40];
+			16'h39: tx_data <= tx0_ipv6_dstip[ 39: 32];
+			16'h3a: tx_data <= tx0_ipv6_dstip[ 31: 24];
+			16'h3b: tx_data <= tx0_ipv6_dstip[ 23: 16];
+			16'h3c: tx_data <= tx0_ipv6_dstip[ 15:  8];
+			16'h3d: tx_data <= tx0_ipv6_dstip[  7:  0];
+			16'h3e: tx_data <= 8'hdb;		   // Source port: 56173
+			16'h3f: tx_data <= 8'h6d;
+			16'h40: tx_data <= 8'h0d;		   // Dest   port: rusb-sys-port(3422)
+			16'h41: tx_data <= 8'h5e;
+			16'h42: tx_data <= 8'h00;		   // UDP Length: 22 (0x0016)
+			16'h43: tx_data <= 8'h16;
+			16'h44: tx_data <= 8'h00;		   // UDP Checksum
+			16'h45: tx_data <= 8'h00;
+			16'h46: tx_data <= magic_code[39:32];      // Data: Magic code (40 bit: 0xCC00CC00CC)
+			16'h47: tx_data <= magic_code[31:24];
+			16'h48: tx_data <= magic_code[23:16];
+			16'h49: tx_data <= magic_code[15:8];
+			16'h4a: tx_data <= magic_code[7:0];
+			16'h4b: begin
 				tx_data           <= global_counter[31:24];         // Data: Counter (32 bit) (not fixed)
 				tmp_counter[23:0] <= global_counter[23:0];
 			end
-			14'h4c: tx_data <= tmp_counter[23:16];
-			14'h4d: tx_data <= tmp_counter[15:8];
+			16'h4c: tx_data <= tmp_counter[23:16];
+			16'h4d: tx_data <= tmp_counter[15:8];
 			14'h4e: tx_data <= tmp_counter[7:0];
-			{2'b0, frame_crc1_count}: begin                              // FCS (CRC)
+			frame_crc1_count: begin                              // FCS (CRC)
 				crc_rd  <= 1'b1;
 				tx_data <= crc_out[31:24];
 			end
-			{2'b0, frame_crc2_count}: tx_data <= crc_out[23:16];
-			{2'b0, frame_crc3_count}: tx_data <= crc_out[15:8];
-			{2'b0, frame_crc4_count}: tx_data <= crc_out[7:0];
-			{2'b0, frame_end_count} : begin
+			frame_crc2_count: tx_data <= crc_out[23:16];
+			frame_crc3_count: tx_data <= crc_out[15:8];
+			frame_crc4_count: tx_data <= crc_out[7:0];
+			frame_end_count : begin
 				tx_en   <= 1'b0;
 				crc_rd  <= 1'b0;
 				tx_data <= 8'h0;
@@ -625,15 +625,15 @@ always @(posedge gmii_tx_clk) begin
 					gap_count<= 32'd2;   // Inter Frame Gap = 14 (offset value -2)
 				tx_state <= TX_GAP;
 				if (sec_oneshot == 1'b0)
-					throughput <= throughput + {18'h0, tx_count} - 32'h8;
+					throughput <= throughput + {16'h0, tx_count} - 32'h8;
 			end
 			default: tx_data <= 8'h00;
 			endcase
-			tx_count <= tx_count + 14'h1;
+			tx_count <= tx_count + 16'h1;
 		end
 		TX_GAP: begin
 			gap_count <= gap_count - 32'h1;
-			tx_count  <= 14'h0;
+			tx_count  <= 16'h0;
 			if (gap_count == 32'h0) begin
 				if (tx0_ipv6 == 1'b0) begin
 					if (tx0_dst_mac != 48'h0)

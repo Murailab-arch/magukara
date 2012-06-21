@@ -239,7 +239,7 @@ reg         tx0_enable;
 reg         tx0_ipv6;
 reg         tx0_fullroute;
 reg         tx0_req_arp;
-reg  [11:0] tx0_frame_len;
+reg  [15:0] tx0_frame_len;
 reg  [31:0] tx0_inter_frame_gap;
 reg  [31:0] tx0_ipv4_srcip;
 reg  [47:0] tx0_src_mac;
@@ -337,7 +337,7 @@ always @(posedge clk_125 or negedge core_rst_n) begin
 		tx0_ipv6      <= 1'b0;
 		tx0_fullroute <= 1'b0;
 		tx0_req_arp   <= 1'b0;
-		tx0_frame_len <= 12'd64;
+		tx0_frame_len <= 16'd64;
 		tx0_inter_frame_gap <= 32'd12;
 		tx0_src_mac   <= 48'h003776_000100;
 		tx0_ipv4_gwip <= {8'd10,8'd0,8'd20,8'd1};
@@ -354,7 +354,7 @@ always @(posedge clk_125 or negedge core_rst_n) begin
 				7'h01:
 					wb_dat <= 16'h0;
 				7'h03: // tx0 frame length
-					wb_dat <= {tx0_frame_len[7:0], 4'b0, tx0_frame_len[11:8]};
+					wb_dat <= {tx0_frame_len[7:0], tx0_frame_len[15:8]};
 				7'h04: // tx0 inter frame gap
 					wb_dat <= {tx0_inter_frame_gap[23:16], tx0_inter_frame_gap[31:24]};
 				7'h05:
@@ -456,7 +456,7 @@ always @(posedge clk_125 or negedge core_rst_n) begin
 					if (pcie_sel[0])
 						tx0_frame_len[ 7:0] <= pcie_dat_o[15:8];
 					if (pcie_sel[1])
-						tx0_frame_len[11:8] <= pcie_dat_o[3:0];
+						tx0_frame_len[15:8] <= pcie_dat_o[7:0];
 				end
 				7'h04: begin // tx0 inter frame gap
 					if (pcie_sel[0])

@@ -121,7 +121,7 @@ gmii2fifo9 # (
 //-----------------------------------
 // Recive logic
 //-----------------------------------
-reg [13:0] rx_count = 0;
+reg [15:0] rx_count = 0;
 reg [39:0] rx_magic;
 reg [31:0] counter_start;
 reg [31:0] counter_end;
@@ -143,7 +143,7 @@ wire [7:0] rx_data = rxq_dout[7:0];
 
 always @(posedge gmii_tx_clk) begin
 	if (sys_rst) begin
-		rx_count	  <= 14'h0;
+		rx_count	  <= 16'h0;
 		rx_magic	  <= 40'b0;
 		counter_start     <= 32'h0;
 		counter_end       <= 32'h0;
@@ -172,47 +172,47 @@ always @(posedge gmii_tx_clk) begin
 			throughput <= 32'h0;
 		end
 		if (rxq_rd_en == 1'b1) begin
-			rx_count <= rx_count + 14'h1;
+			rx_count <= rx_count + 16'h1;
 			if (rxq_dout[8] == 1'b1) begin
 				case (rx_count)
-				14'h00: if (sec_oneshot == 1'b0)
+				16'h00: if (sec_oneshot == 1'b0)
 						pps <= pps + 32'h1;
-				14'h06: rx_src_mac[47:40] <= rx_data;// Ethernet hdr: Source MAC
-				14'h07: rx_src_mac[39:32] <= rx_data;
-				14'h08: rx_src_mac[31:24] <= rx_data;
-				14'h09: rx_src_mac[23:16] <= rx_data;
-				14'h0a: rx_src_mac[15: 8] <= rx_data;
-				14'h0b: rx_src_mac[ 7: 0] <= rx_data;
-				14'h0c: rx_type[15:8] <= rx_data;    // Type: IP=0800,ARP=0806
-				14'h0d: rx_type[ 7:0] <= rx_data;
-				14'h14: rx_opcode[15:8] <= rx_data;  // ARP: Operation (ARP reply: 0x0002)
-				14'h15: rx_opcode[ 7:0] <= rx_data;  // Opcode ARP Request=1
-				14'h1c: rx_ipv4_srcip[31:24] <= rx_data;  // ARP: Source IP address
-				14'h1d: rx_ipv4_srcip[23:16] <= rx_data;
-				14'h1e: begin
+				16'h06: rx_src_mac[47:40] <= rx_data;// Ethernet hdr: Source MAC
+				16'h07: rx_src_mac[39:32] <= rx_data;
+				16'h08: rx_src_mac[31:24] <= rx_data;
+				16'h09: rx_src_mac[23:16] <= rx_data;
+				16'h0a: rx_src_mac[15: 8] <= rx_data;
+				16'h0b: rx_src_mac[ 7: 0] <= rx_data;
+				16'h0c: rx_type[15:8] <= rx_data;    // Type: IP=0800,ARP=0806
+				16'h0d: rx_type[ 7:0] <= rx_data;
+				16'h14: rx_opcode[15:8] <= rx_data;  // ARP: Operation (ARP reply: 0x0002)
+				16'h15: rx_opcode[ 7:0] <= rx_data;  // Opcode ARP Request=1
+				16'h1c: rx_ipv4_srcip[31:24] <= rx_data;  // ARP: Source IP address
+				16'h1d: rx_ipv4_srcip[23:16] <= rx_data;
+				16'h1e: begin
 					rx_ipv4_srcip[15: 8] <= rx_data;
 					rx_ipv4_ip1[31:24]   <= rx_data;
 				end
-				14'h1f: begin
+				16'h1f: begin
 					rx_ipv4_srcip[ 7: 0] <= rx_data;
 					rx_ipv4_ip1[23:16] <= rx_data;
 				end
-				14'h20: rx_ipv4_ip1[15: 8] <= rx_data;
-				14'h21: rx_ipv4_ip1[ 7: 0] <= rx_data;
-				14'h26: rx_arp_dst[31:24]  <= rx_data; // target IP for ARP
-				14'h27: rx_arp_dst[23:16]  <= rx_data;
-				14'h28: rx_arp_dst[15: 8]  <= rx_data;
-				14'h29: rx_arp_dst[ 7: 0]  <= rx_data;
-				14'h2a: rx_magic[39:32] <= rx_data;
-				14'h2b: rx_magic[31:24] <= rx_data;
-				14'h2c: rx_magic[23:16] <= rx_data;
-				14'h2d: rx_magic[15:8]  <= rx_data;
-				14'h2e: rx_magic[7:0]   <= rx_data;
-				14'h2f: counter_start[31:24] <= rx_data;
-				14'h30: counter_start[23:16] <= rx_data;
-				14'h31: counter_start[15:8]  <= rx_data;
-				14'h32: counter_start[7:0]   <= rx_data;
-				14'h33: begin
+				16'h20: rx_ipv4_ip1[15: 8] <= rx_data;
+				16'h21: rx_ipv4_ip1[ 7: 0] <= rx_data;
+				16'h26: rx_arp_dst[31:24]  <= rx_data; // target IP for ARP
+				16'h27: rx_arp_dst[23:16]  <= rx_data;
+				16'h28: rx_arp_dst[15: 8]  <= rx_data;
+				16'h29: rx_arp_dst[ 7: 0]  <= rx_data;
+				16'h2a: rx_magic[39:32] <= rx_data;
+				16'h2b: rx_magic[31:24] <= rx_data;
+				16'h2c: rx_magic[23:16] <= rx_data;
+				16'h2d: rx_magic[15:8]  <= rx_data;
+				16'h2e: rx_magic[7:0]   <= rx_data;
+				16'h2f: counter_start[31:24] <= rx_data;
+				16'h30: counter_start[23:16] <= rx_data;
+				16'h31: counter_start[15:8]  <= rx_data;
+				16'h32: counter_start[7:0]   <= rx_data;
+				16'h33: begin
 					if (rx_magic[39:0] == `MAGIC_CODE) begin
 						rx_latency1   <= global_counter - counter_start;
 					end else if (rx_type == 16'h0806 && rx_opcode == 16'h1 && rx_arp_dst == Int_ipv4_addr) begin  // rx_magic[39:8] is Target IP Addres (ARP)
@@ -221,56 +221,56 @@ always @(posedge gmii_tx_clk) begin
 						arp_request <= 1'b1;
 					end
 				end
-				14'h36: v6type            <= rx_data;
-				14'h3e: begin
+				16'h36: v6type            <= rx_data;
+				16'h3e: begin
 					rx_magic[39:32] <= rx_data;
 					v6target[127:120] <= rx_data;
 				end
-				14'h3f: begin
+				16'h3f: begin
 					rx_magic[31:24] <= rx_data;
 					v6target[119:112] <= rx_data;
 				end
-				14'h40: begin
+				16'h40: begin
 					rx_magic[23:16] <= rx_data;
 					v6target[111:104] <= rx_data;
 				end
-				14'h41: begin
+				16'h41: begin
 					rx_magic[15:8]  <= rx_data;
 					v6target[103: 96] <= rx_data;
 				end
-				14'h42: begin
+				16'h42: begin
 					rx_magic[7:0]   <= rx_data;
 					v6target[ 95: 88] <= rx_data;
 				end
-				14'h43: begin
+				16'h43: begin
 					counter_start[31:24] <= rx_data;
 					v6target[ 87: 80] <= rx_data;
 				end
-				14'h44: begin
+				16'h44: begin
 					counter_start[23:16] <= rx_data;
 					v6target[ 79: 72] <= rx_data;
 				end
-				14'h45: begin
+				16'h45: begin
 					counter_start[15:8]  <= rx_data;
 					v6target[ 71: 64] <= rx_data;
 				end
-				14'h46: begin
+				16'h46: begin
 					counter_start[7:0]   <= rx_data;
 					v6target[ 63: 56] <= rx_data;
 				end
-				14'h47: begin
+				16'h47: begin
 					if (rx_magic[39:0] == `MAGIC_CODE) begin
 						rx_latency1   <= global_counter - counter_start;
 					end
 					v6target[ 55: 48] <= rx_data;
 				end
-				14'h48: v6target[ 47: 40] <= rx_data;
-				14'h49: v6target[ 39: 32] <= rx_data;
-				14'h4a: v6target[ 31: 24] <= rx_data;
-				14'h4b: v6target[ 23: 16] <= rx_data;
-				14'h4c: v6target[ 15:  8] <= rx_data;
-				14'h4d: v6target[  7:  0] <= rx_data;
-				14'h4e:  if (rx_type == 16'h86dd && rx_opcode[15:8] == 8'h3a && v6type == 8'h87 && v6target == Int_ipv6_addr) begin // frame type=IPv6(0x86dd) && Next Header=ICMPv6(0x3a) && Type=Neighbor Solicitation(135) && v6target==int_v6_addr
+				16'h48: v6target[ 47: 40] <= rx_data;
+				16'h49: v6target[ 39: 32] <= rx_data;
+				16'h4a: v6target[ 31: 24] <= rx_data;
+				16'h4b: v6target[ 23: 16] <= rx_data;
+				16'h4c: v6target[ 15:  8] <= rx_data;
+				16'h4d: v6target[  7:  0] <= rx_data;
+				16'h4e:  if (rx_type == 16'h86dd && rx_opcode[15:8] == 8'h3a && v6type == 8'h87 && v6target == Int_ipv6_addr) begin // frame type=IPv6(0x86dd) && Next Header=ICMPv6(0x3a) && Type=Neighbor Solicitation(135) && v6target==int_v6_addr
 						tx_dst_mac    <= rx_src_mac;
 						neighbor_request <= 1'b1;
 					end
@@ -278,9 +278,9 @@ always @(posedge gmii_tx_clk) begin
 			end else begin
 				arp_request <= 1'b0;
 				neighbor_request <= 1'b0;
-				if (rx_count != 14'h0 && sec_oneshot == 1'b0)
-					throughput <= throughput + {18'h0, rx_count};
-				rx_count    <= 14'h0;
+				if (rx_count != 16'h0 && sec_oneshot == 1'b0)
+					throughput <= throughput + {16'h0, rx_count};
+				rx_count    <= 16'h0;
 			end
 		end
 	end
