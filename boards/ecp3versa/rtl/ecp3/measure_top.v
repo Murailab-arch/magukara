@@ -201,6 +201,13 @@ ip_crpr_arb crarb(.clk(clk_125), .rstn(core_rst_n),
             .pd_cr(pd_cr), .pd_num(pd_num), .ph_cr(ph_cr), .npd_cr(npd_cr), .nph_cr(nph_cr)               
 );
 
+UR_gen ur (.clk(clk_125), .rstn(core_rst_n),  
+            .rx_din(rx_data), .rx_sop(rx_st), .rx_eop(rx_end), .rx_us(rx_us_req), .rx_bar_hit(rx_bar_hit),
+             .tx_rdy(tx_rdy_ur), .tx_ca_cpl_recheck(1'b0), .tx_ca_cplh(tx_ca_cplh),
+             .tx_req(tx_req_ur), .tx_dout(tx_dout_ur), .tx_sop(tx_sop_ur), .tx_eop(tx_eop_ur),
+             .comp_id({bus_num, dev_num, func_num})
+);
+
 ip_tx_arbiter #(.c_DATA_WIDTH (16))
            tx_arb(.clk(clk_125), .rstn(core_rst_n), .tx_val(1'b1),
                   .tx_req_0(tx_req_wbm), .tx_din_0(tx_dout_wbm), .tx_sop_0(tx_sop_wbm), .tx_eop_0(tx_eop_wbm), .tx_dwen_0(1'b0),                 

@@ -19,8 +19,8 @@
 				<BScanLen>1</BScanLen>
 				<BScanVal>0</BScanVal>
 			</Bypass>
-			<File>C:/Users/tmatsuya/Dropbox/orc2012/src/measure/boards/ecp3versa/synthesis/impl1/top_impl1.bit</File>
-			<FileTime>6/8/2012 22:24:39</FileTime>
+			<File>C:/Users/tmatsuya/Dropbox/orc2012/src/magukara/boards/ecp3versa/synthesis/impl1/top_impl1.bit</File>
+			<FileTime>7/11/2012 17:15:15</FileTime>
 			<Operation>Fast Program</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>

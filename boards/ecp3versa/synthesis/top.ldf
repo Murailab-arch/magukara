@@ -75,6 +75,9 @@
         <Source name="../../../cores/ipexpress/asfifo9_4.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
+        <Source name="../rtl/ur_gen/UR_gen.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
         <Source name="impl1/impl1.xcf" type="ispVM Download Project" type_short="ispVM">
             <Options/>
         </Source>
