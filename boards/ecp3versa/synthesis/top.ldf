@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BaliProject version="1.3" title="top" device="LFE3-35EA-8FN484C" synthesis="synplify" default_implementation="impl1">
+<BaliProject version="2.0" title="top" device="LFE3-35EA-8FN484C" synthesis="synplify" default_implementation="impl1">
     <Options/>
     <Implementation title="impl1" dir="impl1" description="impl1" default_strategy="Strategy1">
         <Options>
@@ -76,6 +76,9 @@
             <Options/>
         </Source>
         <Source name="../rtl/ur_gen/UR_gen.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="../rtl/ipexpress/ecp3/pciex1/pcie.lpc" type="LPC_Module" type_short="LPC">
             <Options/>
         </Source>
         <Source name="impl1/impl1.xcf" type="ispVM Download Project" type_short="ispVM">
