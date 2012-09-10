@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE		ispXCF	SYSTEM	"IspXCF.dtd" >
-<ispXCF version="1.4">
+<ispXCF version="2.0">
 	<Comment></Comment>
 	<Chain>
 		<Comm>JTAG</Comm>
@@ -19,17 +19,14 @@
 				<BScanLen>1</BScanLen>
 				<BScanVal>0</BScanVal>
 			</Bypass>
-			<File>C:/Users/tmatsuya/Dropbox/orc2012/src/magukara/boards/ecp3versa/synthesis/impl1/top_impl1.bit</File>
-			<FileTime>7/11/2012 17:15:15</FileTime>
+			<File>/home/sora/work/magukara/boards/ecp3versa/synthesis/impl1/top_impl1.bit</File>
+			<FileTime>09/10/12 22:04:30</FileTime>
 			<Operation>Fast Program</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
 				<IOState>HighZ</IOState>
 				<PreloadLength>675</PreloadLength>
 				<IOVectorData>0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</IOVectorData>
-				<OverideUES value="TRUE"/>
-				<TCKFrequency>1.000000 MHz</TCKFrequency>
-				<SVFProcessor>ispVM</SVFProcessor>
 				<Usercode>0x00000000</Usercode>
 				<AccessMode>JTAG</AccessMode>
 			</Option>
@@ -46,11 +43,5 @@
 	<CableOptions>
 		<CableName>USB2</CableName>
 		<PortAdd>FTUSB-0</PortAdd>
-		<JTAGPinSetting>
-			TRST	LOW;
-			ISPEN	LOW;
-		</JTAGPinSetting>
-		<TRSTConnect value="TRUE"/>
-		<ISPENConnect value="TRUE"/>
 	</CableOptions>
 </ispXCF>
