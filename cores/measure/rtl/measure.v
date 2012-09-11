@@ -41,31 +41,31 @@ module measure (
   input         tx0_req_arp,
   input [15:0]  tx0_frame_len,
   input [31:0]  tx0_inter_frame_gap,
-        input [31:0]  tx0_ipv4_srcip,
-        input [47:0]  tx0_src_mac,
+  input [31:0]  tx0_ipv4_srcip,
+  input [47:0]  tx0_src_mac,
   input [31:0]  tx0_ipv4_gwip,
   input [127:0]  tx0_ipv6_srcip,
   input [127:0]  tx0_ipv6_dstip,
   output reg [47:0] tx0_dst_mac,
-        input [31:0]  tx0_ipv4_dstip,
+  input [31:0]  tx0_ipv4_dstip,
   output reg [31:0] tx0_pps,
   output reg [31:0] tx0_throughput,
-        output [31:0] tx0_ipv4_ip,
+  output [31:0] tx0_ipv4_ip,
 
   output [31:0] rx1_pps,
   output [31:0] rx1_throughput,
   output [23:0] rx1_latency,
-        output [31:0] rx1_ipv4_ip,
+  output [31:0] rx1_ipv4_ip,
 
   output [31:0] rx2_pps,
   output [31:0] rx2_throughput,
   output [23:0] rx2_latency,
-        output [31:0] rx2_ipv4_ip,
+  output [31:0] rx2_ipv4_ip,
 
   output [31:0] rx3_pps,
   output [31:0] rx3_throughput,
   output [23:0] rx3_latency,
-        output [31:0] rx3_ipv4_ip
+  output [31:0] rx3_ipv4_ip
 );
 
 //-----------------------------------
@@ -677,8 +677,8 @@ measure_core # (
   .rx_pps(rx1_pps),
   .rx_throughput(rx1_throughput),
   .rx_latency(rx1_latency),
-  .rx_ipv4_ip(rx1_ipv4_ip)
-  
+  .rx_ipv4_ip(rx1_ipv4_ip),
+  .tx_ipv6(tx_ipv6)
 );
 
 `ifdef ENABE_RGMII2
@@ -706,8 +706,8 @@ measure_core # (
   .rx_pps(rx2_pps),
   .rx_throughput(rx2_throughput),
   .rx_latency(rx2_latency),
-  .rx_ipv4_ip(rx2_ipv4_ip)
-  
+  .rx_ipv4_ip(rx2_ipv4_ip),
+  .tx_ipv6(tx_ipv6)
 );
 `endif
 
@@ -736,8 +736,8 @@ measure_core # (
   .rx_pps(rx3_pps),
   .rx_throughput(rx3_throughput),
   .rx_latency(rx3_latency),
-  .rx_ipv4_ip(rx3_ipv4_ip)
-  
+  .rx_ipv4_ip(rx3_ipv4_ip),
+  .tx_ipv6(tx_ipv6)
 );
 `endif
 

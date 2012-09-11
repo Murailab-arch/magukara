@@ -23,7 +23,10 @@ module measure_core # (
   output reg [31:0] rx_pps,
   output reg [31:0] rx_throughput,
   output reg [23:0] rx_latency,
-  output reg [31:0] rx_ipv4_ip
+  output reg [31:0] rx_ipv4_ip,
+
+  // mode
+  input          tx_ipv6
 );
 
 reg [31:0] rx_pps1, rx_pps2;
@@ -132,9 +135,8 @@ reg  [47:0] rx_src_mac;
 reg  [31:0] rx_ipv4_srcip;
 reg  [15:0] rx_opcode;
 reg  [ 7:0] v6type;
-reg [127:0] v6target;
 reg arp_request;
-reg neighbor_request;
+reg neighbor_replay;
 reg  [47:0] tx_dst_mac;
 reg  [31:0] tx_ipv4_dstip;
 reg  [31:0] rx_arp_dst;
@@ -157,9 +159,8 @@ always @(posedge gmii_tx_clk) begin
     rx_src_mac <= 48'h0;
     rx_ipv4_srcip <= 32'h0;
     v6type <= 8'h0;
-    v6target <= 128'h0;
     arp_request <= 1'b0;
-    neighbor_request <= 1'b0;
+    neighbor_replay <= 1'b0;
     tx_dst_mac <= 48'h0;
     tx_ipv4_dstip <= 32'h0;
     rx_arp_dst <= 32'h0;
@@ -222,65 +223,33 @@ always @(posedge gmii_tx_clk) begin
           end
         end
         16'h36: v6type            <= rx_data;
-        16'h3e: begin
-          rx_magic[39:32] <= rx_data;
-          v6target[127:120] <= rx_data;
-        end
-        16'h3f: begin
-          rx_magic[31:24] <= rx_data;
-          v6target[119:112] <= rx_data;
-        end
-        16'h40: begin
-          rx_magic[23:16] <= rx_data;
-          v6target[111:104] <= rx_data;
-        end
-        16'h41: begin
-          rx_magic[15:8]  <= rx_data;
-          v6target[103: 96] <= rx_data;
-        end
-        16'h42: begin
-          rx_magic[7:0]   <= rx_data;
-          v6target[ 95: 88] <= rx_data;
-        end
-        16'h43: begin
-          counter_start[31:24] <= rx_data;
-          v6target[ 87: 80] <= rx_data;
-        end
-        16'h44: begin
-          counter_start[23:16] <= rx_data;
-          v6target[ 79: 72] <= rx_data;
-        end
-        16'h45: begin
-          counter_start[15:8]  <= rx_data;
-          v6target[ 71: 64] <= rx_data;
-        end
-        16'h46: begin
-          counter_start[7:0]   <= rx_data;
-          v6target[ 63: 56] <= rx_data;
-        end
+        16'h3e: rx_magic[39:32] <= rx_data;
+        16'h3f: rx_magic[31:24] <= rx_data;
+        16'h40: rx_magic[23:16] <= rx_data;
+        16'h41: rx_magic[15:8]  <= rx_data;
+        16'h42: rx_magic[7:0]   <= rx_data;
+        16'h43: counter_start[31:24] <= rx_data;
+        16'h44: counter_start[23:16] <= rx_data;
+        16'h45: counter_start[15:8]  <= rx_data;
+        16'h46: counter_start[7:0]   <= rx_data;
         16'h47: begin
           if (rx_magic[39:0] == `MAGIC_CODE) begin
-            rx_latency1   <= global_counter - counter_start;
+            rx_latency1 <= global_counter - counter_start;
           end
-          v6target[ 55: 48] <= rx_data;
         end
-        16'h48: v6target[ 47: 40] <= rx_data;
-        16'h49: v6target[ 39: 32] <= rx_data;
-        16'h4a: v6target[ 31: 24] <= rx_data;
-        16'h4b: v6target[ 23: 16] <= rx_data;
-        16'h4c: v6target[ 15:  8] <= rx_data;
-        16'h4d: v6target[  7:  0] <= rx_data;
-        16'h4e:  if (rx_type == 16'h86dd && rx_opcode[15:8] == 8'h3a && v6type == 8'h87 && v6target == Int_ipv6_addr) begin // frame type=IPv6(0x86dd) && Next Header=ICMPv6(0x3a) && Type=Neighbor Solicitation(135) && v6target==int_v6_addr
-            tx_dst_mac    <= rx_src_mac;
-            neighbor_request <= 1'b1;
+        // frame type=IPv6(0x86dd) && Next Header=ICMPv6(0x3a) && Type=Router Advertisement(134)
+        16'h48:  if (rx_type == 16'h86dd && rx_opcode[15:8] == 8'h3a && v6type == 8'h86) begin
+            tx_dst_mac <= rx_src_mac;
+            neighbor_replay <= 1'b1;
           end
         endcase
       end else begin
         arp_request <= 1'b0;
-        neighbor_request <= 1'b0;
-        if (rx_count != 16'h0 && sec_oneshot == 1'b0)
+        neighbor_replay <= 1'b0;
+        if (rx_count != 16'h0 && sec_oneshot == 1'b0) begin
           throughput <= throughput + {16'h0, rx_count};
-        rx_count    <= 16'h0;
+        end
+        rx_count <= 16'h0;
       end
     end
   end
@@ -330,10 +299,10 @@ always @(posedge gmii_tx_clk) begin
   end else begin
     case (arp_state)
     ARP_IDLE: begin
-      if (arp_request == 1'b1) begin
+      if (tx_ipv6 == 1'b0 && arp_request == 1'b1) begin
         arp_count <= 7'h0;
         arp_state <= ARP_SEND;
-      end else if (neighbor_request == 1'b1) begin
+      end else if (tx_ipv6 == 1'b1 && sec_oneshot == 1'b1) begin
         neighbor_count <= 7'h0;
         arp_state <= NEIGHBOR_SEND;
       end
@@ -441,12 +410,12 @@ always @(posedge gmii_tx_clk) begin
       7'h05: tx_data <= 8'h55;
       7'h06: tx_data <= 8'h55;
       7'h07: tx_data <= 8'hd5;    // preamble + SFD (0b1101_0101)
-      7'h08: tx_data <= tx_dst_mac[47:40];  // Ethernet hdr: Destination MAC
-      7'h09: tx_data <= tx_dst_mac[39:32];
-      7'h0a: tx_data <= tx_dst_mac[31:24];
-      7'h0b: tx_data <= tx_dst_mac[23:16];
-      7'h0c: tx_data <= tx_dst_mac[15:8];
-      7'h0d: tx_data <= tx_dst_mac[7:0];
+      7'h08: tx_data <= 8'hff;  // Ethernet hdr: Destination MAC
+      7'h09: tx_data <= 8'hff;
+      7'h0a: tx_data <= 8'hff;
+      7'h0b: tx_data <= 8'hff;
+      7'h0c: tx_data <= 8'hff;
+      7'h0d: tx_data <= 8'hff;
       7'h0e: tx_data <= tx_src_mac[47:40];  // Ethernet hdr: Source MAC
       7'h0f: tx_data <= tx_src_mac[39:32];
       7'h10: tx_data <= tx_src_mac[31:24];
@@ -459,8 +428,8 @@ always @(posedge gmii_tx_clk) begin
       7'h17: tx_data <= 8'h00;
       7'h18: tx_data <= 8'h00;
       7'h19: tx_data <= 8'h00;
-      7'h1a: tx_data <= 8'h00;    // Payload Length: 32
-      7'h1b: tx_data <= 8'h20;
+      7'h1a: tx_data <= 8'h00;    // Payload Length: 8
+      7'h1b: tx_data <= 8'h08;
       7'h1c: tx_data <= 8'h3a;    // Next header: ICMPv6 (0x3a)
       7'h1d: tx_data <= 8'hff;    // Hop limit: 255
       7'h1e: tx_data <= 8'hfe;                // Source IPv6
@@ -479,7 +448,7 @@ always @(posedge gmii_tx_clk) begin
       7'h2b: tx_data <= tx_src_mac[ 23: 16];
       7'h2c: tx_data <= tx_src_mac[ 15:  8];
       7'h2d: tx_data <= tx_src_mac[  7:  0];
-      7'h2e: tx_data <= 8'hff;                // dest IPv6
+      7'h2e: tx_data <= 8'hff;                // dest IPv6 (All routers address: ff02::2)
       7'h2f: tx_data <= 8'h02;
       7'h30: tx_data <= 8'h00;
       7'h31: tx_data <= 8'h00;
@@ -494,48 +463,23 @@ always @(posedge gmii_tx_clk) begin
       7'h3a: tx_data <= 8'h00;
       7'h3b: tx_data <= 8'h00;
       7'h3c: tx_data <= 8'h00;
-      7'h3d: tx_data <= 8'h01;
-      7'h3e: tx_data <= 8'h88;    // Type: Neighbor Advertisement(136)
+      7'h3d: tx_data <= 8'h02;
+      7'h3e: tx_data <= 8'h85;    // Type: Router Solicitation (type: 133)
       7'h3f: tx_data <= 8'h00;    // Code: 0
       7'h40: tx_data <= 8'h00;    // Checksum
       7'h41: tx_data <= 8'h00;
-      7'h42: tx_data <= 8'h60;    // Flags: 0x60000000
+      7'h42: tx_data <= 8'h00;    // Reserved
       7'h43: tx_data <= 8'h00;
       7'h44: tx_data <= 8'h00;
       7'h45: tx_data <= 8'h00;
-      7'h46: tx_data <= tx_ipv6_srcip[127:120];  // Source IPv6
-      7'h47: tx_data <= tx_ipv6_srcip[119:112];
-      7'h48: tx_data <= tx_ipv6_srcip[111:104];
-      7'h49: tx_data <= tx_ipv6_srcip[103: 96];
-      7'h4a: tx_data <= tx_ipv6_srcip[ 95: 88];
-      7'h4b: tx_data <= tx_ipv6_srcip[ 87: 80];
-      7'h4c: tx_data <= tx_ipv6_srcip[ 79: 72];
-      7'h4d: tx_data <= tx_ipv6_srcip[ 71: 64];
-      7'h4e: tx_data <= tx_ipv6_srcip[ 63: 56];
-      7'h4f: tx_data <= tx_ipv6_srcip[ 55: 48];
-      7'h50: tx_data <= tx_ipv6_srcip[ 47: 40];
-      7'h51: tx_data <= tx_ipv6_srcip[ 39: 32];
-      7'h52: tx_data <= tx_ipv6_srcip[ 31: 24];
-      7'h53: tx_data <= tx_ipv6_srcip[ 23: 16];
-      7'h54: tx_data <= tx_ipv6_srcip[ 15:  8];
-      7'h55: tx_data <= tx_ipv6_srcip[  7:  0];
-      7'h56: tx_data <= 8'h02;    // Type: Target link-layer address(2)
-      7'h57: tx_data <= 8'h01;    // Length: 1 (8 bytes)
-
-      7'h58: tx_data <= tx_src_mac[47:40];
-      7'h59: tx_data <= tx_src_mac[39:32];
-      7'h5a: tx_data <= tx_src_mac[31:24];
-      7'h5b: tx_data <= tx_src_mac[23:16];
-      7'h5c: tx_data <= tx_src_mac[15:8];
-      7'h5d: tx_data <= tx_src_mac[7:0];
-      7'h5e: begin         // FCS (CRC)
+      7'h46: begin         // FCS (CRC)
         arp_crc_rd  <= 1'b1;
         tx_data <= arp_crc_out[31:24];
       end
-      7'h5f: tx_data <= arp_crc_out[23:16];
-      7'h60: tx_data <= arp_crc_out[15:8];
-      7'h61: tx_data <= arp_crc_out[7:0];
-      7'h62: begin
+      7'h47: tx_data <= arp_crc_out[23:16];
+      7'h48: tx_data <= arp_crc_out[15:8];
+      7'h49: tx_data <= arp_crc_out[7:0];
+      7'h4a: begin
         tx_en   <= 1'b0;
         arp_crc_rd  <= 1'b0;
         tx_data <= 8'h0;
