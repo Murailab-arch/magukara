@@ -5,6 +5,7 @@ FPGA-based open-source network tester
 ## Supported FPGA board
 
 * [Lattice ECP3 Versa Development Kit](http://www.latticesemi.com/products/developmenthardware/developmentkits/ecp3versadevelopmentkit/index.cfm)
+* NetFPGA-1G (don't use NetFPGA framework)
 
 ## Directory Structure
 
@@ -17,7 +18,13 @@ FPGA-based open-source network tester
     /doc/                -- Documentation.
     /software/monitor/   -- Web frontend using node.js
 
-## Quickstart
+## Quickstart (build and FPGA configuration)
+
+### LatticeECP3
+
+    # connect USB cables
+    $ cd boards/ecp3versa/synthesis
+    $ make load
 
 ### NetFPGA-1G
 
@@ -48,7 +55,13 @@ FPGA-based open-source network tester
 
 ## How to build
 
+### LatticeECP3
+
+    $ cd boards/ecp3versa/synthesis
+    $ make
+
 ### NetFPGA-1G
+
     $ cd boards/netfpga/synthesis
     $ make
 
