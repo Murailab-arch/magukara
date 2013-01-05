@@ -298,26 +298,28 @@ measure measure_inst (
 	.sys_clk(sys_clk),
 	.pci_clk(PCLK2),
 
-	.gmii_tx_clk(rgmii_tx_clk),
-
+	.gmii_0_tx_clk(rgmii_tx_clk),
 	.gmii_0_txd(gmii_0_txd),
 	.gmii_0_tx_en(gmii_0_tx_en),
 	.gmii_0_rxd(gmii_0_rxd),
 	.gmii_0_rx_dv(gmii_0_rx_dv),
 	.gmii_0_rx_clk(rgmii_0_rxc),
 
+	.gmii_1_tx_clk(rgmii_tx_clk),
 	.gmii_1_txd(gmii_1_txd),
 	.gmii_1_tx_en(gmii_1_tx_en),
 	.gmii_1_rxd(gmii_1_rxd),
 	.gmii_1_rx_dv(gmii_1_rx_dv),
 	.gmii_1_rx_clk(rgmii_1_rxc),
 
+	.gmii_2_tx_clk(rgmii_tx_clk),
 	.gmii_2_txd(gmii_2_txd),
 	.gmii_2_tx_en(gmii_2_tx_en),
 	.gmii_2_rxd(gmii_2_rxd),
 	.gmii_2_rx_dv(gmii_2_rx_dv),
 	.gmii_2_rx_clk(rgmii_2_rxc),
 
+	.gmii_3_tx_clk(rgmii_tx_clk),
 	.gmii_3_txd(gmii_3_txd),
 	.gmii_3_tx_en(gmii_3_tx_en),
 	.gmii_3_rxd(gmii_3_rxd),

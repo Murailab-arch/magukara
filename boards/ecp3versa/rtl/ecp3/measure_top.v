@@ -42,10 +42,11 @@ module top (
   // Switch/LED
   input [7:0] dip_switch,
   output [13:0] led_out,
-  output dp
+  output dp,
+  input reset_n
 );
 
-reg  [19:0] rstn_cnt;
+reg  [20:0] rstn_cnt;
 reg  core_rst_n;
 wire [15:0] rx_data, tx_data,  tx_dout_wbm, tx_dout_ur;
 wire [6:0] rx_bar_hit;
@@ -76,10 +77,10 @@ wire tx_eop_wbm;
 // Reset management
 always @(posedge clk_125 or negedge rstn) begin
   if (!rstn) begin
-    rstn_cnt   <= 20'd0;
+    rstn_cnt   <= 21'd0;
     core_rst_n <= 1'b0;
   end else begin
-    if (rstn_cnt[19])            // 4ms in real hardware
+    if (rstn_cnt[20])            // 8ms in real hardware
       core_rst_n <= 1'b1;
     else
       rstn_cnt <= rstn_cnt + 1'b1;
@@ -268,14 +269,14 @@ measure measure_inst (
   .sys_clk(clk_125),
   .pci_clk(clk_125),
 
-  .gmii_tx_clk(phy1_125M_clk),
-
+  .gmii_0_tx_clk(phy1_125M_clk),
   .gmii_0_txd(phy1_tx_data),
   .gmii_0_tx_en(phy1_tx_en),
   .gmii_0_rxd(phy1_rx_data),
   .gmii_0_rx_dv(phy1_rx_dv),
   .gmii_0_rx_clk(phy1_rx_clk),
 
+  .gmii_1_tx_clk(phy2_125M_clk),
   .gmii_1_txd(phy2_tx_data),
   .gmii_1_tx_en(phy2_tx_en),
   .gmii_1_rxd(phy2_rx_data),
@@ -620,11 +621,11 @@ assign pcie_ack = wb_ack;
 assign phy1_mii_clk = 1'b0;
 assign phy1_mii_data = 1'b0;
 assign phy1_gtx_clk = phy1_125M_clk;
-assign phy1_rst_n = core_rst_n;
+assign phy1_rst_n = core_rst_n & reset_n;
 assign phy2_mii_clk = 1'b0;
 assign phy2_mii_data = 1'b0;
-assign phy2_gtx_clk = phy1_125M_clk;
-assign phy2_rst_n = core_rst_n;
+assign phy2_gtx_clk = phy2_125M_clk;
+assign phy2_rst_n = core_rst_n & reset_n;
 assign led_out = 14'b0;
 
 endmodule

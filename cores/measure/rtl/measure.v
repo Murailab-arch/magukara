@@ -7,27 +7,29 @@ module measure (
   input         sys_clk,
   input         pci_clk,
 
-  input         gmii_tx_clk,
-
   // GMII interfaces for 4 MACs
+  input         gmii_0_tx_clk,
   output [7:0]  gmii_0_txd,
   output        gmii_0_tx_en,
   input  [7:0]  gmii_0_rxd,
   input         gmii_0_rx_dv,
   input         gmii_0_rx_clk,
 
+  input         gmii_1_tx_clk,
   output [7:0]  gmii_1_txd,
   output        gmii_1_tx_en,
   input  [7:0]  gmii_1_rxd,
   input         gmii_1_rx_dv,
   input         gmii_1_rx_clk,
 
+  input         gmii_2_tx_clk,
   output [7:0]  gmii_2_txd,
   output        gmii_2_tx_en,
   input  [7:0]  gmii_2_rxd,
   input         gmii_2_rx_dv,
   input         gmii_2_rx_clk,
 
+  input         gmii_3_tx_clk,
   output [7:0]  gmii_3_txd,
   output        gmii_3_tx_en,
   input  [7:0]  gmii_3_rxd,
@@ -73,7 +75,7 @@ module measure (
 //-----------------------------------
 reg sec_oneshot;
 reg [26:0] sec_counter;
-always @(posedge gmii_tx_clk) begin
+always @(posedge gmii_0_tx_clk) begin
   if (sys_rst) begin
     sec_counter <= 27'd125000000;
     sec_oneshot <= 1'b0;
@@ -104,7 +106,7 @@ reg crc_rd;
 assign crc_data_en = ~crc_rd;
 crc_gen crc_inst (
   .Reset(sys_rst),
-  .Clk(gmii_tx_clk),
+  .Clk(gmii_0_tx_clk),
   .Init(crc_init),
   .Frame_data(tx_data),
   .Data_en(crc_data_en),
@@ -117,7 +119,7 @@ crc_gen crc_inst (
 // Global counter
 //-----------------------------------
 reg [31:0] global_counter;
-always @(posedge gmii_tx_clk) begin
+always @(posedge gmii_0_tx_clk) begin
   if (sys_rst) begin
     global_counter <= 32'h0;
   end else begin
@@ -143,7 +145,7 @@ asfifo9_4 rxq (
         .dout(rxq_dout),
         .empty(rxq_empty),
         .rd_en(rxq_rd_en),
-        .rd_clk(gmii_tx_clk),
+        .rd_clk(gmii_0_tx_clk),
 
         .rst(sys_rst)
 );
@@ -158,7 +160,7 @@ asfifo9_4 rxq (
   .Q(rxq_dout),
   .Empty(rxq_empty),
   .RdEn(rxq_rd_en),
-  .RdClock(gmii_tx_clk),
+  .RdClock(gmii_0_tx_clk),
 
   .RPReset(),
   .Reset(sys_rst)
@@ -172,12 +174,12 @@ asfifo # (
         .din(rxq_din),
         .full(rxq_full),
         .wr_en(rxq_wr_en),
-        .wr_clk(gmii_rx_clk),
+        .wr_clk(gmii_0_rx_clk),
 
         .dout(rxq_dout),
         .empty(rxq_empty),
         .rd_en(rxq_rd_en),
-        .rd_clk(gmii_tx_clk),
+        .rd_clk(gmii_0_tx_clk),
 
         .rst(sys_rst)
 );
@@ -214,7 +216,7 @@ reg arp_reply;
 
 wire [7:0] rx_data = rxq_dout[7:0];
 
-always @(posedge gmii_tx_clk) begin
+always @(posedge gmii_0_tx_clk) begin
   if (sys_rst) begin
     rx_count    <= 14'h0;
     rx_type <= 16'h0;
@@ -303,7 +305,7 @@ wire [15:0] tx0_udp_len = tx0_frame_len - 16'h26;  // UDP Length
 wire [15:0] tx0_ip_len  = tx0_frame_len - 16'd18;  // IP Length (Frame Len - FCS Len - EtherFrame Len)
 
 reg [23:0] tmp_counter;
-always @(posedge gmii_tx_clk) begin
+always @(posedge gmii_0_tx_clk) begin
   if (sys_rst) begin
     tx_count       <= 16'h0;
     tmp_counter    <= 24'h0;
@@ -406,6 +408,12 @@ always @(posedge gmii_tx_clk) begin
     TX_WAIT_ARPREP: begin
       tx_count       <= 16'h0;
       arp_wait_count <= arp_wait_count - 16'd1;
+`ifdef ECP3VERSA
+      if (tx0_ipv6 == 1'b0)
+        tx_state <= TX_V4_SEND;
+      else
+        tx_state <= TX_V6_SEND;
+`else
       if (arp_reply == 1'b1) begin
         tx_state <= TX_V4_SEND;
       end else if (arp_wait_count == 16'h0) begin
@@ -414,6 +422,7 @@ always @(posedge gmii_tx_clk) begin
         else
           tx_state <= TX_V6_SEND;
       end
+`endif
     end
     TX_V4_SEND: begin
       case (tx_count)
@@ -636,10 +645,14 @@ always @(posedge gmii_tx_clk) begin
       tx_count  <= 16'h0;
       if (gap_count == 32'h0) begin
         if (tx0_ipv6 == 1'b0) begin
+`ifdef ECP3VERSA
+            tx_state <= TX_V4_SEND;
+`else
           if (tx0_dst_mac != 48'h0)
             tx_state <= TX_V4_SEND;
           else
             tx_state <= TX_REQ_ARP;
+`endif
         end else begin
           tx_state <= TX_V6_SEND;
         end
@@ -662,14 +675,14 @@ measure_core # (
   .Int_mac_addr(48'h003776_000101)
 ) measure_phy1 (
   .sys_rst(sys_rst),
-  .sys_clk(gmii_tx_clk),
+  .sys_clk(gmii_0_tx_clk),
   .pci_clk(pci_clk),
   .sec_oneshot(sec_oneshot),
   .global_counter(global_counter),
 
   .gmii_txd(gmii_1_txd),
   .gmii_tx_en(gmii_1_tx_en),
-  .gmii_tx_clk(gmii_tx_clk),
+  .gmii_tx_clk(gmii_1_tx_clk),
   .gmii_rxd(gmii_1_rxd),
   .gmii_rx_dv(gmii_1_rx_dv),
   .gmii_rx_clk(gmii_1_rx_clk),
@@ -691,14 +704,14 @@ measure_core # (
   .Int_mac_addr(48'h003776_000102)
 ) measure_phy2 (
   .sys_rst(sys_rst),
-  .sys_clk(gmii_tx_clk),
+  .sys_clk(gmii_0_tx_clk),
   .pci_clk(pci_clk),
   .sec_oneshot(sec_oneshot),
   .global_counter(global_counter),
 
   .gmii_txd(gmii_2_txd),
   .gmii_tx_en(gmii_2_tx_en),
-  .gmii_tx_clk(gmii_tx_clk),
+  .gmii_tx_clk(gmii_2_tx_clk),
   .gmii_rxd(gmii_2_rxd),
   .gmii_rx_dv(gmii_2_rx_dv),
   .gmii_rx_clk(gmii_2_rx_clk),
@@ -721,14 +734,14 @@ measure_core # (
   .Int_mac_addr(48'h003776_000103)
 ) measure_phy3 (
   .sys_rst(sys_rst),
-  .sys_clk(gmii_tx_clk),
+  .sys_clk(gmii_0_tx_clk),
   .pci_clk(pci_clk),
   .sec_oneshot(sec_oneshot),
   .global_counter(global_counter),
 
   .gmii_txd(gmii_3_txd),
   .gmii_tx_en(gmii_3_tx_en),
-  .gmii_tx_clk(gmii_tx_clk),
+  .gmii_tx_clk(gmii_3_tx_clk),
   .gmii_rxd(gmii_3_rxd),
   .gmii_rx_dv(gmii_3_rx_dv),
   .gmii_rx_clk(gmii_3_rx_clk),

@@ -15,11 +15,13 @@ build/top.prj: $(SRC)
 	    echo "verilog work ../$$i" >> build/top.prj; \
 	done
 
+build/asfifo9_4.ngc: $(CORES_DIR)/coregen/asfifo9_4.xco
+	cd build && coregen -b ../../../../cores/coregen/asfifo9_4.xco
+
 build/top.ngc: build/top.prj
 	cd build && xst -ifn ../top.xst
-	cp -p ../../../cores/coregen/*.ngc build/.
 
-build/top.ngd: build/top.ngc build/top.ucf
+build/top.ngd: build/top.ngc build/asfifo9_4.ngc build/top.ucf
 	cd build && ngdbuild -uc top.ucf top.ngc
 
 include common.mak
