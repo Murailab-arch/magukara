@@ -6,9 +6,10 @@ Please check the [MAGUKARA wiki](/Murailab-arch/magukara/wiki) for how to build 
 
 
   
-                          ,----------------------------,
-                          |  TIMESTAMP + Ether frame   |
-                          '----------------------------'
+                          
+                         *True* TIMESTAMP + Frame length +
+                          5-tuple hash key + Ether frame
+                                    |        |
                                     |        |
                           ,-----------,    ,-----------,
                           |/dev/magu/0|    |/dev/magu/1|
@@ -21,7 +22,8 @@ Please check the [MAGUKARA wiki](/Murailab-arch/magukara/wiki) for how to build 
                           +-----+----------------+-----+
                           |Port0|                |Port1|
                           '-----'                '-----'
-        ,-------------,      |                      |      ,-------------,
-    ----| Ether frame |------'                      '------| Ether frame |---->
-        '-------------'                                    '-------------'
-  
+                             |                      |
+    ----- Ether frame -------'                      '------- Ether frame ----->
+     
+     
+     
