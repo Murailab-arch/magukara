@@ -7,7 +7,7 @@ Please check the [MAGUKARA wiki](/Murailab-arch/magukara/wiki) for how to build 
 
   
                           
-                         *True* TIMESTAMP + Frame length +
+                         Hardware counter + Frame length +
                           5-tuple hash key + Ether frame
                                     |        |
                                     |        |
