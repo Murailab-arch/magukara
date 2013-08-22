@@ -3,10 +3,17 @@
 #include <linux/fs.h>
 #include <linux/poll.h>
 #include <linux/pci.h>
+#include <linux/version.h>
 
 #define	DRV_NAME	"magukara"
 #define	DRV_VERSION	"0.0.1"
 #define	MAGUKARA_DRIVER_NAME	DRV_NAME " Magukara driver " DRV_VERSION
+
+#if LINUX_VERSION_CODE > KERNEL_VERSION(3,8,0)
+#define	__devinit
+#define	__devexit
+#define	__devexit_p
+#endif
 
 static DEFINE_PCI_DEVICE_TABLE(magukara_pci_tbl) = {
 	{0x3776, 0x8000, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
@@ -123,10 +130,10 @@ static int __devinit magukara_init_one (struct pci_dev *pdev,
 	mmio_flags = pci_resource_flags (pdev, 0);
 	mmio_len   = pci_resource_len   (pdev, 0);
 
-	printk( KERN_INFO "mmio_start: %X\n", mmio_start );
-	printk( KERN_INFO "mmio_end  : %X\n", mmio_end   );
-	printk( KERN_INFO "mmio_flags: %X\n", mmio_flags );
-	printk( KERN_INFO "mmio_len  : %X\n", mmio_len   );
+	printk( KERN_INFO "mmio_start: %X\n", (unsigned int)mmio_start );
+	printk( KERN_INFO "mmio_end  : %X\n", (unsigned int)mmio_end   );
+	printk( KERN_INFO "mmio_flags: %X\n", (unsigned int)mmio_flags );
+	printk( KERN_INFO "mmio_len  : %X\n", (unsigned int)mmio_len   );
 
 	mmio_ptr = ioremap(mmio_start, mmio_len);
 	if (!mmio_ptr) {
