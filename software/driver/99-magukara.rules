@@ -1,1 +1,1 @@
-KERNEL=="ethpipe*"		MODE="0666"
+KERNEL=="magukara*"		MODE="0666"
