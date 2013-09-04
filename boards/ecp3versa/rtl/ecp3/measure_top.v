@@ -319,8 +319,17 @@ always @(posedge clk_125 or negedge core_rst_n) begin
     tx0_ipv6            <= 1'b0;
     tx0_fullroute       <= 1'b0;
     tx0_req_arp         <= 1'b0;
-    tx0_frame_len       <= 16'd64;
-    tx0_inter_frame_gap <= 32'd12;
+    case (dip_switch[7:5])
+        3'h0: tx0_frame_len       <= 16'd64;
+        3'h1: tx0_frame_len       <= 16'd128;
+        3'h2: tx0_frame_len       <= 16'd256;
+        3'h3: tx0_frame_len       <= 16'd512;
+        3'h4: tx0_frame_len       <= 16'd768;
+        3'h5: tx0_frame_len       <= 16'd1024;
+        3'h6: tx0_frame_len       <= 16'd1280;
+        3'h7: tx0_frame_len       <= 16'd1518;
+    endcase
+    tx0_inter_frame_gap <= 32'd11 + (32'h1 << dip_switch[4:0]);
     tx0_src_mac         <= 48'h003776_000100;
     tx0_ipv4_gwip       <= {8'd10,8'd0,8'd20,8'd1};
     tx0_ipv4_srcip      <= {8'd10,8'd0,8'd20,8'd105};
