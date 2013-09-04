@@ -444,12 +444,21 @@ always @(posedge gmii_0_tx_clk) begin
       16'h05: tx_data <= 8'h55;
       16'h06: tx_data <= 8'h55;
       16'h07: tx_data <= 8'hd5;                  // preamble + SFD (0b1101_0101)
+`ifndef ECP3VERSA
       16'h08: tx_data <= tx0_dst_mac[47:40];     // Destination MAC
       16'h09: tx_data <= tx0_dst_mac[39:32];
       16'h0a: tx_data <= tx0_dst_mac[31:24];
       16'h0b: tx_data <= tx0_dst_mac[23:16];
       16'h0c: tx_data <= tx0_dst_mac[15:8];
       16'h0d: tx_data <= tx0_dst_mac[7:0];
+`else
+      16'h08: tx_data <= 8'hff;
+      16'h09: tx_data <= 8'hff;
+      16'h0a: tx_data <= 8'hff;
+      16'h0b: tx_data <= 8'hff;
+      16'h0c: tx_data <= 8'hff;
+      16'h0d: tx_data <= 8'hff;
+`endif
       16'h0e: tx_data <= tx0_src_mac[47:40];     // Source MAC
       16'h0f: tx_data <= tx0_src_mac[39:32];
       16'h10: tx_data <= tx0_src_mac[31:24];
@@ -543,12 +552,21 @@ always @(posedge gmii_0_tx_clk) begin
       16'h05: tx_data <= 8'h55;
       16'h06: tx_data <= 8'h55;
       16'h07: tx_data <= 8'hd5;                  // preamble + SFD (0b1101_0101)
+`ifndef ECP3VERSA
       16'h08: tx_data <= tx0_dst_mac[47:40];     // Destination MAC
       16'h09: tx_data <= tx0_dst_mac[39:32];
       16'h0a: tx_data <= tx0_dst_mac[31:24];
       16'h0b: tx_data <= tx0_dst_mac[23:16];
       16'h0c: tx_data <= tx0_dst_mac[15:8];
       16'h0d: tx_data <= tx0_dst_mac[7:0];
+`else
+      16'h08: tx_data <= 8'hff;
+      16'h09: tx_data <= 8'hff;
+      16'h0a: tx_data <= 8'hff;
+      16'h0b: tx_data <= 8'hff;
+      16'h0c: tx_data <= 8'hff;
+      16'h0d: tx_data <= 8'hff;
+`endif
       16'h0e: tx_data <= tx0_src_mac[47:40];     // Source MAC
       16'h0f: tx_data <= tx0_src_mac[39:32];
       16'h10: tx_data <= tx0_src_mac[31:24];
