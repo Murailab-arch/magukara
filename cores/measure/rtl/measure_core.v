@@ -26,7 +26,9 @@ module measure_core # (
   output reg [31:0] rx_ipv4_ip,
 
   // mode
-  input          tx_ipv6
+  input          tx_ipv6,
+
+  output reg [31:0] count_2976_latency
 );
 
 reg [31:0] rx_pps1, rx_pps2;
@@ -141,6 +143,8 @@ reg  [47:0] tx_dst_mac;
 reg  [31:0] tx_ipv4_dstip;
 reg  [31:0] rx_arp_dst;
 
+reg  [11:0] count_2976;
+
 wire [7:0] rx_data = rxq_dout[7:0];
 
 always @(posedge gmii_tx_clk) begin
@@ -164,14 +168,24 @@ always @(posedge gmii_tx_clk) begin
     tx_dst_mac <= 48'h0;
     tx_ipv4_dstip <= 32'h0;
     rx_arp_dst <= 32'h0;
+    count_2976 <= 12'h0;
+    count_2976_latency <= 31'h0;
   end else begin
     rxq_rd_en <= ~rxq_empty;
+
+    if (count_2976 == 12'h0 || count_2976 == 12'h2976) begin
+      count_2976_latency <= 32'h0;
+    end else begin
+      count_2976_latency <= count_2976_latency + 32'h1;
+    end
+
     if (sec_oneshot == 1'b1) begin
       rx_pps1 <= pps;
       rx_throughput1 <= throughput;
       pps <= 32'h0;
       throughput <= 32'h0;
     end
+
     if (rxq_rd_en == 1'b1) begin
       rx_count <= rx_count + 16'h1;
       if (rxq_dout[8] == 1'b1) begin
@@ -216,6 +230,9 @@ always @(posedge gmii_tx_clk) begin
         16'h33: begin
           if (rx_magic[39:0] == `MAGIC_CODE) begin
             rx_latency1   <= global_counter - counter_start;
+            if (count_2976 != 12'd3000) begin
+              count_2976 <= count_2976 + 12'd1;
+            end
           end else if (rx_type == 16'h0806 && rx_opcode == 16'h1 && rx_arp_dst == Int_ipv4_addr) begin  // rx_magic[39:8] is Target IP Addres (ARP)
             tx_dst_mac    <= rx_src_mac;
             tx_ipv4_dstip <= rx_ipv4_srcip;

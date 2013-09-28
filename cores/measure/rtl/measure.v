@@ -67,7 +67,10 @@ module measure (
   output [31:0] rx3_pps,
   output [31:0] rx3_throughput,
   output [23:0] rx3_latency,
-  output [31:0] rx3_ipv4_ip
+  output [31:0] rx3_ipv4_ip,
+
+  output reg [31:0] global_counter,
+  output [31:0] count_2976_latency
 );
 
 //-----------------------------------
@@ -118,7 +121,6 @@ crc_gen crc_inst (
 //-----------------------------------
 // Global counter
 //-----------------------------------
-reg [31:0] global_counter;
 always @(posedge gmii_0_tx_clk) begin
   if (sys_rst) begin
     global_counter <= 32'h0;
@@ -709,7 +711,9 @@ measure_core # (
   .rx_throughput(rx1_throughput),
   .rx_latency(rx1_latency),
   .rx_ipv4_ip(rx1_ipv4_ip),
-  .tx_ipv6(tx_ipv6)
+  .tx_ipv6(tx_ipv6),
+
+  .count_2976_latency(count_2976_latency)
 );
 
 `ifdef ENABE_RGMII2

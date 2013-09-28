@@ -263,6 +263,7 @@ wire [31:0] rx1_pps;
 wire [31:0] rx1_throughput;
 wire [23:0] rx1_latency;
 wire [31:0] rx1_ipv4_ip;
+wire [31:0] global_counter;
 
 measure measure_inst (
   .sys_rst(~core_rst_n),
@@ -303,7 +304,10 @@ measure measure_inst (
   .rx1_pps(rx1_pps),
   .rx1_throughput(rx1_throughput),
   .rx1_latency(rx1_latency),
-  .rx1_ipv4_ip(rx1_ipv4_ip)
+  .rx1_ipv4_ip(rx1_ipv4_ip),
+
+  .global_counter(global_counter),
+  .count_2976_latency(count_2976_latency)
 );
 
 
@@ -434,6 +438,14 @@ always @(posedge clk_125 or negedge core_rst_n) begin
           wb_dat <= {tx0_ipv6_dstip[ 23: 16], tx0_ipv6_dstip[ 31: 24]};
         7'h4f:
           wb_dat <= {tx0_ipv6_dstip[  7:  0], tx0_ipv6_dstip[ 15:  8]};
+        7'h50: // global_counter
+          wb_dat <= {global_counter[ 23: 16], global_counter[ 31: 24]};
+        7'h51:
+          wb_dat <= {global_counter[  7:  0], global_counter[ 15:  8]};
+        7'h52: // count_2976_latency
+          wb_dat <= {count_2976_latency[ 23: 16], count_2976_latency[ 31: 24]};
+        7'h53:
+          wb_dat <= {count_2976_latency[  7:  0], count_2976_latency[ 15:  8]};
         default:
           wb_dat <= 16'h0;
         endcase
