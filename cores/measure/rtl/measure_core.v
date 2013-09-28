@@ -173,10 +173,12 @@ always @(posedge gmii_tx_clk) begin
   end else begin
     rxq_rd_en <= ~rxq_empty;
 
-    if (count_2976 == 12'h0 || count_2976 == 12'h2976) begin
+    if (count_2976 == 12'h0) begin
       count_2976_latency <= 32'h0;
     end else begin
-      count_2976_latency <= count_2976_latency + 32'h1;
+      if (count_2976 != 12'd2976) begin
+        count_2976_latency <= count_2976_latency + 32'h1;
+      end
     end
 
     if (sec_oneshot == 1'b1) begin
