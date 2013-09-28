@@ -264,6 +264,7 @@ wire [31:0] rx1_throughput;
 wire [23:0] rx1_latency;
 wire [31:0] rx1_ipv4_ip;
 wire [31:0] global_counter;
+wire [31:0] count_2976_latency;
 
 measure measure_inst (
   .sys_rst(~core_rst_n),
