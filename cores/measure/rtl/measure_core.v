@@ -231,8 +231,8 @@ always @(posedge gmii_tx_clk) begin
         16'h32: counter_start[7:0]   <= rx_data;
         16'h33: begin
           if (rx_magic[39:0] == `MAGIC_CODE) begin
-            rx_latency1   <= global_counter - counter_start;
-            if (count_2976 != 12'd3000) begin
+            rx_latency1 <= global_counter - counter_start;
+            if (count_2976 != 12'd2976) begin
               count_2976 <= count_2976 + 12'd1;
             end
           end else if (rx_type == 16'h0806 && rx_opcode == 16'h1 && rx_arp_dst == Int_ipv4_addr) begin  // rx_magic[39:8] is Target IP Addres (ARP)
