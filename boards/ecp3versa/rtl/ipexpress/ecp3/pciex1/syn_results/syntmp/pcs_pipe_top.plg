@@ -1,36 +1,68 @@
-@P:  Worst Slack : 3.086
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Frequency : 990.9 MHz
+@P:  Worst Slack : 2.426
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Frequency : 1102.3 MHz
 @P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Frequency : 150.0 MHz
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Period : 1.009
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Period : 0.907
 @P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Period : 6.667
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Slack : 5.657
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Frequency : 279.3 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Frequency : 150.0 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Period : 3.581
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Period : 6.667
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Slack : 3.086
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Frequency : 303.9 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Frequency : 150.0 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Period : 3.290
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Period : 6.667
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Slack : 3.376
-@P:  Worst Slack : 3.086
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Frequency : 990.9 MHz
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Frequency : 150.0 MHz
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Period : 1.009
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Period : 6.667
-@P:  pcs_pipe_top|ff_rx_fclk_0 - Slack : 5.657
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Frequency : 279.3 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Frequency : 150.0 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Estimated Period : 3.581
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Requested Period : 6.667
-@P:  pcs_pipe_top|pcs_top_0.PCLK_by_2_inferred_clock - Slack : 3.086
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Frequency : 303.9 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Frequency : 150.0 MHz
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Estimated Period : 3.290
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Requested Period : 6.667
-@P:  pcs_pipe_top|pcs_top_0.PCLK_inferred_clock - Slack : 3.376
-@P:  Total Area : 70.0
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Slack : 5.760
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Estimated Frequency : 551.1 MHz
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Estimated Period : 1.814
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Requested Period : 6.667
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Slack : NA
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Estimated Frequency : 308.8 MHz
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Estimated Period : 3.238
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Requested Period : 6.667
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Slack : 3.429
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Estimated Frequency : 268.1 MHz
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Estimated Period : 3.730
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Requested Period : 6.667
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Slack : 2.937
+@P:  pcs_top|refclk_inferred_clock - Estimated Frequency : 289.0 MHz
+@P:  pcs_top|refclk_inferred_clock - Requested Frequency : 150.0 MHz
+@P:  pcs_top|refclk_inferred_clock - Estimated Period : 3.460
+@P:  pcs_top|refclk_inferred_clock - Requested Period : 6.667
+@P:  pcs_top|refclk_inferred_clock - Slack : 2.426
+@P:  System - Estimated Frequency : 2058.0 MHz
+@P:  System - Requested Frequency : 150.0 MHz
+@P:  System - Estimated Period : 0.486
+@P:  System - Requested Period : 6.667
+@P:  System - Slack : 6.181
+@P:  Worst Slack(min analysis) : -0.074
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Frequency(min analysis) : 1102.3 MHz
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Frequency(min analysis) : 150.0 MHz
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Estimated Period(min analysis) : 0.907
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Requested Period(min analysis) : 6.667
+@P:  pcs_pipe_top|ff_rx_fclk_0 - Slack(min analysis) : 5.760
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Estimated Frequency(min analysis) : 551.1 MHz
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Requested Frequency(min analysis) : 150.0 MHz
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Estimated Period(min analysis) : 1.814
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Requested Period(min analysis) : 6.667
+@P:  pcs_pipe_top|refclkdiv2_derived_clock - Slack(min analysis) : NA
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Estimated Frequency(min analysis) : 308.8 MHz
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Requested Frequency(min analysis) : 150.0 MHz
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Estimated Period(min analysis) : 3.238
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Requested Period(min analysis) : 6.667
+@P:  pcs_top|ff_tx_f_clk_0_inferred_clock - Slack(min analysis) : 3.429
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Estimated Frequency(min analysis) : 268.1 MHz
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Requested Frequency(min analysis) : 150.0 MHz
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Estimated Period(min analysis) : 3.730
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Requested Period(min analysis) : 6.667
+@P:  pcs_top|ff_tx_h_clk_0_inferred_clock - Slack(min analysis) : 2.937
+@P:  pcs_top|refclk_inferred_clock - Estimated Frequency(min analysis) : 289.0 MHz
+@P:  pcs_top|refclk_inferred_clock - Requested Frequency(min analysis) : 150.0 MHz
+@P:  pcs_top|refclk_inferred_clock - Estimated Period(min analysis) : 3.460
+@P:  pcs_top|refclk_inferred_clock - Requested Period(min analysis) : 6.667
+@P:  pcs_top|refclk_inferred_clock - Slack(min analysis) : 2.426
+@P:  System - Estimated Frequency(min analysis) : 148.4 MHz
+@P:  System - Requested Frequency(min analysis) : 150.0 MHz
+@P:  System - Estimated Period(min analysis) : 6.740
+@P:  System - Requested Period(min analysis) : 6.667
+@P:  System - Slack(min analysis) : -0.074
+@P:  Total Area : 110.0
+@P:  Total Area : 0.0
+@P:  Total Area : 0.0
 @P:  Total Area : 0.0
 @P:  Total Area : 0.0
 @P:  CPU Time : 0h:00m:01s

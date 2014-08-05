@@ -1,16 +1,12 @@
-line 3895, col 57: Option set not found: vcs_actel_smart_fusion_lib.
-
-
 Running in Lattice mode
 
 
-Starting:    C:\ispTOOLS8_1\synpbase\bin\mbin\synbatch.exe
-Install:     C:\ispTOOLS8_1\synpbase
-Date:        Mon Nov 29 17:49:17 2010
-Version:     D-2009.12L-1
+Starting:    C:\lscc\diamond\2.2_x64\synpbase\win64\mbin\synbatch.exe
+Install:     C:\lscc\diamond\2.2_x64\synpbase
+Date:        Sun Aug 03 23:03:46 2014
+Version:     G-2012.09L-SP1 
 
-
-Arguments:   -product synplify_pro  -batch D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/syn_results\pcs_pipe_top.prj
+Arguments:   -product synplify_pro  -batch C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/syn_results/pcs_pipe_top.prj
 ProductType: synplify_pro
 
 
@@ -18,36 +14,35 @@ ProductType: synplify_pro
 
 
 
-Running synthesis on pcs_pipe_top:syn_results
+log file: "C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\pcs_pipe_top.srr"
 
-log file: "D:\project\PCIe_IP\Native_PCIeBasic_SBx1\ispLeverGenCore\ecp3\pciex1\syn_results\pcs_pipe_top.srf"
-
-
-
-Running flow compile_flow ...
-
-
-Running HDL Compiler...
-Start Time:17:49:17
-
-
-Compiler Completed
-Return Code: 0
-Completion Time:17:49:17
-
-
-Running flow synthesis ...
-
-Launching mapper in pro mode
-
-
-Running lattice-ecp3 Mapper...
-Start Time:17:49:18
-
-
-lattice-ecp3 Mapper Completed with warnings
+Running pcs_pipe_top|syn_results
+Running Compile on pcs_pipe_top|syn_results
+Running Compile Process on pcs_pipe_top|syn_results
+Running Compile Input on pcs_pipe_top|syn_results
+Copied C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\synwork\pcs_pipe_top_compiler.srs to C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\pcs_pipe_top.srs
+compiler Completed with warnings
 Return Code: 1
-Completion Time:17:49:19
+Run Time:0h:00m:01s
+
+Copied C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\pcs_pipe_top.srr to C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\pcs_pipe_top.srf
+Job Compile Process completed on pcs_pipe_top|syn_results
+Running Premap on pcs_pipe_top|syn_results
+premap Completed with warnings
+Return Code: 1
+Run Time:0h:00m:01s
+
+Job Compile completed on pcs_pipe_top|syn_results
+Running Map on pcs_pipe_top|syn_results
+Running Map & Optimize on pcs_pipe_top|syn_results
+fpga_mapper Completed with warnings
+Return Code: 1
+Run Time:0h:00m:03s
+
+Job Map completed on pcs_pipe_top|syn_results
+Copied C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\pcs_pipe_top.srr to C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results\pcs_pipe_top.srf
+Job Logic Synthesis completed on pcs_pipe_top|syn_results
+
 
 exit status=0
 

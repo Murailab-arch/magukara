@@ -1,0 +1,277 @@
+Selecting top level module pcie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@N: CG364 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie.v":24:7:24:10|Synthesizing module pcie
+
+Extracted state machine for register arb_sm
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Extracted state machine for register oflow_state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Extracted state machine for register cs_pause
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+Extracted state machine for register cs_cfgrd
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+Extracted state machine for register pkt_sm
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+Extracted state machine for register int_sm
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Extracted state machine for register rxtp_state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   11
+Extracted state machine for register fci_state
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Extracted state machine for register lcm_state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Extracted state machine for register cs_hrst_sm
+State machine has 3 reachable states with original encodings of:
+   00
+   10
+   11
+Extracted state machine for register cs_lbk_sm
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   100
+   101
+   110
+Extracted state machine for register cs_dis_sm
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Extracted state machine for register cs_l2_sm
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+Extracted state machine for register cs_l1_sm
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+Extracted state machine for register cs_l0s_tx_sm
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+Extracted state machine for register cs_l0s_rx_sm
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Extracted state machine for register cs_l0_sm
+State machine has 7 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+Extracted state machine for register cs_rcvry_sm
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Extracted state machine for register cs_cfg_sm
+State machine has 8 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+   111
+Extracted state machine for register cs_cfg_sm
+State machine has 8 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+   111
+Extracted state machine for register cs_pol_sm
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Extracted state machine for register cs_det_sm
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   111
+Extracted state machine for register cs_main_sm
+State machine has 11 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+   0101
+   0110
+   0111
+   1000
+   1001
+   1010
+Extracted state machine for register cs_pcgen0
+State machine has 2 reachable states with original encodings of:
+   00
+   01
+Extracted state machine for register cs_ftsgen
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Extracted state machine for register cs_eidlegen
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Extracted state machine for register cs_tsgen
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Extracted state machine for register cs_ts
+State machine has 11 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+   0101
+   0110
+   0111
+   1000
+   1001
+   1010
+Extracted state machine for register cs_tllp
+State machine has 2 reachable states with original encodings of:
+   00
+   01

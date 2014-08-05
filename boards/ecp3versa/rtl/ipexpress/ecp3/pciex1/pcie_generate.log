@@ -1,70 +1,118 @@
 Starting process: IPCFG
 
 GenerateCore within package Core_Generate 1.0.0 in file LatticeIP_generate.tcl
-Starting process: '"C:/lscc/diamond/1.1/bin/nt/synpwrap" -rem -e pcie -target lattice-ecp3'
+Starting process: '"C:/lscc/diamond/2.2_x64/bin/nt64/synpwrap" -rem -e pcie -target lattice-ecp3'
 
 End process: completed successfully.
 
-Starting process: '"C:/lscc/diamond/1.1/bin/nt/synpwrap" -rem -e pcs_pipe_top -target lattice-ecp3'
+Starting process: '"C:/lscc/diamond/2.2_x64/bin/nt64/synpwrap" -rem -e pcs_pipe_top -target lattice-ecp3'
 
 End process: completed successfully.
 
-Starting process: '"C:/lscc/diamond/1.1/bin/nt/../../ispfpga/bin/nt/edif2ngd" -ip "C:/LatticeCore/pci_express_endpoint_v4.3/lib/../.." -ic pci_express_endpoint_v4.3 -l latticeecp3 -nopropwarn "pcie.edi" "pcie.ngo"'
-edif2ngd:  version Diamond_1.1_Alpha (544)
+Starting process: '"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/edif2ngd" -ip "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/syn_results" -ic pci_express_endpoint_v5.3 -l ep5c00 -nopropwarn "pcie.edi" "pcie.ngo"'
+edif2ngd:  version Diamond (64-bit) 2.2.0.101
+
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-     Copyright (c) 1995 AT&T Corp.   All rights reserved.
-     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-     Copyright (c) 2001 Agere Systems   All rights reserved.
-     Copyright (c) 2002-2010 Lattice Semiconductor Corporation,  All rights
-     reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2013 Lattice Semiconductor Corporation,  All rights reserved.
 No device specified. Will use default.
+
 Writing the design to pcie.ngo...
-Generating edif netlist for IP cell pmi_ram_dp_z6.edn
 
-F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 16 -num_rows 256 -rdata_width 16  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z6 -pmi 
-Writing the design to pmi_ram_dp_Z6.ngo...
-Generating edif netlist for IP cell pmi_ram_dp_z3.edn
+Generating edif netlist for IP cell pmi_ram_dpebnonessen168256168256p136064bf.edn
 
-F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 20 -num_rows 146 -rdata_width 20  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z3 -pmi 
-Writing the design to pmi_ram_dp_Z3.ngo...
-Generating edif netlist for IP cell pmi_ram_dp_z2.edn
+C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results>"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 16 -num_rows 256 -rdata_width 16  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dpEbnonessen168256168256p136064bf -pmi 
+Writing the design to pmi_ram_dpEbnonessen168256168256p136064bf.ngo...
 
-F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 16 -num_rows 1024 -rdata_width 16  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z2 -pmi 
-Writing the design to pmi_ram_dp_Z2.ngo...
-Generating edif netlist for IP cell
-     pmi_distributed_dpram_16s_4s_1s_noreg_none_binary_ec2_pmi_distri_0.edn
+Generating edif netlist for IP cell pmi_ram_dpebnonessen208146208146p13602a55.edn
 
-F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 16 -data_width 1   -memformat bin -n pmi_distributed_dpram_16s_4s_1s_noreg_none_binary_EC2_pmi_distri_0 -pmi 
-Writing the design to
-     pmi_distributed_dpram_16s_4s_1s_noreg_none_binary_EC2_pmi_distri_0.ngo..
-     .
-Generating edif netlist for IP cell
-     pmi_distributed_dpram_81s_7s_16s_reg_none_binary_ec2_pmi_distrib_0.edn
+C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results>"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 20 -num_rows 146 -rdata_width 20  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dpEbnonessen208146208146p13602a55 -pmi 
+Writing the design to pmi_ram_dpEbnonessen208146208146p13602a55.ngo...
 
-F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 81 -data_width 16 -pipe_final_output  -memformat bin -n pmi_distributed_dpram_81s_7s_16s_reg_none_binary_EC2_pmi_distrib_0 -pmi 
-Writing the design to
-     pmi_distributed_dpram_81s_7s_16s_reg_none_binary_EC2_pmi_distrib_0.ngo..
-     .
-Generating edif netlist for IP cell pmi_ram_dp_z4.edn
+Generating edif netlist for IP cell pmi_ram_dpebnonessen1610102416101024p13a7cbaa.edn
 
-F:\abhinav\assign1_pcie_versa\working\Versa_PCIeBasic\Source\ipexpress\New Folder\syn_results>"C:/lscc/diamond/1.1/ispfpga/bin/nt/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 18 -num_rows 1024 -rdata_width 18  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dp_Z4 -pmi 
-Writing the design to pmi_ram_dp_Z4.ngo...
+C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results>"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 16 -num_rows 1024 -rdata_width 16  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dpEbnonessen1610102416101024p13a7cbaa -pmi 
+Writing the design to pmi_ram_dpEbnonessen1610102416101024p13a7cbaa.ngo...
+
+Generating edif netlist for IP cell pmi_distributed_dpramebnonen1416pb3f774f.edn
+
+C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results>"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 16 -data_width 1   -memformat bin -n pmi_distributed_dpramEbnonen1416pb3f774f -pmi 
+Writing the design to pmi_distributed_dpramEbnonen1416pb3f774f.ngo...
+
+Generating edif netlist for IP cell pmi_distributed_dpramebnoner16781pb2baaed.edn
+
+C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results>"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type sdpram -num_rows 81 -data_width 16 -pipe_final_output  -memformat bin -n pmi_distributed_dpramEbnoner16781pb2baaed -pmi 
+Writing the design to pmi_distributed_dpramEbnoner16781pb2baaed.ngo...
+
+Generating edif netlist for IP cell pmi_ram_dpebnonessen1810102418101024p13a7dcc5.edn
+
+C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\syn_results>"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/scuba" -w -bus_exp 7 -bb -arch ep5c00 -type bram -wp 10 -rp 0011 -data_width 18 -num_rows 1024 -rdata_width 18  -gsr ENABLED -sync_reset  -memformat bin -cascade -1 -n pmi_ram_dpEbnonessen1810102418101024p13a7dcc5 -pmi 
+Writing the design to pmi_ram_dpEbnonessen1810102418101024p13a7dcc5.ngo...
+
 
 End process: completed successfully.
 
-Starting process: '"C:/lscc/diamond/1.1/bin/nt/../../ispfpga/bin/nt/edif2ngd" -ip "C:/LatticeCore/pci_express_endpoint_v4.3/lib/../.." -ic pci_express_endpoint_v4.3 -l latticeecp3 -nopropwarn "pcs_pipe_top.edi" "pcs_pipe_top.ngo"'
-edif2ngd:  version Diamond_1.1_Alpha (544)
+Starting process: '"C:/lscc/diamond/2.2_x64/ispfpga/bin/nt64/edif2ngd" -ip "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/syn_results" -ic pci_express_endpoint_v5.3 -l ep5c00 -nopropwarn "pcs_pipe_top.edi" "pcs_pipe_top.ngo"'
+edif2ngd:  version Diamond (64-bit) 2.2.0.101
+
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-     Copyright (c) 1995 AT&T Corp.   All rights reserved.
-     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-     Copyright (c) 2001 Agere Systems   All rights reserved.
-     Copyright (c) 2002-2010 Lattice Semiconductor Corporation,  All rights
-     reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2013 Lattice Semiconductor Corporation,  All rights reserved.
 No device specified. Will use default.
+
 Writing the design to pcs_pipe_top.ngo...
 
+
 End process: completed successfully.
 
+error deleting "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/syn_results\synlog": file already exists
+=============================================================================
+Filelist generated by IPexpress    08/03/2014    23:03:55          
+Filename: pcie_filelist.log                                         
+Copyright(c) 2009 Lattice Semiconductor Corporation. All rights reserved.   
+=============================================================================
+-----------------------------------------------------------------------------
+Basic IP Core Files
+Output Directory: C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1 
+-----------------------------------------------------------------------------
+  pcie.lpc
+      : IP ispLEVER LPC File
+  pcie.ngo
+      : IP ispLEVER Database File
+  pcie_bb.v
+      : IP Verilog Blackbox Module
+  pcie_inst.v
+      : IP Verilog Instantiation Template
+  pcie.v
+      : IP Verilog Behaviorial Sim Model
+  pcie_gen.log
+      : IP Status Log
+  pcie_generate.log
+      : IP Generate Log
+-----------------------------------------------------------------------------
+Supplemental Implementation and Simulation Files:
+
+
+Models common to all PCIE configurations
+    ../pcie_eval/models/ecp3 
+
+Testbench files specific to pcie configurations
+    ../pcie_eval/pcie/testbench/top 
+    ../pcie_eval/pcie/testbench/tests 
+
+Evaluation source files specific to pcie configuration
+    ../pcie_eval/pcie/src/top 
+    ../pcie_eval/pcie/src/params 
+
+Simulation files specific to pcie configuration
+    ../pcie_eval/pcie/sim/modelsim 
+
+Implementation files specific to pcie configuration
+    ../pcie_eval/pcie/impl 
 
 Total Warnings:  0
 

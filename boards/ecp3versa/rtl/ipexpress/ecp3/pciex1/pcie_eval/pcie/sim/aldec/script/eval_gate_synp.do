@@ -1,15 +1,15 @@
 
-    cd "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/pcie/sim/aldec/timing"
+    cd "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/pcie_eval/pcie/sim/aldec/timing"
     workspace create pcie_space
     design create pcie_design .
     design open pcie_design
-    cd "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/pcie/sim/aldec/timing"
+    cd "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/pcie_eval/pcie/sim/aldec/timing"
     set sim_working_folder .
 
     #==============================================================================
     # Compile
     #==============================================================================
-    vlog +define+USERNAME_EVAL_TOP=pcie_eval_top  +define+DEBUG=0 +define+SIMULATE  +define+SDF_SIM +incdir+../../../../pcie/testbench/top +incdir+../../../../pcie/testbench/tests +incdir+../../../../src/params +incdir+../../../../models/ecp3 +incdir+../../../../pcie/src/params ../../../../pcie/src/params/pci_exp_params.v  ../../../../pcie/testbench/top/eval_pcie.v  ../../../../pcie/testbench/top/eval_tbtx.v  ../../../../pcie/testbench/top/eval_tbrx.v   ../../../impl/synplify/pcie_eval.vo  
+    vlog +define+USERNAME_EVAL_TOP=pcie_eval_top  +define+DEBUG=0 +define+SIMULATE  +define+SDF_SIM +incdir+../../../../pcie/testbench/top +incdir+../../../../pcie/testbench/tests +incdir+../../../../src/params +incdir+../../../../models/ecp3 +incdir+../../../../pcie/src/params ../../../../pcie/src/params/pci_exp_params.v  ../../../../pcie/testbench/top/eval_pcie.v  ../../../../pcie/testbench/top/eval_tbtx.v  ../../../../pcie/testbench/top/eval_tbrx.v   ../../../impl/synplify/pcie_eval_top/pcie_eval_pcie_eval_top_vo.vo  
 
     #==============================================================================
     # Run

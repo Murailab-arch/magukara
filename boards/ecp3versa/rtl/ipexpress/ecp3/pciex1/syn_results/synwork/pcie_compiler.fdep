@@ -1,0 +1,456 @@
+#OPTIONS:"|-top|pcie|-prodtype|synplify_pro|-dspmac|-fixsmult|-infer_seqShift|-nram|-divnmod|-I|C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\syn_results\\|-I|C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib|-v2001|-devicelib|C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\ecp3.v|-devicelib|C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\pmi_def.v|-encrypt|-pro|-ll|2000|-ui|-fid2|-ram|-sharing|off|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\bin64\\c_ver.exe":1362968204
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\ecp3.v":1362968364
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\pmi_def.v":1362968364
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\umr_capim.v":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\scemi_objects.v":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\scemi_pipes.svh":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\hypermods.v":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\cae_library\\synthesis\\verilog\\ecp3.v":1347596694
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\pcie\\src\\params\\pci_exp_params.v":1407074570
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\pcie\\src\\params\\pci_exp_ddefines.v":1210107722
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\cae_library\\synthesis\\verilog\\pmi_def.v":1367576906
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\src\\ertl\\ertl.v":1326822672
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"pci_exp_dparams.v":1197846876
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie.v":1407074570
+#numinternalfiles:6
+#defaultlanguage:verilog
+0			"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\ecp3.v" verilog
+1			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\pcie\src\params\pci_exp_params.v" verilog
+2			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\pcie\src\params\pci_exp_ddefines.v" verilog
+3			"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\pmi_def.v" verilog
+4			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\src\ertl\ertl.v" verilog
+5		*	".\pci_exp_dparams.v" verilog
+6		*	".\pci_exp_dparams.v" verilog
+7		*	".\pci_exp_dparams.v" verilog
+8		*	".\pci_exp_dparams.v" verilog
+9		*	".\pci_exp_dparams.v" verilog
+10		*	".\pci_exp_dparams.v" verilog
+11		*	".\pci_exp_dparams.v" verilog
+12		*	".\pci_exp_dparams.v" verilog
+13		*	".\pci_exp_dparams.v" verilog
+14		*	".\pci_exp_dparams.v" verilog
+15		*	".\pci_exp_dparams.v" verilog
+16		*	".\pci_exp_dparams.v" verilog
+17		*	".\pci_exp_dparams.v" verilog
+18		*	".\pci_exp_dparams.v" verilog
+19		*	".\pci_exp_dparams.v" verilog
+20		*	".\pci_exp_dparams.v" verilog
+21		*	".\pci_exp_dparams.v" verilog
+22		*	".\pci_exp_dparams.v" verilog
+23		*	".\pci_exp_dparams.v" verilog
+24		*	".\pci_exp_dparams.v" verilog
+25		*	".\pci_exp_dparams.v" verilog
+26		*	".\pci_exp_dparams.v" verilog
+27		*	".\pci_exp_dparams.v" verilog
+28		*	".\pci_exp_dparams.v" verilog
+29		*	".\pci_exp_dparams.v" verilog
+30		*	".\pci_exp_dparams.v" verilog
+31		*	".\pci_exp_dparams.v" verilog
+32		*	".\pci_exp_dparams.v" verilog
+33		*	".\pci_exp_dparams.v" verilog
+34		*	".\pci_exp_dparams.v" verilog
+35		*	".\pci_exp_dparams.v" verilog
+36		*	".\pci_exp_dparams.v" verilog
+37			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie.v" verilog
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 1
+3 -1
+4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+5 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+6 4 5 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+7 4 5 6 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+8 4 5 6 7 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+9 4 5 6 7 8 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+10 4 5 6 7 8 9 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+11 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+12 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+13 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+14 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+15 4 5 6 7 8 9 10 11 12 13 14 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+16 4 5 6 7 8 9 10 11 12 13 14 15 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+17 4 5 6 7 8 9 10 11 12 13 14 15 16 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+18 4 5 6 7 8 9 10 11 12 13 14 15 16 17 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+19 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+20 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+21 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+22 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+23 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 24 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+24 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 25 26 27 28 29 30 31 32 33 34 35 36 2 1
+25 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 26 27 28 29 30 31 32 33 34 35 36 2 1
+26 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 27 28 29 30 31 32 33 34 35 36 2 1
+27 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 28 29 30 31 32 33 34 35 36 2 1
+28 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 29 30 31 32 33 34 35 36 2 1
+29 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 30 31 32 33 34 35 36 2 1
+30 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 31 32 33 34 35 36 2 1
+31 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 32 33 34 35 36 2 1
+32 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 34 35 36 2 1
+33 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 2 1
+34 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 35 36 2 1
+35 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 36 2 1
+36 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 2 1
+37 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36
+#Dependency Lists(Users Of)
+0 -1
+1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36
+2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36
+3 -1
+4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+5 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+6 4 5 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+7 4 5 6 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+8 4 5 6 7 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+9 4 5 6 7 8 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+10 4 5 6 7 8 9 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+11 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+12 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+13 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+14 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+15 4 5 6 7 8 9 10 11 12 13 14 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+16 4 5 6 7 8 9 10 11 12 13 14 15 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+17 4 5 6 7 8 9 10 11 12 13 14 15 16 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+18 4 5 6 7 8 9 10 11 12 13 14 15 16 17 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+19 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+20 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+21 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+22 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+23 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+24 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 25 26 27 28 29 30 31 32 33 34 35 36 37
+25 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 26 27 28 29 30 31 32 33 34 35 36 37
+26 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 27 28 29 30 31 32 33 34 35 36 37
+27 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 28 29 30 31 32 33 34 35 36 37
+28 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 29 30 31 32 33 34 35 36 37
+29 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 30 31 32 33 34 35 36 37
+30 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 31 32 33 34 35 36 37
+31 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 32 33 34 35 36 37
+32 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 34 35 36 37
+33 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 37
+34 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 35 36 37
+35 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 36 37
+36 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 37
+37 -1
+#Design Unit to File Association
+module work AGEB2 0
+module work ALEB2 0
+module work AND2 0
+module work AND3 0
+module work AND4 0
+module work AND5 0
+module work ANEB2 0
+module work BB 0
+module work BBPD 0
+module work BBPU 0
+module work BBW 0
+module work CB2 0
+module work CD2 0
+module work CU2 0
+module work DCS 0
+module work FADD2B 0
+module work FADSU2 0
+module work FD1P3AX 0
+module work FD1P3AY 0
+module work FD1P3BX 0
+module work FD1P3DX 0
+module work FD1P3IX 0
+module work FD1P3JX 0
+module work FD1S3AX 0
+module work FD1S3AY 0
+module work FD1S3BX 0
+module work FD1S3DX 0
+module work FD1S3IX 0
+module work FD1S3JX 0
+module work FL1P3AY 0
+module work FL1P3AZ 0
+module work FL1P3BX 0
+module work FL1P3DX 0
+module work FL1P3IY 0
+module work FL1P3JY 0
+module work FL1S3AX 0
+module work FL1S3AY 0
+module work FSUB2B 0
+module work GSR 0
+module work IB 0
+module work IBPD 0
+module work IBPU 0
+module work IFS1P3BX 0
+module work IFS1P3DX 0
+module work IFS1P3IX 0
+module work IFS1P3JX 0
+module work ILVDS 0
+module work INV 0
+module work L6MUX21 0
+module work LB2P3AX 0
+module work LB2P3AY 0
+module work LB2P3BX 0
+module work LB2P3DX 0
+module work LB2P3IX 0
+module work LB2P3JX 0
+module work LD2P3AX 0
+module work LD2P3AY 0
+module work LD2P3BX 0
+module work LD2P3DX 0
+module work LD2P3IX 0
+module work LD2P3JX 0
+module work LU2P3AX 0
+module work LU2P3AY 0
+module work LU2P3BX 0
+module work LU2P3DX 0
+module work LU2P3IX 0
+module work LU2P3JX 0
+module work MULT2 0
+module work MUX161 0
+module work MUX21 0
+module work MUX321 0
+module work MUX41 0
+module work MUX81 0
+module work ND2 0
+module work ND3 0
+module work ND4 0
+module work ND5 0
+module work NR2 0
+module work NR3 0
+module work NR4 0
+module work NR5 0
+module work OB 0
+module work OBCO 0
+module work OBZ 0
+module work OBZPU 0
+module work OFD1S3AX 0
+module work OFS1P3BX 0
+module work OFS1P3DX 0
+module work OFS1P3IX 0
+module work OFS1P3JX 0
+module work OLVDS 0
+module work OR2 0
+module work OR3 0
+module work OR4 0
+module work OR5 0
+module work LUT4 0
+module work LUT5 0
+module work LUT6 0
+module work LUT7 0
+module work LUT8 0
+module work PFUMX 0
+module work PUR 0
+module work ROM128X1A 0
+module work ROM16X1A 0
+module work ROM256X1A 0
+module work ROM32X1A 0
+module work ROM64X1A 0
+module work CCU2C 0
+module work VHI 0
+module work VLO 0
+module work XNOR2 0
+module work XNOR3 0
+module work XNOR4 0
+module work XNOR5 0
+module work XOR11 0
+module work XOR2 0
+module work XOR21 0
+module work XOR3 0
+module work XOR4 0
+module work XOR5 0
+module work IFS1S1B 0
+module work IFS1S1D 0
+module work IFS1S1I 0
+module work IFS1S1J 0
+module work DPR16X4C 0
+module work SPR16X4C 0
+module work SGSR 0
+module work CLKDIVB 0
+module work OSCF 0
+module work DCCA 0
+module work JTAGE 0
+module work SEDCA 0
+module work START 0
+module work SPIM 0
+module work PERREGA 0
+module work AMBOOTA 0
+module work DP16KC 0
+module work PDPW16KC 0
+module work SP16KC 0
+module work EHXPLLF 0
+module work TRDLLB 0
+module work TR1DLLB 0
+module work CIMDLLB 0
+module work CIDDLLB 0
+module work DLLDELB 0
+module work IDDRXD 0
+module work IDDRXD1 0
+module work IDDRX2D 0
+module work IDDRX2D1 0
+module work ODDRXD 0
+module work ODDRXD1 0
+module work ODDRX2D 0
+module work ODDRTDQA 0
+module work ODDRXDQSA 0
+module work ODDRTDQSA 0
+module work ODDRX2DQSA 0
+module work DQSBUFD 0
+module work DQSBUFE 0
+module work DQSBUFE1 0
+module work DQSBUFF 0
+module work DQSBUFG 0
+module work DQSDLLB 0
+module work ECLKSYNCA 0
+module work DELAYB 0
+module work DELAYC 0
+module work MULT18X18C 0
+module work MULT9X9C 0
+module work ALU54A 0
+module work ALU24A 0
+module work MULT9X9B 0
+module work MULT9X9ADDSUBB 0
+module work MULT9X9ADDSUBSUMB 0
+module work MULT18X18B 0
+module work MULT18X18ADDSUBB 0
+module work MULT18X18ADDSUBSUMB 0
+module work MULT18X18MACB 0
+module work MULT36X36B 0
+module work PCSD 0
+module work DTSA 0
+module work pmi_distributed_dpram 3
+module work pmi_distributed_rom 3
+module work pmi_distributed_spram 3
+module work pmi_distributed_shift_reg 3
+module work pmi_constant_mult 3
+module work pmi_mult 3
+module work pmi_mac 3
+module work pmi_multaddsub 3
+module work pmi_multaddsubsum 3
+module work pmi_complex_mult 3
+module work pmi_add 3
+module work pmi_sub 3
+module work pmi_counter 3
+module work pmi_addsub 3
+module work pmi_ram_dp 3
+module work pmi_ram_dp_be 3
+module work pmi_ram_dp_true 3
+module work pmi_ram_dp_true_be 3
+module work pmi_ram_dq 3
+module work pmi_ram_dq_be 3
+module work pmi_rom 3
+module work pmi_fifo_dc 3
+module work pmi_fifo 3
+module work pmi_dsp_mac 3
+module work pmi_dsp_mult 3
+module work pmi_dsp_multaddsub 3
+module work pmi_dsp_casmultaddsub 3
+module work pmi_dsp_multaddsubsum 3
+module work pmi_dsp_preadd_slice 3
+module work pmi_pll 3
+module work pmi_pll_fp 3
+module work jtaghub16 3
+module work jtagconn16 3
+module work dfrm 4
+module work frm_algn 4
+module work frm_ins 4
+module work frm_skpq 4
+module work frm 4
+module work scram_scr 4
+module work scram_txrc 4
+module work scram_rxrc 4
+module work scram 4
+module work cfg_up_sm 4
+module work cfg_dn_sm 4
+module work det_sm 4
+module work dis_sm 4
+module work hrst_sm 4
+module work l0_sm 4
+module work l0s_rx_sm 4
+module work l0s_tx_sm 4
+module work l1_sm 4
+module work l2_sm 4
+module work lbk_sm 4
+module work main_sm 4
+module work ts_dec 4
+module work osdec 4
+module work osenc 4
+module work pol_sm 4
+module work rcvry_sm 4
+module work ltssm 4
+module work rxdp_acknak 4
+module work rxdp_cfilt 4
+module work rxdp_ddec 4
+module work rxdp 4
+module work rxtp_crc 4
+module work rxtp 4
+module work lcmfci 4
+module work td_mux 4
+module work txdp_crc 4
+module work txdp_ctrl 4
+module work txtdp 4
+module work txtp_crc 4
+module work txtp_cins 4
+module work txtp_mux 4
+module work txtp_rtry 4
+module work txtp_seq 4
+module work txtp 4
+module work cfg_dec 4
+module work cfg_dsn_ec 4
+module work cfg_pcie_cs 4
+module work cfg_pmsi_cs 4
+module work cfg_resp 4
+module work cfg_type0 4
+module work cfg_vcc_ec 4
+module work cfg_aer 4
+module work cfg_top 4
+module work rxfc_arb 4
+module work rxfc_vc 4
+module work rxfc 4
+module work txfc_vc 4
+module work txfc 4
+module work bar_chk 4
+module work rxintf 4
+module work tlpdec 4
+module work tlpgen 4
+module work lp_arb 4
+module work sp_arb 4
+module work txrdy 4
+module work vcarb 4
+module work int_msg 4
+module work txintf 4
+module work phy 4
+module work dll 4
+module work trnc 4
+module work sync1s 4
+module work pipe 4
+module work sync1p 4
+module work cpm_s_reg 4
+module work csr 4
+module work pci_exp_x1_core 4
+module work pci_exp_x1_core_wrap 4
+module work pcie 37

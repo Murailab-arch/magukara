@@ -12,8 +12,9 @@ module pcs_pipe_top (
 // serdes clk pins //
   refclkp,
   refclkn,
-  ffc_quad_rst,
+//  ffc_quad_rst,
   RESET_n,
+  pcie_ip_rstn,
 
   hdinp0,
   hdinn0,
@@ -54,7 +55,6 @@ module pcs_pipe_top (
   ctc_disable
   ) 
 /*synthesis syn_black_box black_box_pad_pin = "refclkp, refclkn, hdinp0, hdinn0, hdoutp0, hdoutn0" */
-/*synthesis black_box     black_box_pad     = "refclkp, refclkn, hdinp0, hdinn0, hdoutp0, hdoutn0" */
 ;
 // =============================================================================
 // inputs and outputs
@@ -63,8 +63,10 @@ module pcs_pipe_top (
 //
 input        refclkp;
 input        refclkn;
-input        ffc_quad_rst;
+//input        ffc_quad_rst;
 input        RESET_n; 
+output       pcie_ip_rstn;
+
 
 input        hdinp0; 
 input        hdinn0; 

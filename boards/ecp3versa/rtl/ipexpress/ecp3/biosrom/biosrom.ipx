@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiamondModule name="biosrom" module="biosrom" VendorName="Lattice Semiconductor Corporation" generator="IPexpress" date="2014 08 05 00:00:21.453" version="5.1" type="Module" synthesis="synplify" source_format="Verilog HDL">
+  <Package>
+		<File name="biosrom.lpc" type="lpc" modified="2014 08 05 00:00:20.439"/>
+		<File name="biosrom.v" type="top_level_verilog" modified="2014 08 05 00:00:20.486"/>
+		<File name="biosrom_tmpl.v" type="template_verilog" modified="2014 08 05 00:00:20.486"/>
+		<File name="c:/users/tmatsuya/dropbox/fpga/magukara/software/biosrom/biosrom.d16" type="mem" modified="2014 08 05 00:00:02.000"/>
+		<File name="tb_biosrom_tmpl.v" type="testbench_verilog" modified="2014 08 05 00:00:20.486"/>
+  </Package>
+</DiamondModule>

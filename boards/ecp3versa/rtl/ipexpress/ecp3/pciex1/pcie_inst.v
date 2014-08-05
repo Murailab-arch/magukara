@@ -11,7 +11,6 @@ to inconsistent simulation and/or implemenation results */
 //------------------------------------------------
 // USERNAME module instantiation template
 //------------------------------------------------
-
 pcie u1_USERNAME (
    // Clock and Reset
    .sys_clk_250                ( sys_clk_250 ) ,
@@ -87,6 +86,7 @@ pcie u1_USERNAME (
    .np_req_pend                ( np_req_pend ),     
    .pme_status                 ( pme_status ),     
 
+
    .tx_lbk_data                ( tx_lbk_data ),
    .tx_lbk_kcntl               ( tx_lbk_kcntl ),
 
@@ -144,6 +144,7 @@ pcie u1_USERNAME (
    .cmd_reg_out             ( cmd_reg_out ),
    .dev_cntl_out            ( dev_cntl_out ),  
    .lnk_cntl_out            ( lnk_cntl_out ),  
+
 
    // To ASPM implementation outside the IP
    .tx_rbuf_empty           ( tx_rbuf_empty ), 

@@ -1,6 +1,53 @@
 
 #!/usr/local/bin/wish
 
+set cpu  $tcl_platform(machine)
+
+switch $cpu {
+ intel -
+ i*86* {
+     set cpu ix86
+ }
+ x86_64 {
+     if {$tcl_platform(wordSize) == 4} {
+     set cpu ix86
+     }
+ }
+}
+
+switch $tcl_platform(platform) {
+    windows {
+        set Para(os_platform) windows
+   if {$cpu == "amd64"} {
+     # Do not check wordSize, win32-x64 is an IL32P64 platform.
+     set cpu x86_64
+     }
+    }
+    unix {
+        if {$tcl_platform(os) == "Linux"}  {
+            set Para(os_platform) linux
+        } else  {
+            set Para(os_platform) unix
+        }
+    }
+}
+
+if {$cpu == "x86_64"} {
+ set NTPATH nt64
+ set LINPATH lin64
+} else {
+ set NTPATH nt
+ set LINPATH lin
+}
+
+if {$Para(os_platform) == "linux" } {
+    set os $LINPATH
+    set idxfile [file join $env(HOME) ipsetting_l.lst]
+} else {
+    set os $NTPATH
+    set idxfile [file join c:/lsc_env ipsetting.lst]
+}
+
 set Para(cmd) ""
 if ![catch {set temp $argc} result] {
     if {$argc > 0} {
@@ -18,22 +65,55 @@ if ![catch {set temp $argc} result] {
     }
 }
 
-set Para(ProjectPath) "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1"
+set Para(ProjectPath) [file dirname [info script]]
+package forget core_template
+package forget LatticeIPCore
+package forget IP_Control
+package forget Core_Generate
+package forget IP_Generate
+package forget IP_Templates
+set auto_path "$auto_path"
+set Para(install_dir) $env(TOOLRTF)
+set Para(CoreIndex) "pci_express_endpoint_v5.3"
+set Para(CoreRoot) ""
+set fid [open $idxfile r]
+while {[gets $fid line ]>=0} {
+    if [regexp {([^=]*)=(.*)} $line match parameter value] {
+        if [regexp {([ |\t]*;)} $parameter match] {continue}
+        set parameter [string trim $parameter]
+        set value [string trim $value]
+        if {$parameter==$Para(CoreIndex)} {
+            if [regexp {(.*)[ |\t]*;} $value match temp] {
+                set Para(CoreRoot) $temp
+            } else {
+                set Para(CoreRoot) $value
+            }
+        }
+    }
+}
+if {[string length $Para(CoreRoot)]==0} {
+    puts stderr "Error: IP $Para(CoreIndex) is not found!"
+    exit
+}
+
 set Para(ModuleName) "pcie"
-set Para(lib) "C:/LatticeCore/pci_express_endpoint_v4.3/lib"
+set Para(lib) "[file join $Para(CoreRoot) $Para(CoreIndex) lib]"
 set Para(CoreName) "PCI Express Endpoint Core"
-set Para(family) "latticeecp3"
+set Para(arch) "ep5c00"
+set Para(family) "ep5c00"
 set Para(Family) "ep5c00"
 set Para(design) "Verilog HDL"
+set Para(Bin) "[file join $Para(install_dir) bin $os]"
+set Para(SpeedGrade) "8"
+set Para(FPGAPath) "[file join $Para(install_dir) ispfpga bin $os]"
 
-lappend auto_path "C:/LatticeCore/pci_express_endpoint_v4.3/gui"
+lappend auto_path "[file join $Para(CoreRoot) $Para(CoreIndex) gui]"
 
-lappend auto_path "C:/LatticeCore/pci_express_endpoint_v4.3/script"
+lappend auto_path "[file join $Para(CoreRoot) $Para(CoreIndex) script]"
 package require Core_Generate
 
-lappend auto_path "C:/ispTOOLS8_1/ispcpld/tcltk/lib/ipwidgets/ispipbuilder/../runproc"
+lappend auto_path "$Para(install_dir)/tcltk/lib/ipwidgets/ispipbuilder/../runproc"
 package require runcmd
 
-set Para(install_dir) "C:/ispTOOLS8_1/ispcpld/tcltk/lib/ipwidgets/ispipbuilder/../../../../.."
 
 set Para(result) [GenerateCore]

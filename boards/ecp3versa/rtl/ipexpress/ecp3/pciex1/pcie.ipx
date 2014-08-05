@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiamondModule name="pcie" module="pcie" VendorName="Lattice Semiconductor Corporation" generator="IPexpress" date="2014 08 03 23:04:26.337" version="5.3" type="IP" synthesis="synplify" source_format="Verilog HDL">
+  <Package>
+		<File name="pcie.lpc" type="lpc" modified="2014 08 03 23:02:49.584"/>
+		<File name="pcie.ngo" type="database" modified="2014 08 03 23:03:54.061"/>
+		<File name="pcie_bb.v" type="black_box_verilog" modified="2014 08 03 23:02:50.842"/>
+		<File name="pcie_beh.v" type="behavioral_verilog" modified="2012 01 18 02:51:30.000"/>
+		<File name="pcie_inst.v" type="instantiation_verilog" modified="2014 08 03 23:02:50.852"/>
+		<File name="pcs_pipe_8b_x1.txt" type="pcs_module" modified="2012 01 22 20:30:10.000"/>
+		<File name="pcs_pipe_bb.v" type="black_box_verilog" modified="2014 08 03 23:02:50.842"/>
+		<File name="pcs_pipe_top.ngo" type="database" modified="2014 08 03 23:03:55.356"/>
+		<File name="pmi_distributed_dpramEbnonen1416pb3f774f.ngo" type="database" modified="2014 08 03 23:03:54.732"/>
+		<File name="pmi_distributed_dpramEbnoner16781pb2baaed.ngo" type="database" modified="2014 08 03 23:03:55.075"/>
+		<File name="pmi_ram_dpEbnonessen1610102416101024p13a7cbaa.ngo" type="database" modified="2014 08 03 23:03:54.622"/>
+		<File name="pmi_ram_dpEbnonessen168256168256p136064bf.ngo" type="database" modified="2014 08 03 23:03:54.373"/>
+		<File name="pmi_ram_dpEbnonessen1810102418101024p13a7dcc5.ngo" type="database" modified="2014 08 03 23:03:55.262"/>
+		<File name="pmi_ram_dpEbnonessen208146208146p13602a55.ngo" type="database" modified="2014 08 03 23:03:54.513"/>
+  </Package>
+</DiamondModule>

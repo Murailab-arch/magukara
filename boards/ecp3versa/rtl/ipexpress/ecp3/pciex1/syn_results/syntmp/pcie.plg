@@ -1,26 +1,46 @@
-@P:  Worst Slack : -0.958
-@P:  sys_clk_125 - Estimated Frequency : 167.8 MHz
+@P:  Worst Slack : -1.200
+@P:  CLK_I - Estimated Frequency : NA
+@P:  CLK_I - Requested Frequency : 50.0 MHz
+@P:  CLK_I - Estimated Period : NA
+@P:  CLK_I - Requested Period : 20.000
+@P:  CLK_I - Slack : NA
+@P:  sys_clk_125 - Estimated Frequency : 161.3 MHz
 @P:  sys_clk_125 - Requested Frequency : 200.0 MHz
-@P:  sys_clk_125 - Estimated Period : 5.958
+@P:  sys_clk_125 - Estimated Period : 6.200
 @P:  sys_clk_125 - Requested Period : 5.000
-@P:  sys_clk_125 - Slack : -0.958
-@P:  sys_clk_250 - Estimated Frequency : 328.8 MHz
+@P:  sys_clk_125 - Slack : -1.200
+@P:  sys_clk_250 - Estimated Frequency : 319.0 MHz
 @P:  sys_clk_250 - Requested Frequency : 350.0 MHz
-@P:  sys_clk_250 - Estimated Period : 3.041
+@P:  sys_clk_250 - Estimated Period : 3.134
 @P:  sys_clk_250 - Requested Period : 2.857
-@P:  sys_clk_250 - Slack : -0.184
-@P:  Worst Slack : -0.958
-@P:  sys_clk_125 - Estimated Frequency : 167.8 MHz
-@P:  sys_clk_125 - Requested Frequency : 200.0 MHz
-@P:  sys_clk_125 - Estimated Period : 5.958
-@P:  sys_clk_125 - Requested Period : 5.000
-@P:  sys_clk_125 - Slack : -0.958
-@P:  sys_clk_250 - Estimated Frequency : 328.8 MHz
-@P:  sys_clk_250 - Requested Frequency : 350.0 MHz
-@P:  sys_clk_250 - Estimated Period : 3.041
-@P:  sys_clk_250 - Requested Period : 2.857
-@P:  sys_clk_250 - Slack : -0.184
-@P:  Total Area : 5019.0
+@P:  sys_clk_250 - Slack : -0.277
+@P:  System - Estimated Frequency : 252.2 MHz
+@P:  System - Requested Frequency : 150.0 MHz
+@P:  System - Estimated Period : 3.966
+@P:  System - Requested Period : 6.667
+@P:  System - Slack : 2.701
+@P:  Worst Slack(min analysis) : -0.074
+@P:  CLK_I - Estimated Frequency(min analysis) : NA
+@P:  CLK_I - Requested Frequency(min analysis) : 50.0 MHz
+@P:  CLK_I - Estimated Period(min analysis) : NA
+@P:  CLK_I - Requested Period(min analysis) : 20.000
+@P:  CLK_I - Slack(min analysis) : NA
+@P:  sys_clk_125 - Estimated Frequency(min analysis) : 161.3 MHz
+@P:  sys_clk_125 - Requested Frequency(min analysis) : 200.0 MHz
+@P:  sys_clk_125 - Estimated Period(min analysis) : 6.200
+@P:  sys_clk_125 - Requested Period(min analysis) : 5.000
+@P:  sys_clk_125 - Slack(min analysis) : -1.200
+@P:  sys_clk_250 - Estimated Frequency(min analysis) : 319.0 MHz
+@P:  sys_clk_250 - Requested Frequency(min analysis) : 350.0 MHz
+@P:  sys_clk_250 - Estimated Period(min analysis) : 3.134
+@P:  sys_clk_250 - Requested Period(min analysis) : 2.857
+@P:  sys_clk_250 - Slack(min analysis) : -0.277
+@P:  System - Estimated Frequency(min analysis) : 148.4 MHz
+@P:  System - Requested Frequency(min analysis) : 150.0 MHz
+@P:  System - Estimated Period(min analysis) : 6.740
+@P:  System - Requested Period(min analysis) : 6.667
+@P:  System - Slack(min analysis) : -0.074
+@P:  Total Area : 5003.0
 @P:  Total Area : 0.0
 @P:  Total Area : 0.0
 @P:  Total Area : 0.0
@@ -90,4 +110,4 @@
 @P:  Total Area : 0.0
 @P:  Total Area : 0.0
 @P:  Total Area : 0.0
-@P:  CPU Time : 0h:00m:56s
+@P:  CPU Time : 0h:00m:40s

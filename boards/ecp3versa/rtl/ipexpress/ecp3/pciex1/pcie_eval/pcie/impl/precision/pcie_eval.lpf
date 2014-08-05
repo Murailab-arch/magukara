@@ -1,15 +1,17 @@
 # Frequency Declerations
 FREQUENCY NET "pclk" 250 MHz PAR_ADJ 30;
+FREQUENCY NET "u1_pcs_pipe/ff_rx_fclk_0" 250 MHz PAR_ADJ 30;
 FREQUENCY NET "sys_clk_125_dup_0" 125 MHz PAR_ADJ 25;
 
 USE PRIMARY NET "pclk" ;
+USE PRIMARY NET "u1_pcs_pipe/ff_rx_fclk_0" ;
 USE PRIMARY NET "sys_clk_125_dup_0" ;
 
 # Block Paths 
 BLOCK RESETPATHS ;
 BLOCK ASYNCPATHS ;
 BLOCK PATH FROM PORT "rst_n" ;
-BLOCK NET "core_rst_n";
+BLOCK NET "irst_n";
 
 # IO Type Declarations
 IOBUF ALLPORTS IO_TYPE=SSTL25_II PULLMODE=NONE ;
@@ -20,11 +22,9 @@ IOBUF ALLPORTS IO_TYPE=SSTL25_II PULLMODE=NONE ;
 # Assign clock to out constraints
 # CLOCK_TO_OUT ALLPORTS 7.5 ns CLKNET "sys_clk_125_dup_0";
 
-# Define Multi cycle 
 MULTICYCLE FROM CELL "*nfts_rx_skp_cnt*" TO CELL "*cnt_done_nfts_rx*" 2 X;
 MULTICYCLE FROM CELL "*nfts_rx_skp_cnt*" TO CELL "*ltssm_nfts_rx_skp*" 2 X;
 
-# Define Maxdelay 
 #MAXDELAY TO CELL "*asb_data*" 2 ns;
 #MAXDELAY TO CELL "*asb_kcntl*" 2 ns;
 #MAXDELAY TO CELL "*asb_err*" 2 ns;

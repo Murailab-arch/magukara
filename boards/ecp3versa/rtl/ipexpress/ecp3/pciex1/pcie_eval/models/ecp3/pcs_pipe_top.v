@@ -7,10 +7,10 @@ module pcs_pipe_top (
    input wire       refclkp,
    input wire       refclkn,
    input wire       RESET_n, 
-   input wire       ffc_quad_rst,  
    input wire [1:0] PowerDown,
    input wire       TxDetectRx_Loopback,
 
+   output wire      pcie_ip_rstn,  
    output wire   PCLK,
    `ifdef DataWidth_8
       output wire   PCLK_by_2,
@@ -145,12 +145,13 @@ wire          ffs_rlol_ch1;
 wire          ffs_rlol_ch2;
 wire          ffs_rlol_ch3;
 
+
 wire          fpsc_vlo;
 wire  [11:0]  cin;
 wire          ffc_trst;
 wire          ffc_macro_rst;
 wire          ffc_lane_tx_rst;   
-wire          ffc_lane_rx_rst;  
+wire   [3:0]  ffc_lane_rx_rst;  
 wire          ffc_signal_detect;
 wire          ffc_enb_cgalign;
 
@@ -485,10 +486,10 @@ wire          ff_tx_h_clk;
    reg                        ffc_pwdnb_2;
    reg                        ffc_pwdnb_3;
 
-   reg                        ffc_rrst_0;
-   reg                        ffc_rrst_1;
-   reg                        ffc_rrst_2;
-   reg                        ffc_rrst_3;
+   wire                       ffc_rrst_0;
+   wire                       ffc_rrst_1;
+   wire                       ffc_rrst_2;
+   wire                       ffc_rrst_3;
 `endif // X4
 `ifdef X1
    wire                       ffc_pwdnb_0;
@@ -619,17 +620,51 @@ wire ff_rx_fclk_1 /* synthesis syn_keep=1 */;
 wire ff_rx_fclk_2 /* synthesis syn_keep=1 */;
 wire ff_rx_fclk_3 /* synthesis syn_keep=1 */;
 
+wire quad_rst;
+wire lane_tx_rst;
+wire   [3:0]  lane_rx_rst;
+wire lane_rrst;
+
 // =============================================================================
 VLO fpsc_vlo_inst (.Z(fpsc_vlo));
 VHI fpsc_vhi_inst (.Z(fpsc_vhi));
 
 assign cin               = 12'h0;
 assign ffc_trst          = fpsc_vlo;
-assign ffc_macro_rst     = fpsc_vlo;
-assign ffc_lane_tx_rst   = sync_rst;
-assign ffc_lane_rx_rst   = sync_rst;
+assign ffc_macro_rst     = ~RESET_n;
+assign ffc_quad_rst      =  quad_rst ;
+// assign ffc_quad_rst      = quad_rst  ;
+assign ffc_lane_tx_rst   = lane_tx_rst;
+// Reset the tx channel the same way as the 4ms reset
+// assign ffc_lane_tx_rst   = lane_rx_rst;
+// assign ffc_lane_tx_rst   = dip_sw ? lane_tx_rst : 1'b0;
+assign ffc_lane_rx_rst   = lane_rx_rst;
 assign ffc_signal_detect = 1'b0;
 assign ffc_enb_cgalign   = 1'b1;
+
+//--------- DT ECP3 Reset Seq Mod ---------
+`ifdef X1
+   `ifdef Channel_0
+       assign ffc_rrst_0        = lane_rrst;
+   `endif
+   `ifdef Channel_1
+       assign ffc_rrst_1        = lane_rrst;
+   `endif
+   `ifdef Channel_2
+       assign ffc_rrst_2        = lane_rrst;
+   `endif
+   `ifdef Channel_3
+       assign ffc_rrst_3        = lane_rrst;
+   `endif
+`endif 
+`ifdef X4
+       assign ffc_rrst_0        = lane_rrst;
+       assign ffc_rrst_1        = lane_rrst;
+       assign ffc_rrst_2        = lane_rrst;
+       assign ffc_rrst_3        = lane_rrst;
+`endif 
+//--------- DT ECP3 Reset Seq Mod ---------
+
 
 //--------- RK MOD ----------
 `ifdef ECP3
@@ -671,54 +706,63 @@ assign clk_125           = ff_tx_h_clk;
 // =============================================================================
 assign pwdn   = ~(PowerDown[1] & PowerDown[0]);
 
+//  ffc_rrst_* to be handled by the rx_reset_sm
 `ifdef X1
    `ifdef Channel_0
      assign ffc_pwdnb_0 = pwdn;  //Active LOW
-     assign ffc_rrst_0 = 1'b0;   //Active HIGH
+//     assign ffc_rrst_0 = 1'b0;   //Active HIGH
    `endif
    `ifdef Channel_1
      assign ffc_pwdnb_1 = pwdn;
-     assign ffc_rrst_1 = 1'b0;
+//     assign ffc_rrst_1 = 1'b0;
    `endif
    `ifdef Channel_2
      assign ffc_pwdnb_2 = pwdn;
-     assign ffc_rrst_2 = 1'b0;
+//     assign ffc_rrst_2 = 1'b0;
    `endif
    `ifdef Channel_3
      assign ffc_pwdnb_3 = pwdn;
-     assign ffc_rrst_3 = 1'b0;
+//     assign ffc_rrst_3 = 1'b0;
    `endif
 `endif // X1
 
-
+// Power down non configured lane
 `ifdef X4
-   always @(posedge PCLK or negedge RESET_n) begin
-      if(!RESET_n) begin
+   always @(posedge PCLK or negedge pcie_ip_rstn) begin
+      if(!pcie_ip_rstn) begin
          ffc_pwdnb_0  <= 1'b1;
          ffc_pwdnb_1  <= 1'b1;
          ffc_pwdnb_2  <= 1'b1;
          ffc_pwdnb_3  <= 1'b1;
-         ffc_rrst_0   <= 1'b0;
-         ffc_rrst_1   <= 1'b0;
-         ffc_rrst_2   <= 1'b0;
-         ffc_rrst_3   <= 1'b0;
+//         ffc_rrst_0   <= 1'b0;
+//         ffc_rrst_1   <= 1'b0;
+//         ffc_rrst_2   <= 1'b0;
+//         ffc_rrst_3   <= 1'b0;
       end
       else begin
-         ffc_pwdnb_0 <= pwdn;
-         ffc_pwdnb_1 <= pwdn;
-         ffc_pwdnb_2 <= pwdn;
-         ffc_pwdnb_3 <= pwdn;
+//         ffc_pwdnb_0 <= pwdn;
+//         ffc_pwdnb_1 <= pwdn;
+//         ffc_pwdnb_2 <= pwdn;
+//         ffc_pwdnb_3 <= pwdn;
          if (phy_l0) begin
-            ffc_rrst_0 <= ~flip_phy_cfgln[3];
-            ffc_rrst_1 <= ~flip_phy_cfgln[2];
-            ffc_rrst_2 <= ~flip_phy_cfgln[1];
-            ffc_rrst_3 <= ~flip_phy_cfgln[0];
+//            ffc_rrst_0 <= ~flip_phy_cfgln[3];
+//            ffc_rrst_1 <= ~flip_phy_cfgln[2];
+//            ffc_rrst_2 <= ~flip_phy_cfgln[1];
+//            ffc_rrst_3 <= ~flip_phy_cfgln[0];
+            ffc_pwdnb_0 <= flip_phy_cfgln[3];
+            ffc_pwdnb_1 <= flip_phy_cfgln[2];
+            ffc_pwdnb_2 <= flip_phy_cfgln[1];
+            ffc_pwdnb_3 <= flip_phy_cfgln[0];
          end
          else begin
-            ffc_rrst_0 <= 1'b0; 
-            ffc_rrst_1 <= 1'b0; 
-            ffc_rrst_2 <= 1'b0; 
-            ffc_rrst_3 <= 1'b0; 
+//            ffc_rrst_0 <= 1'by; 
+//            ffc_rrst_1 <= 1'b0; 
+//            ffc_rrst_2 <= 1'b0; 
+//            ffc_rrst_3 <= 1'b0; 
+            ffc_pwdnb_0 <= 1'b1; 
+            ffc_pwdnb_1 <= 1'b1; 
+            ffc_pwdnb_2 <= 1'b1; 
+            ffc_pwdnb_3 <= 1'b1; 
          end
       end
    end
@@ -959,8 +1003,8 @@ assign EI_Det_2  = ~(RxEI_masked[2]) & pcie_con_2;
 assign EI_Det_3  = ~(RxEI_masked[3]) & pcie_con_3;
 
 //always @(posedge PCLK or negedge RESET_n) begin
-always @(posedge clk_125 or negedge RESET_n) begin
-   if(!RESET_n) begin
+always @(posedge clk_125 or negedge pcie_ip_rstn) begin
+   if(!pcie_ip_rstn) begin
       count_ms        <= 17'b00000000000000000; // 17-bits for 1 MS
       count_ms_enable <= 1'b0;
       num_ms          <= 3'b000;
@@ -1192,7 +1236,7 @@ end
 // =============================================================================
 `ifdef Channel_0
    pipe_top pipe_top_0(
-     .RESET_n                (RESET_n) ,
+     .RESET_n                (pcie_ip_rstn) ,
      .PCLK                   (PCLK) ,
      .clk_250                (clk_250),
 
@@ -1236,7 +1280,7 @@ end
 
 `ifdef Channel_1
    pipe_top pipe_top_1(
-     .RESET_n                (RESET_n) ,
+     .RESET_n                (pcie_ip_rstn) ,
      .PCLK                   (PCLK) ,
      .clk_250                (clk_250),
 
@@ -1279,7 +1323,7 @@ end
 
 `ifdef Channel_2
    pipe_top pipe_top_2(
-     .RESET_n                (RESET_n) ,
+     .RESET_n                (pcie_ip_rstn) ,
      .PCLK                   (PCLK) ,
      .clk_250                (clk_250),
 
@@ -1322,7 +1366,7 @@ end
 
 `ifdef Channel_3
    pipe_top pipe_top_3(
-     .RESET_n                (RESET_n) ,
+     .RESET_n                (pcie_ip_rstn) ,
      .PCLK                   (PCLK) ,
      .clk_250                (clk_250),
 
@@ -1371,12 +1415,13 @@ pcs_top  pcs_top_0 (
    .ffc_lane_tx_rst        (ffc_lane_tx_rst) ,
    .ffc_lane_rx_rst        (ffc_lane_rx_rst) ,
    .ffc_trst               (ffc_trst) ,
-   .ffc_quad_rst           (ffc_quad_rst) ,
+   .ffc_quad_rst           (ffc_quad_rst),
    .ffc_macro_rst          (ffc_macro_rst) ,
 
    // Clocks
    .refclkp                (refclkp) , 
    .refclkn                (refclkn) , 
+   .refclk                 (refclk) , 
    //.PCLK                   (PCLK) ,   --RK
    .PCLK                   (ff_tx_f_clk) , 
    `ifdef ECP3
@@ -1561,8 +1606,8 @@ assign enable_det_int = (PowerDown == 2'b10) & TxDetectRx_Loopback ;
 //Assert enable det as long as TxDetectRx_Loopback is asserted by FPGA side
 //when Serdes is in normal mode and TxElecIdle_ch0/1/2/3 is active.
 // =============================================================================
-always @(posedge PCLK or negedge RESET_n) begin //PIPE signals : Use hclk  -- RK
-   if(!RESET_n) begin 
+always @(posedge PCLK or negedge pcie_ip_rstn) begin //PIPE signals : Use hclk  -- RK
+   if(!pcie_ip_rstn) begin 
       enable_det_ch0 <= 1'b0;
       enable_det_ch1 <= 1'b0;
       enable_det_ch2 <= 1'b0;
@@ -1613,8 +1658,8 @@ assign done_all_re = done_all & !done_all_reg;
 // The Following state machine generates the "ffc_pcie_det_done" and
 // "ffc_pcie_ct" as per T-Spec page 81.
 // =============================================================================
-always @(posedge PCLK or negedge RESET_n) begin  //125 or 250 Mhz
-   if (!RESET_n) begin
+always @(posedge PCLK or negedge pcie_ip_rstn) begin  //125 or 250 Mhz
+   if (!pcie_ip_rstn) begin
       detsm_done         <= 0;
       ffc_pcie_ct        <= 0;
       ffc_pcie_det_en_0  <= 0;
@@ -1762,8 +1807,8 @@ always @(posedge PCLK or negedge RESET_n) begin  //125 or 250 Mhz
    end
 end
 
-always @(posedge PCLK or negedge RESET_n) begin  //125 or 250 Mhz
-   if(!RESET_n) begin
+always @(posedge PCLK or negedge pcie_ip_rstn) begin  //125 or 250 Mhz
+   if(!pcie_ip_rstn) begin
       detsm_cnt  <= 'd0; 
       cntdone_en <= 1'b0;
       cntdone_ct <= 1'b0;
@@ -1807,8 +1852,8 @@ end
 // =============================================================================
 // PhyStatus Generation - Det Result and State Changes
 // =============================================================================
-always @(posedge PCLK or negedge RESET_n) begin  //125 or 250 Mhz
-   if(!RESET_n) begin
+always @(posedge PCLK or negedge pcie_ip_rstn) begin  //125 or 250 Mhz
+   if(!pcie_ip_rstn) begin
       PhyStatus         <= 1'b1;
       PowerDown_reg     <= 2'b00;
       PLOL_sync         <= 1'b1;
@@ -1836,7 +1881,133 @@ always @(posedge PCLK or negedge RESET_n) begin  //125 or 250 Mhz
    end
 end
 
+`ifdef X1
+   `ifdef Channel_0
+      assign ffs_rlol    = ffs_rlol_ch0;
+   `endif
+   `ifdef Channel_1
+      assign ffs_rlol    = ffs_rlol_ch1;
+   `endif
+   `ifdef Channel_2
+      assign ffs_rlol    = ffs_rlol_ch2;
+   `endif
+   `ifdef Channel_3
+      assign ffs_rlol    = ffs_rlol_ch3;
+   `endif
+`endif
+
+`ifdef X4
+    assign ffs_rlol   =  ffs_rlol_ch0 | ffs_rlol_ch1 | ffs_rlol_ch2 | ffs_rlol_ch3;
+`endif
+
+/***************************************************** 
+ *  Reset sequencing logic
+*****************************************************/
+
+reg refclkdiv2;
+always @(posedge refclk or negedge RESET_n) begin
+   if (!RESET_n)    refclkdiv2 <= 1'b0;
+   else             refclkdiv2 <= ~refclkdiv2;
+end
 
 
+// Synchronously deassert (PERST_n from the slot)
+reg   rstn_m1, rstn_m2;
+wire syncda_rst_n;
+always @(posedge refclkdiv2 or negedge RESET_n) begin
+   if (!RESET_n) begin
+      rstn_m1 <=   1'b0;
+      rstn_m2 <=   1'b0;
+   end else begin
+      rstn_m1 <=   1'b1;
+      rstn_m2 <=   rstn_m1;
+   end
+end
+
+assign syncda_rst_n  =  rstn_m2;
+
+
+//synopsys translate_off
+defparam i_tx_reset_sm.count_index = 4;
+//synopsys translate_on
+
+tx_reset_sm i_tx_reset_sm(
+   .refclkdiv2 (refclkdiv2),
+   .rst_n (syncda_rst_n),
+   .tx_pll_lol_qd_s (ffs_plol),
+   .tx_pcs_rst_ch_c (lane_tx_rst),  
+   .rst_qd_c (quad_rst)         
+);
+
+// Single RX reset state machine for all 4 channels
+
+wire [3:0] invValid;
+`ifdef X4
+assign invValid = {~RxValid_3_in, ~RxValid_2_in, ~RxValid_1_in, ~RxValid_0_in};
+`endif
+`ifdef X1
+   `ifdef Channel_0
+      assign invValid = {1'b0, 1'b0, 1'b0, ~RxValid_0_in};
+   `endif
+   `ifdef Channel_1
+      assign invValid = {1'b0, 1'b0, ~RxValid_1_in, 1'b0};
+   `endif
+   `ifdef Channel_2
+      assign invValid = {1'b0, ~RxValid_2_in, 1'b0, 1'b0};
+   `endif
+   `ifdef Channel_3
+      assign invValid = {~RxValid_3_in, 1'b0, 1'b0, 1'b0};
+   `endif  
+`endif
+
+//synopsys translate_off
+defparam i_rx_reset_sm.count_index = 4;
+//synopsys translate_on
+
+
+rx_reset_sm i_rx_reset_sm (
+  .refclkdiv2 (refclkdiv2),
+  .rst_n (syncda_rst_n),
+  .invValid (invValid),
+`ifdef X4
+  .rx_cdr_lol_ch_s ({ffs_rlol_ch3, ffs_rlol_ch2, ffs_rlol_ch1, ffs_rlol_ch0}),
+  .rx_los_low_ch_s ({RxElecIdle_3_in, RxElecIdle_2_in, RxElecIdle_1_in, RxElecIdle_0_in}),
+`endif
+`ifdef X1
+   `ifdef Channel_0
+     .rx_cdr_lol_ch_s ({1'b0,1'b0,1'b0,ffs_rlol_ch0}),
+     .rx_los_low_ch_s ({1'b0,1'b0,1'b0,RxElecIdle_0_in}),
+   `endif
+   `ifdef Channel_1
+     .rx_cdr_lol_ch_s ({1'b0,1'b0,ffs_rlol_ch1,1'b0}),
+     .rx_los_low_ch_s ({1'b0,1'b0,RxElecIdle_1_in,1'b0}),
+   `endif
+   `ifdef Channel_2
+     .rx_cdr_lol_ch_s ({1'b0,ffs_rlol_ch2,1'b0,1'b0}),
+     .rx_los_low_ch_s ({1'b0,RxElecIdle_2_in,1'b0,1'b0}),
+   `endif
+   `ifdef Channel_3
+     .rx_cdr_lol_ch_s ({ffs_rlol_ch3,1'b0,1'b0,1'b0}),
+     .rx_los_low_ch_s ({RxElecIdle_3_in,1'b0,1'b0,1'b0}),
+   `endif   
+`endif
+  .tx_pll_lol_qd_s (ffs_plol),
+  .rx_pcs_rst_ch_c (lane_rx_rst),
+  .rx_serdes_rst_ch_c (lane_rrst),
+  .pcie_ip_rst (pcie_ip_rst));
+ 
+reg core_rstn_1;
+reg core_rstn_2;
+always @ (posedge PCLK_by_2 or negedge RESET_n) begin
+   if (!RESET_n) begin
+      core_rstn_1 <=  1'b1 ; 
+      core_rstn_2 <=  1'b1;
+   end else begin
+      core_rstn_1 <= pcie_ip_rst; 
+      core_rstn_2 <= core_rstn_1;
+   end 
+end
+
+assign pcie_ip_rstn = ~core_rstn_2;
 
 endmodule

@@ -6,7 +6,7 @@ module pcs_top (
    // Common for all 4 Channels
    // Resets
    input wire         ffc_lane_tx_rst,
-   input wire         ffc_lane_rx_rst,
+   input wire   [3:0] ffc_lane_rx_rst,
    input wire         ffc_trst,
    input wire         ffc_quad_rst,
    input wire         ffc_macro_rst,
@@ -14,6 +14,7 @@ module pcs_top (
    // Clocks
    input  wire        refclkp,
    input  wire        refclkn,
+   output wire        refclk,
    input  wire        PCLK,
    `ifdef ECP3
       `ifdef Channel_0
@@ -228,7 +229,8 @@ end
 // Wires 
 // =============================================================================
 wire       pcs_refclkp, pcs_refclkn, pcs_PCLK ;
-wire       pcs_ffc_lane_tx_rst, pcs_ffc_lane_rx_rst ;
+wire       pcs_ffc_lane_tx_rst ;
+wire   [3:0] pcs_ffc_lane_rx_rst ;
 wire       pcs_ffc_macro_rst, pcs_ffc_quad_rst, pcs_ffc_trst ;
 `ifdef ECP3
    wire    pcs_ff_tx_f_clk_0, pcs_ff_tx_h_clk_0;
@@ -651,7 +653,7 @@ assign cout                  = pcs_cout;
  .FFS_PCIE_CON_0        ( pcs_ffs_pcie_con_0 ),
  .FFC_EI_EN_0           ( 1'b0 ),
  .FFC_LANE_TX_RST_0     ( pcs_ffc_lane_tx_rst ),
- .FFC_LANE_RX_RST_0     ( pcs_ffc_lane_rx_rst ),
+ .FFC_LANE_RX_RST_0     ( pcs_ffc_lane_rx_rst[0] ),
  .FFC_TXPWDNB_0         ( pcs_ffc_txpwdnb_0 ),
  .FFC_RXPWDNB_0         ( pcs_ffc_rxpwdnb_0 ),
  .FFS_RLOS_LO_0         ( pcs_RxElecIdle_ch0 ),
@@ -766,7 +768,7 @@ assign cout                  = pcs_cout;
  .FFS_PCIE_CON_1        ( pcs_ffs_pcie_con_1 ),
  .FFC_EI_EN_1           ( 1'b0 ),
  .FFC_LANE_TX_RST_1     ( pcs_ffc_lane_tx_rst ),
- .FFC_LANE_RX_RST_1     ( pcs_ffc_lane_rx_rst ),
+ .FFC_LANE_RX_RST_1     ( pcs_ffc_lane_rx_rst[1] ),
  .FFC_TXPWDNB_1         ( pcs_ffc_txpwdnb_1 ),
  .FFC_RXPWDNB_1         ( pcs_ffc_rxpwdnb_1 ),
  .FFS_RLOS_LO_1         ( pcs_RxElecIdle_ch1 ),
@@ -881,7 +883,7 @@ assign cout                  = pcs_cout;
  .FFS_PCIE_CON_2        ( pcs_ffs_pcie_con_2 ),
  .FFC_EI_EN_2           ( 1'b0 ),
  .FFC_LANE_TX_RST_2     ( pcs_ffc_lane_tx_rst ),
- .FFC_LANE_RX_RST_2     ( pcs_ffc_lane_rx_rst ),
+ .FFC_LANE_RX_RST_2     ( pcs_ffc_lane_rx_rst[2] ),
  .FFC_TXPWDNB_2         ( pcs_ffc_txpwdnb_2 ),
  .FFC_RXPWDNB_2         ( pcs_ffc_rxpwdnb_2 ),
  .FFS_RLOS_LO_2         ( pcs_RxElecIdle_ch2 ),
@@ -996,7 +998,7 @@ assign cout                  = pcs_cout;
  .FFS_PCIE_CON_3        ( pcs_ffs_pcie_con_3 ),
  .FFC_EI_EN_3           ( 1'b0 ),
  .FFC_LANE_TX_RST_3     ( pcs_ffc_lane_tx_rst ),
- .FFC_LANE_RX_RST_3     ( pcs_ffc_lane_rx_rst ),
+ .FFC_LANE_RX_RST_3     ( pcs_ffc_lane_rx_rst[3] ),
  .FFC_TXPWDNB_3         ( pcs_ffc_txpwdnb_3 ),
  .FFC_RXPWDNB_3         ( pcs_ffc_rxpwdnb_3 ),
  .FFS_RLOS_LO_3         ( pcs_RxElecIdle_ch3 ),
@@ -1049,7 +1051,7 @@ assign cout                  = pcs_cout;
  .FFC_MACRO_RST         ( pcs_ffc_macro_rst ),
  .FFC_QUAD_RST          ( pcs_ffc_quad_rst ),
  .FFC_TRST              ( pcs_ffc_trst ),
- .REFCK2CORE            ( ),
+ .REFCK2CORE            ( refclk ),
  .CIN0                  ( pcs_cin[0] ),
  .CIN1                  ( pcs_cin[1] ),
  .CIN2                  ( pcs_cin[2] ),

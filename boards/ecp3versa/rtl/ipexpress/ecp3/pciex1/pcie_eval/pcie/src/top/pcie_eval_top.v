@@ -20,6 +20,7 @@
 // Dependencies     : 
 // Description      : Top level for core. 
 // =============================================================================
+
 module pcie_eval_top (
    // Clock and Reset
    input wire                     refclkp,        // 100MHz from board
@@ -104,8 +105,23 @@ assign phy_l0         = (phy_ltssm_state == 'd3) ;
 // =============================================================================
 // Reset management
 // =============================================================================
+reg sync_rst_n0, sync_rst_n1;
+wire sync_rst_n;
 always @(posedge sys_clk_125 or negedge rst_n) begin
    if (!rst_n) begin
+      sync_rst_n0    <= 0;
+      sync_rst_n1    <= 0;
+   end
+   else begin
+      sync_rst_n0    <= rst_n;
+      sync_rst_n1    <= sync_rst_n0;
+   end      
+end
+
+assign sync_rst_n = sync_rst_n1;
+
+always @(posedge sys_clk_125 or negedge sync_rst_n) begin
+   if (!sync_rst_n) begin
        rstn_cnt   <= 20'd0 ;
        core_rst_n <= 1'b0 ;
    end
@@ -121,13 +137,13 @@ always @(posedge sys_clk_125 or negedge rst_n) begin
    end
 end
 
-GSR GSR_INST (.GSR(rst_n));
+//GSR GSR_INST (.GSR(rst_n));
 PUR PUR_INST (.PUR(1'b1));
 
 // Connect rst_n pin to GSR, pipe wrapper, core and user logic
 // assign irst_n = rst_n ;            
 // Connect rst_n pin to pipe wrapper, 4ms delayed rst_n to core and user logic
-assign irst_n = core_rst_n ; 
+//assign irst_n = core_rst_n ; 
 
 // =============================================================================
 // SERDES/PCS instantiation in PIPE mode
@@ -135,9 +151,10 @@ assign irst_n = core_rst_n ;
 pcs_pipe_top u1_pcs_pipe (
         .refclkp                ( refclkp ), 
         .refclkn                ( refclkn ), 
-        .ffc_quad_rst           ( ~rst_n ), 
+//        .ffc_quad_rst           ( ~rst_n ), 
         .RESET_n                ( rst_n ),
-
+        .pcie_ip_rstn           ( irst_n ),
+        
         .hdinp0                 ( hdinp0 ), 
         .hdinn0                 ( hdinn0 ), 
         .hdoutp0                ( hdoutp0 ), 
@@ -259,10 +276,11 @@ pcie u1_dut(
    .cmpltr_abort_np            ( 1'b0 ),       
    .cmpltr_abort_p             ( 1'b0 ),       
    .unexp_cmpln                ( 1'b0 ),       
-   .ur_np_ext                  ( 1'b0 ) ,  
-   .ur_p_ext                   ( 1'b0 ) ,  
+   .ur_np_ext                  ( 1'b0 ),  
+   .ur_p_ext                   ( 1'b0 ),  
    .np_req_pend                ( 1'b0 ),     
    .pme_status                 ( 1'b0 ),     
+
 
    .tx_lbk_data                ( 16'd0 ),
    .tx_lbk_kcntl               ( 2'd0 ),
@@ -317,18 +335,19 @@ pcie u1_dut(
    
    
    .rx_bar_hit                 (  ), 
-   .mm_enable                  (  ) , 
-   .msi_enable                 (  ) , 
+   .mm_enable                  (  ), 
+   .msi_enable                 (  ), 
 
    // From Config Registers
-   .bus_num                    (  ) ,
-   .dev_num                    (  ) ,
-   .func_num                   (  ) ,
-   .pm_power_state             (  ) , 
-   .pme_en                     (  ) , 
+   .bus_num                    (  ),
+   .dev_num                    (  ),
+   .func_num                   (  ),
+   .pm_power_state             (  ), 
+   .pme_en                     (  ), 
    .cmd_reg_out                (  ),
    .dev_cntl_out               (  ),  
    .lnk_cntl_out               (  ),  
+
 
    // To ASPM implementation outside the IP
    .tx_rbuf_empty              (  ), 

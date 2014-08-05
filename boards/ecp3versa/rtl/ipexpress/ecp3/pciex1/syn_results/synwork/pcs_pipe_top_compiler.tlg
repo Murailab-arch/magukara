@@ -1,0 +1,198 @@
+Selecting top level module pcs_pipe_top
+@N: CG364 :"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\ecp3.v":1029:7:1029:9|Synthesizing module VLO
+
+@N: CG364 :"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\ecp3.v":1025:7:1025:9|Synthesizing module VHI
+
+@N: CG364 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":2:7:2:14|Synthesizing module pipe_top
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":70:28:70:41|No assignment to wire ctc_skip_added
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":71:28:71:43|No assignment to wire ctc_skip_removed
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":72:28:72:40|No assignment to wire ctc_over_flow
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":73:28:73:41|No assignment to wire ctc_under_flow
+
+@N: CG364 :"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\ecp3.v":2578:7:2578:10|Synthesizing module PCSD
+
+@N: CG364 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_top.v":5:7:5:13|Synthesizing module pcs_top
+
+@N: CG364 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\tx_reset_sm.v":4:7:4:17|Synthesizing module tx_reset_sm
+
+@N: CG364 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_reset_sm.v":5:7:5:17|Synthesizing module rx_reset_sm
+
+@W: CG133 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_reset_sm.v":59:6:59:19|No assignment to rx_lol_los_int
+@A: CL282 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_reset_sm.v":90:0:90:5|Feedback mux created for signal rx_los_low_m1 -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_reset_sm.v":44:0:44:5|Feedback mux created for signal emu_EIedge[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@N: CG364 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":6:7:6:18|Synthesizing module pcs_pipe_top
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":144:14:144:25|No assignment to wire ffs_rlol_ch1
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":145:14:145:25|No assignment to wire ffs_rlol_ch2
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":146:14:146:25|No assignment to wire ffs_rlol_ch3
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":164:17:164:29|No assignment to wire ff_tx_f_clk_1
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":165:17:165:29|No assignment to wire ff_tx_f_clk_2
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":166:17:166:29|No assignment to wire ff_tx_f_clk_3
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":169:17:169:29|No assignment to wire ff_tx_h_clk_1
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":170:17:170:29|No assignment to wire ff_tx_h_clk_2
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":171:17:171:29|No assignment to wire ff_tx_h_clk_3
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":496:30:496:40|No assignment to wire ffc_pwdnb_1
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":497:30:497:40|No assignment to wire ffc_pwdnb_2
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":498:30:498:40|No assignment to wire ffc_pwdnb_3
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":501:30:501:39|No assignment to wire ffc_rrst_1
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":502:30:502:39|No assignment to wire ffc_rrst_2
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":503:30:503:39|No assignment to wire ffc_rrst_3
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":559:30:559:43|No assignment to wire enable_det_all
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":614:30:614:45|No assignment to wire RxElecIdle_ch1_8
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":615:30:615:45|No assignment to wire RxElecIdle_ch2_8
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":616:30:616:45|No assignment to wire RxElecIdle_ch3_8
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":619:5:619:16|No assignment to wire ff_rx_fclk_1
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":620:5:620:16|No assignment to wire ff_rx_fclk_2
+
+@W: CG360 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":621:5:621:16|No assignment to wire ff_rx_fclk_3
+
+@W: CL168 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":630:4:630:16|Pruning instance fpsc_vhi_inst -- not in use ...
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register ffc_pcie_det_en_1 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register ffc_pcie_det_en_2 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register ffc_pcie_det_en_3 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_1_reg 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_1_d0 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_1_d1 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_2_reg 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_2_d0 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_2_d1 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_3_reg 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_3_d0 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register done_3_d1 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Pruning register det_result[3:0] 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1609:0:1609:5|Pruning register enable_det_ch1 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1609:0:1609:5|Pruning register enable_det_ch2 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1609:0:1609:5|Pruning register enable_det_ch3 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1206:0:1206:5|Pruning register rlol_sync[3:0] 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1206:0:1206:5|Pruning register rx_elec[3:0] 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1206:0:1206:5|Pruning register rlol_fclk[3:0] 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1206:0:1206:5|Pruning register rlol_rst_ch[3:0] 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d0 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d1 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d2 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d3 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d4 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d5 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d6 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register lol_all_d7 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":787:0:787:5|Pruning register sync_rst 
+
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 1 of RxLOL_sync[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 2 of RxLOL_sync[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 3 of RxLOL_sync[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 1 of RxLOL[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 2 of RxLOL[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 3 of RxLOL[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 1 of RxEI_sync[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 2 of RxEI_sync[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 3 of RxEI_sync[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 1 of RxEI[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 2 of RxEI[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 3 of RxEI[3:0] assign 1, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 1 of EI_low_pulse[3:0] assign 0, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 2 of EI_low_pulse[3:0] assign 0, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 3 of EI_low_pulse[3:0] assign 0, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 1 of EI_low[3:0] assign 0, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 2 of EI_low[3:0] assign 0, register removed by optimization.
+@W: CL208 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|All reachable assignments to bit 3 of EI_low[3:0] assign 0, register removed by optimization.
+@W: CL190 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Optimizing register bit RxLOL_del[1] to a constant 1
+@W: CL190 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Optimizing register bit RxLOL_del[2] to a constant 1
+@W: CL190 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Optimizing register bit RxLOL_del[3] to a constant 1
+@W: CL279 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register bits 3 to 1 of RxLOL_del[3:0] 
+
+@W: CL279 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register bits 3 to 2 of RxLOL_posedge[3:0] 
+
+@W: CL279 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register bits 3 to 2 of RxEI_masked_sync[3:0] 
+
+@W: CL189 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Register bit RxLOL_posedge[1] is always 0, optimizing ...
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register EI_low_pulse[0] 
+
+@W: CL260 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register bit 1 of RxLOL_posedge[1:0] 
+
+@W: CL279 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register bits 2 to 1 of RxEI_masked[3:0] 
+
+@W: CL169 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|Pruning register start_count_del 
+
+@N: CL201 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1661:0:1661:5|Trying to extract state machine for register cs_reqdet_sm
+Extracted state machine for register cs_reqdet_sm
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@W: CL156 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":1006:0:1006:5|*Input un1_RxElecIdle_ch0_8[1:0] to expression [dffs] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL159 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":113:28:113:33|Input phy_l0 is unused
+@W: CL159 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":114:28:114:36|Input phy_cfgln is unused
+@W: CL159 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v":116:28:116:37|Input flip_lanes is unused
+@N: CL201 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_reset_sm.v":90:0:90:5|Trying to extract state machine for register cs
+Extracted state machine for register cs
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+@N: CL201 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\tx_reset_sm.v":42:0:42:5|Trying to extract state machine for register cs
+Extracted state machine for register cs
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+@W: CL159 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":7:32:7:39|Input ffs_plol is unused
+@W: CL159 :"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v":10:32:10:42|Input ctc_disable is unused

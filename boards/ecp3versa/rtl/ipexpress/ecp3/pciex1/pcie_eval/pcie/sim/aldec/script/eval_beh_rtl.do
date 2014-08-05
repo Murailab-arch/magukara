@@ -1,19 +1,19 @@
 
-    cd "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/pcie/sim/aldec/rtl"
+    cd "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/pcie_eval/pcie/sim/aldec/rtl"
     workspace create pcie_space
     design create pcie_design .
     design open pcie_design
-    cd "D:/project/PCIe_IP/Native_PCIeBasic_SBx1/ispLeverGenCore/ecp3/pciex1/pcie_eval/pcie/sim/aldec/rtl"
+    cd "C:/Users/tmatsuya/Dropbox/fpga/magukara/boards/ecp3versa/rtl/ipexpress/ecp3/pciex1/pcie_eval/pcie/sim/aldec/rtl"
     set sim_working_folder .
     #==============================================================================
     # Compile
     #==============================================================================
-    vlog +define+USERNAME_EVAL_TOP=pcie_eval_top  +define+DEBUG=0 +define+SIMULATE   +incdir+../../../../pcie/testbench/top +incdir+../../../../pcie/testbench/tests +incdir+../../../../src/params +incdir+../../../../models/ecp3 +incdir+../../../../pcie/src/params ../../../../pcie/src/params/pci_exp_params.v  ../../../../pcie/testbench/top/eval_pcie.v  ../../../../pcie/testbench/top/eval_tbtx.v  ../../../../pcie/testbench/top/eval_tbrx.v ../../../../models/ecp3/sync1s.v  ../../../../models/ecp3/ctc.v  ../../../../models/ecp3/pipe_top.v  ../../../../models/ecp3/rx_gear.v  ../../../../models/ecp3/tx_gear.v  ../../../../models/ecp3/PCSD.v  ../../../../models/ecp3/pcs_top.v  ../../../../models/ecp3/pcs_pipe_top.v  ../../../../../pcie.v  ../../../../../pcie_beh.v ../../../../pcie/src/top/pcie_eval_top.v  
+    vlog +define+USERNAME_EVAL_TOP=pcie_eval_top  +define+DEBUG=0 +define+SIMULATE   +incdir+../../../../pcie/testbench/top +incdir+../../../../pcie/testbench/tests +incdir+../../../../src/params +incdir+../../../../models/ecp3 +incdir+../../../../pcie/src/params ../../../../pcie/src/params/pci_exp_params.v  ../../../../pcie/testbench/top/eval_pcie.v  ../../../../pcie/testbench/top/eval_tbtx.v  ../../../../pcie/testbench/top/eval_tbrx.v ../../../../models/ecp3/sync1s.v  ../../../../models/ecp3/ctc.v  ../../../../models/ecp3/pipe_top.v  ../../../../models/ecp3/rx_gear.v  ../../../../models/ecp3/tx_gear.v  ../../../../models/ecp3/PCSD.v  ../../../../models/ecp3/pcs_top.v  ../../../../models/ecp3/rx_reset_sm.v  ../../../../models/ecp3/tx_reset_sm.v  ../../../../models/ecp3/pcs_pipe_top.v  ../../../../../pcie.v  ../../../../../pcie_beh.v ../../../../pcie/src/top/pcie_eval_top.v  
 
     #==============================================================================
     # Run
     #==============================================================================
-    vsim -t 1ps pcie_design.tb_top -lib pcie_design  -L ovi_ecp3 -L pmi_work -L pcsd_aldec_work 
+    vsim +access +r -t 1ps pcie_design.tb_top -lib pcie_design  -L ovi_ecp3 -L pmi_work -L pcsd_aldec_work 
     
 add wave {sim:/tb_top/u1_top/rst_n}
 add wave {sim:/tb_top/u1_top/sys_clk_125}

@@ -1,0 +1,32 @@
+SCUBA, Version Diamond_2.2_Production (99)
+Tue Aug 05 00:00:20 2014
+  
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2013 Lattice Semiconductor Corporation,  All rights reserved.
+  
+BEGIN SCUBA Module Synthesis
+  
+    Issued command   : C:\lscc\diamond\2.2_x64\ispfpga\bin\nt64\scuba.exe -w -n biosrom -lang verilog -synth synplify -bus_exp 7 -bb -arch ep5c00 -type romblk -device LFE3-35EA -addr_width 10 -data_width 16 -num_words 1024 -memfile c:/users/tmatsuya/dropbox/fpga/magukara/software/biosrom/biosrom.d16 -memformat hex -cascade -1 -e 
+    Circuit name     : biosrom
+    Module type      : EBR_ROM
+    Module Version   : 5.1
+    Ports            : 
+    Inputs       : Address[9:0], OutClock, OutClockEn, Reset
+    Outputs      : Q[15:0]
+    I/O buffer       : not inserted
+    Memory file      : c:/users/tmatsuya/dropbox/fpga/magukara/software/biosrom/biosrom.d16
+    EDIF output      : suppressed
+    Verilog output   : biosrom.v
+    Verilog template : biosrom_tmpl.v
+    Verilog testbench: tb_biosrom_tmpl.v
+    Verilog purpose  : for synthesis and simulation
+    Bus notation     : big endian
+    Report output    : biosrom.srp
+    Estimated Resource Usage:
+            EBR : 1
+  
+END   SCUBA Module Synthesis
+

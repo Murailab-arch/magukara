@@ -1,0 +1,282 @@
+#OPTIONS:"|-top|pcs_pipe_top|-prodtype|synplify_pro|-dspmac|-fixsmult|-infer_seqShift|-nram|-divnmod|-I|C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\syn_results\\|-I|C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib|-v2001|-devicelib|C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\ecp3.v|-devicelib|C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\pmi_def.v|-encrypt|-pro|-ll|2000|-ui|-fid2|-ram|-sharing|off|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\bin64\\c_ver.exe":1362968204
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\ecp3.v":1362968364
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\lucent\\pmi_def.v":1362968364
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\umr_capim.v":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\scemi_objects.v":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\scemi_pipes.svh":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\synpbase\\lib\\vlog\\hypermods.v":1362968582
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\cae_library\\synthesis\\verilog\\ecp3.v":1347596694
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\pcie\\src\\params\\pci_exp_params.v":1407074570
+#CUR:"C:\\lscc\\diamond\\2.2_x64\\cae_library\\synthesis\\verilog\\pmi_def.v":1367576906
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\sync1s.v":1212465300
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\ctc.v":1212897480
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\rx_gear.v":1212546240
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\tx_gear.v":1212546240
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\pcs_top.v":1326907384
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\pipe_top.v":1212897480
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\rx_reset_sm.v":1326902672
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\tx_reset_sm.v":1309369886
+#CUR:"C:\\Users\\tmatsuya\\Dropbox\\fpga\\magukara\\boards\\ecp3versa\\rtl\\ipexpress\\ecp3\\pciex1\\pcie_eval\\models\\ecp3\\pcs_pipe_top.v":1327949302
+#numinternalfiles:6
+#defaultlanguage:verilog
+0			"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\ecp3.v" verilog
+1			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\pcie\src\params\pci_exp_params.v" verilog
+2			"C:\lscc\diamond\2.2_x64\cae_library\synthesis\verilog\pmi_def.v" verilog
+3			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\sync1s.v" verilog
+4			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\ctc.v" verilog
+5			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_gear.v" verilog
+6			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\tx_gear.v" verilog
+7			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_top.v" verilog
+8			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pipe_top.v" verilog
+9			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\rx_reset_sm.v" verilog
+10			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\tx_reset_sm.v" verilog
+11			"C:\Users\tmatsuya\Dropbox\fpga\magukara\boards\ecp3versa\rtl\ipexpress\ecp3\pciex1\pcie_eval\models\ecp3\pcs_pipe_top.v" verilog
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 -1
+3 -1
+4 3
+5 -1
+6 -1
+7 1
+8 1
+9 -1
+10 -1
+11 8 7 10 9 1
+#Dependency Lists(Users Of)
+0 -1
+1 7 8 11
+2 -1
+3 4
+4 -1
+5 -1
+6 -1
+7 11
+8 11
+9 11
+10 11
+11 -1
+#Design Unit to File Association
+module work AGEB2 0
+module work ALEB2 0
+module work AND2 0
+module work AND3 0
+module work AND4 0
+module work AND5 0
+module work ANEB2 0
+module work BB 0
+module work BBPD 0
+module work BBPU 0
+module work BBW 0
+module work CB2 0
+module work CD2 0
+module work CU2 0
+module work DCS 0
+module work FADD2B 0
+module work FADSU2 0
+module work FD1P3AX 0
+module work FD1P3AY 0
+module work FD1P3BX 0
+module work FD1P3DX 0
+module work FD1P3IX 0
+module work FD1P3JX 0
+module work FD1S3AX 0
+module work FD1S3AY 0
+module work FD1S3BX 0
+module work FD1S3DX 0
+module work FD1S3IX 0
+module work FD1S3JX 0
+module work FL1P3AY 0
+module work FL1P3AZ 0
+module work FL1P3BX 0
+module work FL1P3DX 0
+module work FL1P3IY 0
+module work FL1P3JY 0
+module work FL1S3AX 0
+module work FL1S3AY 0
+module work FSUB2B 0
+module work GSR 0
+module work IB 0
+module work IBPD 0
+module work IBPU 0
+module work IFS1P3BX 0
+module work IFS1P3DX 0
+module work IFS1P3IX 0
+module work IFS1P3JX 0
+module work ILVDS 0
+module work INV 0
+module work L6MUX21 0
+module work LB2P3AX 0
+module work LB2P3AY 0
+module work LB2P3BX 0
+module work LB2P3DX 0
+module work LB2P3IX 0
+module work LB2P3JX 0
+module work LD2P3AX 0
+module work LD2P3AY 0
+module work LD2P3BX 0
+module work LD2P3DX 0
+module work LD2P3IX 0
+module work LD2P3JX 0
+module work LU2P3AX 0
+module work LU2P3AY 0
+module work LU2P3BX 0
+module work LU2P3DX 0
+module work LU2P3IX 0
+module work LU2P3JX 0
+module work MULT2 0
+module work MUX161 0
+module work MUX21 0
+module work MUX321 0
+module work MUX41 0
+module work MUX81 0
+module work ND2 0
+module work ND3 0
+module work ND4 0
+module work ND5 0
+module work NR2 0
+module work NR3 0
+module work NR4 0
+module work NR5 0
+module work OB 0
+module work OBCO 0
+module work OBZ 0
+module work OBZPU 0
+module work OFD1S3AX 0
+module work OFS1P3BX 0
+module work OFS1P3DX 0
+module work OFS1P3IX 0
+module work OFS1P3JX 0
+module work OLVDS 0
+module work OR2 0
+module work OR3 0
+module work OR4 0
+module work OR5 0
+module work LUT4 0
+module work LUT5 0
+module work LUT6 0
+module work LUT7 0
+module work LUT8 0
+module work PFUMX 0
+module work PUR 0
+module work ROM128X1A 0
+module work ROM16X1A 0
+module work ROM256X1A 0
+module work ROM32X1A 0
+module work ROM64X1A 0
+module work CCU2C 0
+module work VHI 0
+module work VLO 0
+module work XNOR2 0
+module work XNOR3 0
+module work XNOR4 0
+module work XNOR5 0
+module work XOR11 0
+module work XOR2 0
+module work XOR21 0
+module work XOR3 0
+module work XOR4 0
+module work XOR5 0
+module work IFS1S1B 0
+module work IFS1S1D 0
+module work IFS1S1I 0
+module work IFS1S1J 0
+module work DPR16X4C 0
+module work SPR16X4C 0
+module work SGSR 0
+module work CLKDIVB 0
+module work OSCF 0
+module work DCCA 0
+module work JTAGE 0
+module work SEDCA 0
+module work START 0
+module work SPIM 0
+module work PERREGA 0
+module work AMBOOTA 0
+module work DP16KC 0
+module work PDPW16KC 0
+module work SP16KC 0
+module work EHXPLLF 0
+module work TRDLLB 0
+module work TR1DLLB 0
+module work CIMDLLB 0
+module work CIDDLLB 0
+module work DLLDELB 0
+module work IDDRXD 0
+module work IDDRXD1 0
+module work IDDRX2D 0
+module work IDDRX2D1 0
+module work ODDRXD 0
+module work ODDRXD1 0
+module work ODDRX2D 0
+module work ODDRTDQA 0
+module work ODDRXDQSA 0
+module work ODDRTDQSA 0
+module work ODDRX2DQSA 0
+module work DQSBUFD 0
+module work DQSBUFE 0
+module work DQSBUFE1 0
+module work DQSBUFF 0
+module work DQSBUFG 0
+module work DQSDLLB 0
+module work ECLKSYNCA 0
+module work DELAYB 0
+module work DELAYC 0
+module work MULT18X18C 0
+module work MULT9X9C 0
+module work ALU54A 0
+module work ALU24A 0
+module work MULT9X9B 0
+module work MULT9X9ADDSUBB 0
+module work MULT9X9ADDSUBSUMB 0
+module work MULT18X18B 0
+module work MULT18X18ADDSUBB 0
+module work MULT18X18ADDSUBSUMB 0
+module work MULT18X18MACB 0
+module work MULT36X36B 0
+module work PCSD 0
+module work DTSA 0
+module work pmi_distributed_dpram 2
+module work pmi_distributed_rom 2
+module work pmi_distributed_spram 2
+module work pmi_distributed_shift_reg 2
+module work pmi_constant_mult 2
+module work pmi_mult 2
+module work pmi_mac 2
+module work pmi_multaddsub 2
+module work pmi_multaddsubsum 2
+module work pmi_complex_mult 2
+module work pmi_add 2
+module work pmi_sub 2
+module work pmi_counter 2
+module work pmi_addsub 2
+module work pmi_ram_dp 2
+module work pmi_ram_dp_be 2
+module work pmi_ram_dp_true 2
+module work pmi_ram_dp_true_be 2
+module work pmi_ram_dq 2
+module work pmi_ram_dq_be 2
+module work pmi_rom 2
+module work pmi_fifo_dc 2
+module work pmi_fifo 2
+module work pmi_dsp_mac 2
+module work pmi_dsp_mult 2
+module work pmi_dsp_multaddsub 2
+module work pmi_dsp_casmultaddsub 2
+module work pmi_dsp_multaddsubsum 2
+module work pmi_dsp_preadd_slice 2
+module work pmi_pll 2
+module work pmi_pll_fp 2
+module work jtaghub16 2
+module work jtagconn16 2
+module work sync1s 3
+module work ctc 4
+module work rx_gear 5
+module work tx_gear 6
+module work pcs_top 7
+module work pipe_top 8
+module work rx_reset_sm 9
+module work tx_reset_sm 10
+module work pcs_pipe_top 11

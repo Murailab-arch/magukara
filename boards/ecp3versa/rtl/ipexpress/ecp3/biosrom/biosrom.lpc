@@ -1,0 +1,48 @@
+[Device]
+Family=latticeecp3
+PartType=LFE3-35EA
+PartName=LFE3-35EA-8FN484C
+SpeedGrade=8
+Package=FPBGA484
+OperatingCondition=COM
+Status=P
+
+[IP]
+VendorName=Lattice Semiconductor Corporation
+CoreType=LPM
+CoreStatus=Demo
+CoreName=ROM
+CoreRevision=5.1
+ModuleName=biosrom
+SourceFormat=Verilog HDL
+ParameterFileVersion=1.0
+Date=08/05/2014
+Time=00:00:20
+
+[Parameters]
+Verilog=1
+VHDL=0
+EDIF=1
+Destination=Synplicity
+Expression=BusA(0 to 7)
+Order=Big Endian [MSB:LSB]
+IO=0
+Address=1024
+Data=16
+adPipeline=0
+inPipeline=0
+outPipeline=0
+MOR=0
+InData=Registered
+AdControl=Registered
+MemFile=c:/users/tmatsuya/dropbox/fpga/magukara/software/biosrom/biosrom.d16
+MemFormat=hex
+Reset=Sync
+Pad=0
+GSR=Enabled
+EnECC=0
+Optimization=Speed
+Pipeline=0
+
+[FilesGenerated]
+c:/users/tmatsuya/dropbox/fpga/magukara/software/biosrom/biosrom.d16=mem

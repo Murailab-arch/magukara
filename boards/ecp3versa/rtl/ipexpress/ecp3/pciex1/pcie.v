@@ -20,6 +20,7 @@
 // Dependencies     : 
 // Description      : Top level for core. 
 // =============================================================================
+
 module pcie (
    input wire             sys_clk_250,      // 250 Mhz Clock     
    input wire             sys_clk_125,      // 125 Mhz Clock     
@@ -96,6 +97,7 @@ module pcie (
    input wire                np_req_pend ,    // Non posted request is pending.
    input wire                pme_status ,     // PME status to reg 044h.
 
+
    // User Loop back data
    input wire  [15:0]        tx_lbk_data,     // TX User Master Loopback data
    input wire  [1:0]         tx_lbk_kcntl,    // TX User Master Loopback control
@@ -151,6 +153,7 @@ module pcie (
    output wire [5:0]         cmd_reg_out ,    // Bits 10,8,6,2,1,0 From register 004h
    output wire [14:0]        dev_cntl_out ,   // Divice control register at 060h 
    output wire [7:0]         lnk_cntl_out ,   // Link control register at 068h 
+
 
    // To ASPM implementation outside the IP
    output wire               tx_rbuf_empty,   // Transmit retry buffer is empty
@@ -241,6 +244,7 @@ pci_exp_x1_core_wrap u1_dut(
    .np_req_pend                ( np_req_pend ),     
    .pme_status                 ( pme_status ),     
 
+
    .tx_lbk_data                ( tx_lbk_data ),
    .tx_lbk_kcntl               ( tx_lbk_kcntl ),
 
@@ -298,6 +302,7 @@ pci_exp_x1_core_wrap u1_dut(
    .cmd_reg_out             ( cmd_reg_out ),
    .dev_cntl_out            ( dev_cntl_out ),  
    .lnk_cntl_out            ( lnk_cntl_out ),  
+
 
    // To ASPM implementation outside the IP
    .tx_rbuf_empty           ( tx_rbuf_empty ), 

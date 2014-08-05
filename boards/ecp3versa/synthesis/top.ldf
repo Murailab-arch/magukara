@@ -4,57 +4,19 @@
     <Implementation title="impl1" dir="impl1" description="impl1" default_strategy="Strategy1">
         <Options>
             <Option name="HDL type" value="Verilog"/>
+            <Option name="def_top" value="biosrom"/>
             <Option name="top" value="top"/>
         </Options>
-        <Source name="../rtl/wb_tlc/sync_logic.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/async_pkt_fifo.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_tlc_cpld_fifo.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_tlc_cpld.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_intf.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_tlc_cr.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_tlc_req_fifo.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_tlc_dec.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/wb_tlc/wb_tlc.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/ip_tx_arbiter.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/ip_crpr_arb.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/ip_rx_crpr.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
         <Source name="../rtl/ecp3/pcie_top.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
         <Source name="../rtl/ecp3/measure_top.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="../rtl/ipexpress/ecp3/pciex1/pcie_bb.v" type="Verilog" type_short="Verilog">
+        <Source name="../rtl/ecp3/measure_mid.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="../rtl/ipexpress/ecp3/pciex1/pcie_eval/models/ecp3/pcs_pipe_bb.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../rtl/pmi_ram_dp.v" type="Verilog" type_short="Verilog">
+        <Source name="../rtl/ecp3/pcie_tlp.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
         <Source name="../../../cores/measure/rtl/measure.v" type="Verilog" type_short="Verilog">
@@ -75,13 +37,13 @@
         <Source name="../../../cores/ipexpress/asfifo9_4.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="../rtl/ur_gen/UR_gen.v" type="Verilog" type_short="Verilog">
+        <Source name="../rtl/ipexpress/ecp3/biosrom/biosrom.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="../rtl/ipexpress/ecp3/pciex1/pcie.lpc" type="LPC_Module" type_short="LPC">
+        <Source name="../rtl/ipexpress/ecp3/pciex1/pcie.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="impl1/impl1.xcf" type="ispVM Download Project" type_short="ispVM">
+        <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>
         <Source name="top.lpf" type="Logic Preference" type_short="LPF">

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="2.0" title="pcie_eval" device="LFE3-35EA-8FN484C" synthesis="precision" default_implementation="pcie_eval_top">
+    <Implementation title="pcie_eval_top" dir="pcie_eval_top" description="pcie_eval_top" default_strategy="pcie_eval">
+        <Options>
+            <Option name="include path" value="../../../../"/>
+            <Option name="top" value="pcie_eval_top"/>
+        </Options>
+        <Source name="../../../../pcie_eval/pcie/src/top/pcie_eval_top.v" type="Verilog"/>
+        <Source name="../../../../pcie_bb.v" type="Verilog"/>
+        <Source name="../../../models/ecp3/pcs_pipe_bb.v" type="Verilog"/>
+        <Source name="pcie_eval.lpf" type="Logic Preference"/>
+    </Implementation>
+    <Strategy name="pcie_eval" file="pcie_eval.sty"/>
+</BaliProject>

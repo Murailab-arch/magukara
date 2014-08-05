@@ -1,4 +1,4 @@
-`include "../rtl/setup.v"
+//`include "../rtl/setup.v"
 
 module measure_core # (
   parameter     Int_ipv4_addr  = {8'd10, 8'd0, 8'd21, 8'd105},

@@ -94,6 +94,7 @@ module pcie_top (
    input wire                     ur_p_ext ,       // UR for P type.
    input wire                     np_req_pend ,    // Non posted request is pending.
    input wire                     pme_status ,     // PME status to reg 044h.
+
                                   
    // User Loop back data         
    input wire  [15:0]             tx_lbk_data,     // TX User Master Loopback data
@@ -144,6 +145,7 @@ module pcie_top (
    output wire [14:0]             dev_cntl_out ,   // Divice control register at 060h 
    output wire [7:0]              lnk_cntl_out ,   // Link control register at 068h 
 
+
    // Datal Link Control SM Status
    output wire                    dl_inactive,     // Data Link Control SM is in INACTIVE state
    output wire                    dl_init,         // INIT state
@@ -184,8 +186,23 @@ assign phy_l0         = (phy_ltssm_state == 'd3) ;
 // =============================================================================
 // Reset management
 // =============================================================================
+reg sync_rst_n0, sync_rst_n1;
+wire sync_rst_n;
 always @(posedge sys_clk_125 or negedge rst_n) begin
    if (!rst_n) begin
+      sync_rst_n0    <= 0;
+      sync_rst_n1    <= 0;
+   end
+   else begin
+      sync_rst_n0    <= rst_n;
+      sync_rst_n1    <= sync_rst_n0;
+   end      
+end
+
+assign sync_rst_n = sync_rst_n1;
+
+always @(posedge sys_clk_125 or negedge sync_rst_n) begin
+   if (!sync_rst_n) begin
        rstn_cnt   <= 20'd0 ;
        core_rst_n <= 1'b0 ;
    end
@@ -201,13 +218,13 @@ always @(posedge sys_clk_125 or negedge rst_n) begin
    end
 end
 
-GSR GSR_INST (.GSR(rst_n));
+//GSR GSR_INST (.GSR(rst_n));
 PUR PUR_INST (.PUR(1'b1));
 
 // Connect rst_n pin to GSR, pipe wrapper, core and user logic
 // assign irst_n = rst_n ;            
 // Connect rst_n pin to pipe wrapper, 4ms delayed rst_n to core and user logic
-assign irst_n = core_rst_n ; 
+//assign irst_n = core_rst_n ; 
 
 // =============================================================================
 // SERDES/PCS instantiation in PIPE mode
@@ -215,9 +232,10 @@ assign irst_n = core_rst_n ;
 pcs_pipe_top u1_pcs_pipe (
         .refclkp                ( refclkp ), 
         .refclkn                ( refclkn ), 
-        .ffc_quad_rst           ( ~rst_n ), 
+//        .ffc_quad_rst           ( ~rst_n ), 
         .RESET_n                ( rst_n ),
-
+        .pcie_ip_rstn           ( irst_n ),
+       
         .hdinp0                 ( hdinp0 ), 
         .hdinn0                 ( hdinn0 ), 
         .hdoutp0                ( hdoutp0 ), 
@@ -344,6 +362,7 @@ pcie u1_dut(
    .np_req_pend                ( np_req_pend   ),     
    .pme_status                 ( pme_status    ),     
                                               
+                                              
    .tx_lbk_data                ( tx_lbk_data   ),
    .tx_lbk_kcntl               ( tx_lbk_kcntl  ),
                                               
@@ -409,6 +428,7 @@ pcie u1_dut(
    .cmd_reg_out                ( cmd_reg_out    ),
    .dev_cntl_out               ( dev_cntl_out   ),  
    .lnk_cntl_out               ( lnk_cntl_out   ),  
+
 
    // To ASPM implementation outside the IP
    .tx_rbuf_empty              (  ), 

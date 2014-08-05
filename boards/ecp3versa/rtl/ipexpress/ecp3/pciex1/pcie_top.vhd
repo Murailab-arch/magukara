@@ -135,6 +135,8 @@ dl_inactive            : out std_logic;                    -- Data Link Control 
 dl_init                : out std_logic;                    -- INIT state
 dl_active              : out std_logic;                    -- ACTIVE state
 dl_up                  : out std_logic;                    -- Data Link Layer is UP 
+irst_n                 : buffer std_logic;                    -- active low reset for higher layer 
+
 sys_clk_125            : out std_logic                     -- 125 Mhz system clock for User logic
 );
 end pcie_top;
@@ -373,9 +375,12 @@ signal phy_l0             : std_logic;
 
 signal rstn_cnt           : std_logic_vector(19 downto 0);   
 signal core_rst_n         : std_logic; 
-signal irst_n             : std_logic;
+-- signal irst_n             : std_logic;
 signal ffc_quad_rst       : std_logic;
- 
+signal sync_rst_n0        : std_logic;
+signal sync_rst_n1        : std_logic;
+signal sync_rst_n         : std_logic;
+
 begin
 	
 GSR_INST : GSR
@@ -412,7 +417,7 @@ begin
    end if;
 end process;
 
-irst_n <= core_rst_n;
+-- irst_n <= core_rst_n;
 
 u1_dut : pcie
   port map (
@@ -557,8 +562,9 @@ ffc_quad_rst <= not rst_n;
   port map(
     refclkp             => refclkp,       
     refclkn             => refclkn,       
-    ffc_quad_rst        => ffc_quad_rst,  
+--    ffc_quad_rst        => ffc_quad_rst,  
     RESET_n             => rst_n,       
+    pcie_ip_rstn        => irst_n,       
 
     hdinp0              => hdinp0            ,
     hdinn0              => hdinn0            ,

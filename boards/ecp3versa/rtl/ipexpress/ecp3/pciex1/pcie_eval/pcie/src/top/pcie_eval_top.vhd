@@ -56,6 +56,8 @@ rx_us_req_vc0          : out std_logic;                     -- VC0 unsupported r
 rx_malf_tlp_vc0        : out std_logic;                     -- VC0 malformed TLP in received data
      
 dl_up                  : out std_logic;                    -- Data Link Layer is UP 
+irst_n                 : buffer std_logic;                    -- active low reset for higher layer 
+
 sys_clk_125            : out std_logic                     -- 125 Mhz system clock for User logic
 );
 end pcie_eval_top;
@@ -136,6 +138,7 @@ component pcie
     np_req_pend    : in std_logic;   -- Non posted request is pending.
     pme_status     : in std_logic;   -- PME status to reg 044h.
     
+    
     -- User Loop back data
     tx_lbk_data   : in std_logic_vector(15 downto 0);  -- TX User Master Loopback data
     tx_lbk_kcntl  : in std_logic_vector(1 downto 0);   -- TX User Master Loopback control
@@ -212,9 +215,10 @@ component pcs_pipe_top
   port(
     refclkp             : in std_logic;         
     refclkn             : in std_logic;         
-    ffc_quad_rst        : in std_logic;     
-    RESET_n             : in std_logic;         
-
+--    ffc_quad_rst        : in std_logic;     
+    RESET_n             : in std_logic;    
+    pcie_ip_rstn        : out std_logic;
+   
     hdinp0              : in std_logic;         
     hdinn0              : in std_logic;         
     hdoutp0             : out std_logic;           
@@ -254,11 +258,12 @@ component pcs_pipe_top
     phy_cfgln           : in std_logic_vector(3 downto 0)
     );
    end component;
-component GSR
-port( 
-      GSR: in std_logic
-  );
-   end component;
+-- component GSR
+-- port( 
+--       GSR: in std_logic
+--   );
+--   end component;
+
 component PUR
 port( 
       PUR: in std_logic
@@ -294,15 +299,18 @@ signal phy_l0             : std_logic;
 
 signal rstn_cnt           : std_logic_vector(19 downto 0);   
 signal core_rst_n         : std_logic; 
-signal irst_n             : std_logic;
+-- signal irst_n             : std_logic;
 signal ffc_quad_rst       : std_logic;
- 
+signal sync_rst_n0        : std_logic;
+signal sync_rst_n1        : std_logic;
+signal sync_rst_n         : std_logic;
+
 begin
 	
-GSR_INST : GSR
-  port map (
-    GSR => rst_n
-  	);
+-- GSR_INST : GSR
+--   port map (
+--     GSR => rst_n
+--   	);
 
 PUR_INST : PUR
   port map (
@@ -315,9 +323,22 @@ phy_l0      <= '1' when (phy_ltssm_state = "0011") else '0' ;
 -- =============================================================================
 -- Reset management
 -- =============================================================================
-process (sys_clk_125_int, rst_n) 
+process (sys_clk_125_int, rst_n)
 begin
    if (rst_n = '0') then
+       sync_rst_n0    <= '0';
+       sync_rst_n1    <= '0';
+   elsif rising_edge(sys_clk_125_int) then
+       sync_rst_n0    <= rst_n;
+       sync_rst_n1    <= sync_rst_n0;
+   end if;
+end process;
+
+sync_rst_n <= sync_rst_n1;
+
+process (sys_clk_125_int, sync_rst_n) 
+begin
+   if (sync_rst_n = '0') then
        rstn_cnt   <= (others => '0') ;
        core_rst_n <= '0' ;
    elsif rising_edge(sys_clk_125_int) then
@@ -333,13 +354,14 @@ begin
    end if;
 end process;
 
-irst_n <= core_rst_n;
+-- irst_n <= core_rst_n;
 
 u1_dut : pcie
   port map (
     sys_clk_250 => pclk, 
     sys_clk_125 => sys_clk_125_int, 
     rst_n       => irst_n,      
+    
 
     inta_n     => '1',     
     msi        => (others=>'0'),        
@@ -478,9 +500,10 @@ ffc_quad_rst <= not rst_n;
   port map(
     refclkp             => refclkp,       
     refclkn             => refclkn,       
-    ffc_quad_rst        => ffc_quad_rst,  
-    RESET_n             => rst_n,       
-
+--    ffc_quad_rst        => ffc_quad_rst,  
+    RESET_n             => rst_n,  
+    pcie_ip_rstn        => irst_n,       
+    
     hdinp0              => hdinp0            ,
     hdinn0              => hdinn0            ,
     hdoutp0             => hdoutp0           ,

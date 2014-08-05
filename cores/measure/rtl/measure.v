@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "../rtl/setup.v"
+//`include "../rtl/setup.v"
 //`define DEBUG
 
 module measure (
